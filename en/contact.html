@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact – TAI TCM GmbH</title>
 
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
@@ -48,7 +48,7 @@
   <!-- Header (EN) -->
   <div id="header-placeholder"></div>
   <script>
-    fetch("/en/components/header.html")
+    fetch("./en/components/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -151,8 +151,8 @@
     <br>
 
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-      <img src="/en/assets/TAI%20TCM-Eingang.jpg" alt="Entrance" style="width:320px; border-radius:16px;">
-      <img src="/en/assets/TAI%20TCM-Parkplatz.jpg" alt="Parking" style="width:320px; border-radius:16px;">
+      <img src="./en/assets/TAI%20TCM-Eingang.jpg" alt="Entrance" style="width:320px; border-radius:16px;">
+      <img src="./en/assets/TAI%20TCM-Parkplatz.jpg" alt="Parking" style="width:320px; border-radius:16px;">
     </div>
   </section>
 
@@ -169,7 +169,7 @@
   <!-- Footer (EN) -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("/en/components/footer.html")
+    fetch("./en/components/footer.html")
       .then(res => res.text())
       .then(html => document.getElementById("footer-placeholder").innerHTML = html);
   </script>
@@ -202,7 +202,7 @@ document.getElementById("kontaktForm").addEventListener("submit", async function
   }
 });
 </script>
-<script src="/js/main.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
