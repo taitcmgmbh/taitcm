@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ – TAI TCM GmbH</title>
+
+  <!-- 建议用绝对路径：DE / EN 都无需改 -->
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                    "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="faq">
+  <div class="content-wrapper">
+
+    <!-- ================= HEADER ================= -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/components/header.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          // ✅ 高亮交给 header/main.js 统一处理即可
+          if (window.initSiteHeader) {
+      window.initSiteHeader();
+    }
+        });
+    </script>
+
+    <!-- ================= FAQ ================= -->
+    <section class="faq-wrapper">
+      <h1 class="faq-title">Häufig gestellte Fragen (FAQ)</h1>
+
+      <!-- Warum TAI TCM -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Warum sollte ich mich für TAI TCM entscheiden?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Ich bin ein <strong>registrierter Naturheilpraktiker TCM</strong> mit einem
+            <strong>vom Schweizerischen Roten Kreuz (SRK) anerkannten ausländischen Diplom</strong>
+            (Registrierungsnummer: NHP-TCMHFP20187).
+          </p>
+
+          <p>
+            <strong>Alle Schweizer Zusatzversicherungen</strong> übernehmen meine Leistungen,
+            sofern eine entsprechende Komplementärversicherung vorhanden ist.
+          </p>
+
+          <p><strong>Meine Behandlungsschwerpunkte:</strong></p>
+          <ul>
+            <li>TCM-Akupunktur – sanft, präzise, fast schmerzfrei</li>
+            <li>TCM-Orthopädie – bei Rücken-, Gelenk- und Bewegungsschmerzen</li>
+            <li>TCM-Chiropraktik – manuelle Korrekturtechniken nach TCM-Prinzipien</li>
+            <li>TCM-Tuina-Massage – zur Regulierung von Energie und Blutzirkulation</li>
+          </ul>
+
+          <p>
+            Ich behandle meine Patientinnen und Patienten direkt auf
+            <strong>Deutsch oder Englisch</strong> – ohne Übersetzer,
+            für eine klare und vertrauensvolle Kommunikation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Vor der Behandlung -->
+      <h2 class="faq-section-title">Vor der Behandlung</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">Was soll ich vor der Behandlung beachten?</button>
+        <div class="faq-answer">
+          Kommen Sie nicht nüchtern oder übervoll, verzichten Sie auf starke Parfüms,
+          tragen Sie lockere Kleidung und bringen Sie ggf. Ihre Versicherungskarte mit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Muss ich meine Versicherungskarte mitbringen?</button>
+        <div class="faq-answer">
+          Ja, falls Sie bei der Online-Buchung Ihre Kartennummer nicht angegeben haben,
+          bringen Sie bitte Ihre Karte zum Termin mit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Gibt es Parkplätze?</button>
+        <div class="faq-answer">
+          Unsere Praxis verfügt über einen Parkplatz direkt im Hinterhof.
+          Bitte benutzen Sie den <strong>mittleren der drei Garagenplätze</strong>
+          unten im Gebäude und achten Sie darauf, andere Fahrzeuge nicht zu behindern.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Darf ich während der Menstruation behandelt werden?</button>
+        <div class="faq-answer">
+          Ja, eine Behandlung während der Periode ist möglich.
+          Bitte informieren Sie uns ebenfalls bei einer bestehenden Schwangerschaft.
+        </div>
+      </div>
+
+      <!-- Während der Behandlung -->
+      <h2 class="faq-section-title">Während der Behandlung</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">Wie lange dauert eine Sitzung?</button>
+        <div class="faq-answer">
+          Die erste Behandlung dauert ca. <strong>75 Minuten</strong> inklusive
+          Zungen- und Pulsdiagnose. Eine reguläre Akupunktursitzung dauert
+          20–30 Minuten, Tuina mit Diagnose 25–45 Minuten.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Muss ich mich ausziehen?</button>
+        <div class="faq-answer">
+          Für die Behandlung werden bestimmte Körperbereiche freigelegt.
+          Die Unterwäsche bleibt selbstverständlich immer an.
+          Alternativ empfehlen wir lockere Kleidung.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Wird während der Behandlung gesprochen?</button>
+        <div class="faq-answer">
+          Während der Behandlung wird bewusst wenig gesprochen, um Ihre
+          Wahrnehmung zu fördern. Selbstverständlich können Sie jederzeit
+          Fragen stellen oder Unbehagen äußern.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Soll ich mein Handy ausschalten?</button>
+        <div class="faq-answer">
+          Ja, wir empfehlen das Handy auszuschalten oder lautlos zu stellen,
+          um eine ruhige Atmosphäre zu gewährleisten.
+        </div>
+      </div>
+
+      <!-- Nach der Behandlung -->
+      <h2 class="faq-section-title">Nach der Behandlung</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">Was sollte ich nach der Behandlung vermeiden?</button>
+        <div class="faq-answer">
+          Vermeiden Sie Kälte, Sauna, Alkohol und scharfe Speisen.
+          Trinken Sie ausreichend warmes Wasser und gönnen Sie sich Ruhe.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Gibt es Nebenwirkungen?</button>
+        <div class="faq-answer">
+          Leichte Reaktionen wie Müdigkeit, Muskelkater oder emotionale Sensibilität
+          sind möglich und klingen meist innerhalb von 1–2 Tagen ab.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Wie viele Sitzungen brauche ich?</button>
+        <div class="faq-answer">
+          Akute Beschwerden benötigen meist 3–5 Sitzungen,
+          chronische Beschwerden 8–12 oder mehr.
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".faq-question").forEach(btn => {
+          btn.addEventListener("click", () => {
+            btn.parentElement.classList.toggle("open");
+          });
+        });
+      });
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch("/components/footer.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
+
+  </div>
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

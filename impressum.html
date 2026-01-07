@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – TAI TCM GmbH</title>
+
+<link rel="stylesheet" href="style/style.css">
+
+<style>
+.impressum-content {
+    max-width: 900px;
+    margin: 40px auto;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.impressum-content h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.impressum-content h2 {
+    font-size: 24px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+
+.impressum-content p {
+    margin: 6px 0;
+}
+
+.impressum-content a {
+    color: #0E2F24;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.impressum-content a:hover {
+    opacity: 0.7;
+}
+</style>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu")?.classList.toggle("show-menu");
+}
+</script>
+</head>
+
+<body data-page="impressum">
+
+<div class="content-wrapper">
+
+<!-- ================= HEADER ================= -->
+<div id="header-placeholder"></div>
+<script>
+fetch("/components/header.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+  });
+</script>
+
+<!-- ================= CONTENT ================= -->
+<section class="impressum-content">
+
+<h1>Impressum</h1>
+
+<h2>Anbieter</h2>
+<p><strong>TAI TCM GmbH</strong></p>
+<p>Schaffhauserstrasse 359</p>
+<p>8050 Zürich</p>
+<p>Schweiz</p>
+
+<h2>Kontakt</h2>
+<p>Telefon: <a href="tel:0448119955">044 811 99 55</a></p>
+<p>E-Mail: <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a></p>
+
+<h2>Geschäftsführung</h2>
+<p>Chin. Dr. Xinbo Tai</p>
+
+<h2>Haftungsausschluss</h2>
+<p>
+Alle Inhalte dieser Website wurden mit grösster Sorgfalt erstellt.
+Dennoch übernimmt die TAI TCM GmbH keine Gewähr für die Richtigkeit,
+Vollständigkeit und Aktualität der bereitgestellten Informationen.
+</p>
+
+<h2>Urheberrecht</h2>
+<p>
+Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen
+dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung,
+Verbreitung oder jede Art der Verwertung ausserhalb der Grenzen des
+Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des
+jeweiligen Rechteinhabers.
+</p>
+
+<p style="margin-top:40px;">
+<a href="index.html">&larr; Zurück zur Startseite</a>
+</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<div id="footer-placeholder"></div>
+<script>
+fetch("/components/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+  });
+</script>
+
+</div>
+</body>
+</html>

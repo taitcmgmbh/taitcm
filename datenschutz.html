@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung – TAI TCM GmbH</title>
+
+<link rel="stylesheet" href="/style/style.css">
+
+<style>
+.datenschutz-content {
+    max-width: 900px;
+    margin: 40px auto;
+    line-height: 1.7;
+    font-size: 17px;
+}
+.datenschutz-content h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+.datenschutz-content h2 {
+    font-size: 24px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+.datenschutz-content a {
+    color: #0E2F24;
+    font-weight: 600;
+    text-decoration: none;
+}
+.datenschutz-content a:hover {
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body data-page="datenschutz">
+
+<div class="content-wrapper">
+
+<!-- ================= HEADER ================= -->
+<div id="header-placeholder"></div>
+<script>
+fetch("/components/header.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+  });
+</script>
+
+<!-- ================= CONTENT ================= -->
+<section class="datenschutz-content">
+
+<h1>Datenschutzerklärung</h1>
+
+<p>
+Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen.
+Diese Datenschutzerklärung informiert Sie darüber, wie wir personenbezogene
+Daten auf dieser Website verarbeiten.
+</p>
+
+<h2>Verantwortliche Stelle</h2>
+<p>
+<strong>TAI TCM GmbH</strong><br>
+Schaffhauserstrasse 359<br>
+8050 Zürich<br>
+Schweiz<br><br>
+E-Mail: <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a><br>
+Telefon: <a href="tel:0448119955">044 811 99 55</a>
+</p>
+
+<h2>Erhebung und Verarbeitung personenbezogener Daten</h2>
+<p>
+Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung
+einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
+</p>
+
+<h2>Kontaktformular</h2>
+<p>
+Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren,
+werden die von Ihnen übermittelten Angaben (z. B. Name, E-Mail-Adresse,
+Telefonnummer und Nachricht) zur Bearbeitung Ihrer Anfrage gespeichert.
+Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+</p>
+
+<h2>Online-Terminbuchung</h2>
+<p>
+Für die Online-Terminbuchung nutzen wir einen externen Dienst
+(Google Kalender / Google Appointment Schedules).
+Bei der Nutzung dieses Dienstes gelten zusätzlich die Datenschutzbestimmungen
+des jeweiligen Anbieters.
+</p>
+
+<h2>Google Maps</h2>
+<p>
+Auf unserer Website ist Google Maps eingebunden, um unseren Standort anzuzeigen.
+Bei der Nutzung von Google Maps können personenbezogene Daten an Google übertragen werden.
+Weitere Informationen finden Sie in den Datenschutzbestimmungen von Google.
+</p>
+
+<h2>Cookies</h2>
+<p>
+Diese Website verwendet keine eigenen Tracking-Cookies.
+Beim Aufruf eingebundener Drittanbieter-Dienste (z. B. Google Maps oder Google Kalender)
+können jedoch Cookies durch diese Anbieter gesetzt und personenbezogene Daten verarbeitet werden.
+</p>
+
+<h2>Ihre Rechte</h2>
+<p>
+Sie haben das Recht auf Auskunft über die von uns gespeicherten personenbezogenen Daten,
+sowie auf Berichtigung, Löschung oder Einschränkung der Verarbeitung,
+soweit dem keine gesetzliche Aufbewahrungspflicht entgegensteht.
+</p>
+
+<h2>Rechtsgrundlage</h2>
+<p>
+Die Verarbeitung Ihrer personenbezogenen Daten erfolgt gemäss dem
+Schweizer Datenschutzgesetz (DSG).
+</p>
+
+<h2>Kontakt</h2>
+<p>
+Wenn Sie Fragen zum Datenschutz haben, können Sie uns jederzeit per E-Mail kontaktieren:
+<a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
+</p>
+
+<p style="margin-top:40px;">
+<a href="/index.html">&larr; Zurück zur Startseite</a>
+</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<div id="footer-placeholder"></div>
+<script>
+fetch("/components/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+  });
+</script>
+
+</div>
+</body>
+</html>

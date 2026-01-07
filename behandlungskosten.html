@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behandlungskosten – TAI TCM GmbH</title>
+
+  <!-- ✅ 统一用绝对路径：DE/EN 都不用改 -->
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="costs">
+
+<div class="content-wrapper">
+
+  <!-- ========================================================= -->
+  <!-- Header 自动加载 -->
+  <!-- ========================================================= -->
+  <div id="header-placeholder"></div>
+
+  <script>
+    fetch("/components/header.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+        /* ✅ 不在这里做高亮/汉堡：统一交给 main.js + header.html */
+        if (window.initSiteHeader) {
+      window.initSiteHeader();
+    }
+      });
+  </script>
+
+  <!-- ========================================================= -->
+  <!-- HERO -->
+  <!-- ========================================================= -->
+  <section class="hero-split">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Behandlungskosten</h1>
+        <p>Traditionelle Chinesische Medizin, Massage, Akupunktur</p>
+
+        <a class="btn-hero"
+           href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
+           target="_blank" rel="noopener">
+          Termin online buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hinweis -->
+  <div class="footer-box" style="margin-top:40px;">
+    Als Naturheilpraktiker mit eidg. Diplom in TCM ist Herr Tai bei vielen Krankenkassen anerkannt.<br>
+    Je nach Krankenkasse ist die Kostenübernahme unterschiedlich – bitte informieren Sie sich vorgängig bei Ihrer Kasse.
+  </div>
+
+  <!-- Preise -->
+  <section class="price-section">
+    <h2 class="price-title">Preise & Angebote</h2>
+
+    <div class="price-table">
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Kombinierte Behandlung 60 Min</div>
+          <div class="price-desc">mit Zusatzbehandlungen (außer Kräuter und Diagnose)</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Tuina-Massage ca. 60 Min</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Akupunktur 45 Min</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Diagnostik nach TCM-Konsultation ca. 10 Min</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Schröpfen ca. 15 Min</div>
+        </div>
+        <div class="price-right">45.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Phytotherapie</div>
+          <div class="price-desc">Erste Rezeptverschreibung</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Phytotherapie</div>
+          <div class="price-desc">Weitere Verschreibung, Nachbestellung</div>
+        </div>
+        <div class="price-right">15.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Ohrakupunktur</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Selbstzahler (60 Min)</div>
+          <div class="price-desc">eine Stunde Kombi-Behandlung oder nach Wunsch</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- Footer 自动加载 -->
+  <!-- ========================================================= -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("/components/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+      });
+  </script>
+
+</div> <!-- END content-wrapper -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>

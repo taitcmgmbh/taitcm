@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barrierefreiheit – TAI TCM GmbH</title>
+
+  <!-- ✅ 统一用绝对路径：DE/EN 都不需要改 -->
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    .barrierefreiheit-content {
+      max-width: 900px;
+      margin: 40px auto;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .barrierefreiheit-content h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    .barrierefreiheit-content h2 {
+      font-size: 24px;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+    .barrierefreiheit-content a {
+      color: #0E2F24;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .barrierefreiheit-content a:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body data-page="barrierefreiheit">
+  <div class="content-wrapper">
+
+    <!-- ================= HEADER ================= -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/components/header.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <!-- ================= CONTENT ================= -->
+    <section class="barrierefreiheit-content">
+      <h1>Erklärung zur Barrierefreiheit</h1>
+
+      <p>
+        Die <strong>TAI TCM GmbH</strong> ist bestrebt, ihre Website für ein möglichst
+        breites Publikum zugänglich zu machen – unabhängig von individuellen Fähigkeiten
+        oder technischen Voraussetzungen.
+      </p>
+
+      <h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
+      <p>
+        Diese Website orientiert sich an den
+        <strong>Web Content Accessibility Guidelines (WCAG 2.1, Konformitätsstufe AA)</strong>,
+        wie sie vom World Wide Web Consortium (W3C) veröffentlicht wurden.
+      </p>
+
+      <p>
+        Wir arbeiten kontinuierlich daran, die Zugänglichkeit unserer Website zu verbessern
+        und bestehende Barrieren schrittweise abzubauen.
+      </p>
+
+      <h2>Bereits umgesetzte Massnahmen</h2>
+      <ul>
+        <li>Klare Seitenstruktur und verständliche Navigation</li>
+        <li>Ausreichende Farbkontraste für gute Lesbarkeit</li>
+        <li>Responsives Design für mobile Geräte</li>
+        <li>Bedienbarkeit der Website ohne Maus (Tastatur-Navigation)</li>
+      </ul>
+
+      <h2>Bekannte Einschränkungen</h2>
+      <p>
+        Trotz unserer Bemühungen kann es vorkommen, dass einzelne Inhalte oder
+        Funktionen noch nicht vollständig barrierefrei sind.
+        Insbesondere bei extern eingebundenen Diensten
+        (z. B. Google Maps oder Online-Terminbuchung)
+        haben wir nur eingeschränkten Einfluss auf die Barrierefreiheit.
+      </p>
+
+      <h2>Feedback und Kontakt</h2>
+      <p>
+        Wenn Sie auf Barrieren stossen oder Anregungen zur Verbesserung der
+        Zugänglichkeit unserer Website haben, freuen wir uns über Ihre Rückmeldung.
+      </p>
+
+      <p>
+        Kontaktieren Sie uns gerne per E-Mail:<br>
+        <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
+      </p>
+
+      <p style="margin-top:40px;">
+        <a href="/index.html">&larr; Zurück zur Startseite</a>
+      </p>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch("/components/footer.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
+
+  </div>
+</body>
+</html>
