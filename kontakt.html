@@ -6,7 +6,7 @@
   <title>Kontakt – TAI TCM GmbH</title>
 
   <!-- ✅ 统一绝对路径，DE/EN都通用 -->
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
@@ -49,7 +49,7 @@
   <!-- Header 自动加载 -->
   <div id="header-placeholder"></div>
   <script>
-    fetch("/components/header.html")
+    fetch("./components/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -153,8 +153,8 @@
     <br>
 
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-      <img src="/assets/TAI%20TCM-Eingang.jpg" alt="Eingang" style="width:320px; border-radius:16px;">
-      <img src="/assets/TAI%20TCM-Parkplatz.jpg" alt="Parkplatz" style="width:320px; border-radius:16px;">
+      <img src="./assets/TAI%20TCM-Eingang.jpg" alt="Eingang" style="width:320px; border-radius:16px;">
+      <img src="./assets/TAI%20TCM-Parkplatz.jpg" alt="Parkplatz" style="width:320px; border-radius:16px;">
     </div>
   </section>
 
@@ -171,7 +171,7 @@
   <!-- Footer 自动加载 -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("/components/footer.html")
+    fetch("./components/footer.html")
       .then(res => res.text())
       .then(html => document.getElementById("footer-placeholder").innerHTML = html);
   </script>
@@ -204,7 +204,7 @@ document.getElementById("kontaktForm").addEventListener("submit", async function
   }
 });
 </script>
-<script src="/js/main.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
