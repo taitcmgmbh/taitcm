@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ – TAI TCM GmbH</title>
 
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
@@ -26,7 +26,7 @@
     <!-- ================= HEADER (EN) ================= -->
     <div id="header-placeholder"></div>
     <script>
-      fetch("/en/components/header.html")
+      fetch("./en/components/header.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
@@ -184,7 +184,7 @@
     <!-- ================= FOOTER (EN) ================= -->
     <div id="footer-placeholder"></div>
     <script>
-      fetch("/en/components/footer.html")
+      fetch("./en/components/footer.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("footer-placeholder").innerHTML = html;
@@ -192,7 +192,7 @@
     </script>
 
   </div>
-  <script src="/js/main.js"></script>
+  <script src="./js/main.js"></script>
 
 </body>
 </html>
