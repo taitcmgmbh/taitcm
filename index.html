@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TAI TCM GmbH – Traditionelle Chinesische Medizin in Zürich</title>
+
+  <!-- ✅ GitHub Pages 子目录站点：用相对路径 -->
+  <link rel="stylesheet" href="./style/style.css" />
+
+  <!-- ✅ main.js 先加载（defer），确保 initSiteHeader 存在 -->
+  <script src="./js/main.js" defer></script>
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="home">
+
+  <div class="content-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <script>
+      fetch("./components/header.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (window.initSiteHeader) window.initSiteHeader();
+        });
+    </script>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero-split">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Herzlich willkommen im TAI TCM GmbH</h1>
+          <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
+
+          <a class="btn-hero"
+             href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
+             target="_blank" rel="noopener">
+            Termin online buchen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 信息提示 ================= -->
+    <div class="footer-box">
+      Betriebsferien: 23.07.2026 – 14.08.2026<br />
+      Während der Arbeit kann ich keine Anrufe entgegennehmen.<br />
+      Bitte buchen Sie online.
+    </div>
+
+    <section class="features features-medical">
+
+      <div class="feature-column">
+        <h3 class="feature-group-title">Behandlung & Medizin</h3>
+
+        <div class="feature-box">
+          <h4 class="feature-title">Traditionelle chinesische Medizin</h4>
+          <p class="feature-text">
+            Akupunktur, Tuina und Kräutertherapie – kombiniert mit moderner Medizin
+            und individuell auf Ihre Beschwerden abgestimmt.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h4 class="feature-title">Ganzheitliche TCM</h4>
+          <p class="feature-text">
+            Umfassende Diagnose, Akupunktur, Tuina und Kräuter – nicht symptomatisch,
+            sondern ursachenorientiert behandelt.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-column">
+        <h3 class="feature-group-title">Erfahrung & Vertrauen</h3>
+
+        <div class="feature-box">
+          <h4 class="feature-title">Über 30 Jahre Erfahrung</h4>
+          <p class="feature-text">
+            Langjährige klinische Erfahrung in der Behandlung von Schmerzen,
+            Allergien sowie inneren und gynäkologischen Erkrankungen.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h4 class="feature-title">Krankenkassen-Abrechnung</h4>
+          <p class="feature-text">
+            Anerkannt von vielen Schweizer Zusatzversicherungen (Tarif 590).
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= CLINIC PHOTOS ================= -->
+    <section class="clinic-photos" aria-label="Praxis Impressionen">
+      <div class="clinic-photos__header">
+        <h2>Unsere Behandlungsräume</h2>
+        <p>Ruhige, saubere und professionelle Atmosphäre für Ihre Behandlung.</p>
+      </div>
+
+      <div class="clinic-photos__grid clinic-photos__grid--two">
+        <figure class="clinic-photo">
+          <button class="clinic-photo__btn" type="button"
+                  data-img="./assets/Akupunktur-Raum-Oerlikon.jpg"
+                  data-alt="Behandlungsraum 1">
+            <img src="./assets/Akupunktur-Raum-Oerlikon.jpg"
+                 alt="Behandlungsraum 1"
+                 loading="lazy" />
+          </button>
+        </figure>
+
+        <figure class="clinic-photo">
+          <button class="clinic-photo__btn" type="button"
+                  data-img="./assets/Massage-Raum-Oerlikon.jpg"
+                  data-alt="Behandlungsraum 2">
+            <img src="./assets/Massage-Raum-Oerlikon.jpg"
+                 alt="Behandlungsraum 2"
+                 loading="lazy" />
+          </button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="testimonials">
+      <h2>Erfahrungsberichte</h2>
+      <p class="subtitle">Was unsere Patientinnen und Patienten sagen</p>
+
+      <div class="testimonial-grid">
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„ Ein grosses Lob an Herr Tai!
+            Er begleitet mich seit Jahren.
+            Sehr professionell, ein herausragender Spezialist für TCM . Apsolut empfehlenswert.“</p>
+          <p class="author">— Marija D.</p>
+        </div>
+
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„ Ich war schon mit verschiedenen Problemen bei Hr. Tai und seine Behandlung hat immer gut geholfen.
+            Ich war auch schon in anderen TCM, aber seine manuelle Arbeit (Massage etc.) finde ich deutlich besser.“</p>
+          <p class="author">— Karin H.</p>
+        </div>
+
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„ Tai 醫師 is a highly skilled third-generation TCM practitioner with extensive expertise in both acupuncture and chiropractic.
+            I would confidently recommend him to anyone seeking authentic, results-driven Traditional Chinese Medicine care.“</p>
+          <p class="author">— Lim J.</p>
+        </div>
+
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„ Dr. Tai ist sehr kompetent und professionell, ausserdem versteht gut Deutsch.
+            Seine Behandlungen haben immer eine hervorragende Wirkung.
+            Ich kann ihn nur weiter empfehlen.“</p>
+          <p class="author">— Moni H.</p>
+        </div>
+
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„ Dr Tai is a very reliable and very experienced doctor.
+            He knows what he is doing and knows how to handle the problems you have.“</p>
+          <p class="author">— Joe Z.</p>
+        </div>
+
+        <div class="card">
+          <p class="stars">★★★★★</p>
+          <p>„Lo estoy echando de menos.
+            A todo aquel que tenga problemas en general lo recomiendo.“</p>
+          <p class="author">— JLuis G.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch("./components/footer.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
+
+  </div><!-- content-wrapper END -->
+
+</body>
+</html>
