@@ -6,7 +6,7 @@
 <title>TAI TCM GmbH – Traditional Chinese Medicine in Zurich</title>
 
 <!-- ✅ Absolute path: DE/EN no need to change -->
-<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="./style/style.css">
 
 <style>
 :root {
@@ -31,7 +31,7 @@ input, textarea {
 <div id="header-placeholder"></div>
 
 <script>
-fetch("/en/components/header.html")
+fetch("./en/components/header.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
@@ -124,9 +124,9 @@ fetch("/en/components/header.html")
     <!-- Room 1 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
-        data-img="/assets/Akupunktur-Raum-Oerlikon.jpg"
+        data-img="./assets/Akupunktur-Raum-Oerlikon.jpg"
         data-alt="Treatment room 1">
-        <img src="/assets/Akupunktur-Raum-Oerlikon.jpg"
+        <img src="./assets/Akupunktur-Raum-Oerlikon.jpg"
              alt="Treatment room 1"
              loading="lazy">
       </button>
@@ -135,9 +135,9 @@ fetch("/en/components/header.html")
     <!-- Room 2 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
-        data-img="/assets/Massage-Raum-Oerlikon.jpg"
+        data-img="./assets/Massage-Raum-Oerlikon.jpg"
         data-alt="Treatment room 2">
-        <img src="/assets/Massage-Raum-Oerlikon.jpg"
+        <img src="./assets/Massage-Raum-Oerlikon.jpg"
              alt="Treatment room 2"
              loading="lazy">
       </button>
@@ -202,7 +202,7 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 <div id="footer-placeholder"></div>
 
 <script>
-fetch("/en/components/footer.html")
+fetch("./en/components/footer.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
@@ -210,7 +210,7 @@ fetch("/en/components/footer.html")
 </script>
 
 </div> <!-- content-wrapper END -->
-<script src="/js/main.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
