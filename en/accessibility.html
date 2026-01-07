@@ -6,7 +6,7 @@
   <title>Accessibility – TAI TCM GmbH</title>
 
   <!-- ✅ 统一用绝对路径：DE/EN 都不需要改 -->
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     .accessibility-content {
@@ -41,7 +41,7 @@
     <!-- ================= HEADER (EN) ================= -->
     <div id="header-placeholder"></div>
     <script>
-      fetch("/en/components/header.html")
+      fetch("./en/components/header.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
@@ -101,7 +101,7 @@
     <!-- ================= FOOTER (EN) ================= -->
     <div id="footer-placeholder"></div>
     <script>
-      fetch("/en/components/footer.html")
+      fetch("./en/components/footer.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("footer-placeholder").innerHTML = html;
