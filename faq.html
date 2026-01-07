@@ -6,7 +6,7 @@
   <title>FAQ – TAI TCM GmbH</title>
 
   <!-- 建议用绝对路径：DE / EN 都无需改 -->
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
@@ -27,7 +27,7 @@
     <!-- ================= HEADER ================= -->
     <div id="header-placeholder"></div>
     <script>
-      fetch("/components/header.html")
+      fetch("./components/header.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
@@ -190,7 +190,7 @@
     <!-- ================= FOOTER ================= -->
     <div id="footer-placeholder"></div>
     <script>
-      fetch("/components/footer.html")
+      fetch("./components/footer.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("footer-placeholder").innerHTML = html;
@@ -198,7 +198,7 @@
     </script>
 
   </div>
-  <script src="/js/main.js"></script>
+  <script src="./js/main.js"></script>
 
 </body>
 </html>
