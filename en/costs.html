@@ -6,7 +6,7 @@
   <title>Treatment Costs – TAI TCM GmbH</title>
 
   <!-- ✅ absolute path, shared by DE / EN -->
-  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
@@ -32,7 +32,7 @@
   <div id="header-placeholder"></div>
 
   <script>
-    fetch("/en/components/header.html")
+    fetch("./en/components/header.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -149,7 +149,7 @@
   <div id="footer-placeholder"></div>
 
   <script>
-    fetch("/en/components/footer.html")
+    fetch("./en/components/footer.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
@@ -157,7 +157,7 @@
   </script>
 
 </div> <!-- END content-wrapper -->
-<script src="/js/main.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
