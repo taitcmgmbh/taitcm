@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy – TAI TCM GmbH</title>
 
-<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="./style/style.css">
 
 <style>
 .datenschutz-content {
@@ -41,7 +41,7 @@
 <!-- ================= HEADER ================= -->
 <div id="header-placeholder"></div>
 <script>
-fetch("/en/components/header.html")
+fetch("./en/components/header.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
@@ -126,7 +126,7 @@ In case of discrepancies, the German version of this website shall prevail.
 </p>
 
 <p style="margin-top:40px;">
-<a href="/en/index.html">&larr; Back to homepage</a>
+<a href="./en/index.html">&larr; Back to homepage</a>
 </p>
 
 </section>
@@ -134,7 +134,7 @@ In case of discrepancies, the German version of this website shall prevail.
 <!-- ================= FOOTER ================= -->
 <div id="footer-placeholder"></div>
 <script>
-fetch("/en/components/footer.html")
+fetch("./en/components/footer.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
