@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAI TCM GmbH – Traditional Chinese Medicine in Zurich</title>
+
+<!-- ✅ Absolute path: DE/EN no need to change -->
+<link rel="stylesheet" href="/style/style.css">
+
+<style>
+:root {
+    --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                 "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+input, textarea {
+    font-family: var(--font-apple) !important;
+    font-weight: 400;
+}
+</style>
+
+</head>
+
+<body data-page="home">
+
+<!-- ================= HEADER (inside wrapper) ================ -->
+<div class="content-wrapper">
+
+<div id="header-placeholder"></div>
+
+<script>
+fetch("/en/components/header.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+      // ✅ Highlight handled by main.js / header script
+      if (window.initSiteHeader) {
+      window.initSiteHeader();
+    }
+  });
+</script>
+
+<!-- ================= HERO ================= -->
+<section class="hero-split">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Welcome to TAI TCM GmbH</h1>
+            <p>Clinic for Traditional Chinese Medicine, Massage and Acupuncture</p>
+
+            <a class="btn-hero"
+                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
+                target="_blank" rel="noopener">
+                Book an appointment online
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= Info notice ================= -->
+<div class="footer-box">
+    Holiday closure: 23/07/2026 – 14/08/2026<br>
+    During treatments I cannot answer phone calls.<br>
+    Please book online.
+</div>
+
+<section class="features features-medical">
+
+  <!-- Left: Treatment -->
+  <div class="feature-column">
+    <h3 class="feature-group-title">Treatment & Medicine</h3>
+
+    <div class="feature-box">
+      <h4 class="feature-title">Traditional Chinese Medicine</h4>
+      <p class="feature-text">
+        Acupuncture, Tuina and herbal therapy – combined with modern medicine
+        and tailored to your individual needs.
+      </p>
+    </div>
+
+    <div class="feature-box">
+      <h4 class="feature-title">Holistic TCM approach</h4>
+      <p class="feature-text">
+        Comprehensive diagnosis, acupuncture, Tuina and herbs – not only treating symptoms,
+        but addressing the root causes.
+      </p>
+    </div>
+  </div>
+
+  <!-- Right: Trust -->
+  <div class="feature-column">
+    <h3 class="feature-group-title">Experience & Trust</h3>
+
+    <div class="feature-box">
+      <h4 class="feature-title">Over 30 years of experience</h4>
+      <p class="feature-text">
+        Extensive clinical experience in treating pain, allergies,
+        as well as internal and gynecological conditions.
+      </p>
+    </div>
+
+    <div class="feature-box">
+      <h4 class="feature-title">Health insurance reimbursement</h4>
+      <p class="feature-text">
+        Recognised by many Swiss supplementary insurances
+        (Tariff 590).
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===============================
+   CLINIC PHOTOS (Homepage)
+================================ -->
+<section class="clinic-photos" aria-label="Clinic impressions">
+  <div class="clinic-photos__header">
+    <h2>Our treatment rooms</h2>
+    <p>A calm, clean and professional environment for your treatment.</p>
+  </div>
+
+  <div class="clinic-photos__grid clinic-photos__grid--two">
+    <!-- Room 1 -->
+    <figure class="clinic-photo">
+      <button class="clinic-photo__btn" type="button"
+        data-img="/assets/Akupunktur-Raum-Oerlikon.jpg"
+        data-alt="Treatment room 1">
+        <img src="/assets/Akupunktur-Raum-Oerlikon.jpg"
+             alt="Treatment room 1"
+             loading="lazy">
+      </button>
+    </figure>
+
+    <!-- Room 2 -->
+    <figure class="clinic-photo">
+      <button class="clinic-photo__btn" type="button"
+        data-img="/assets/Massage-Raum-Oerlikon.jpg"
+        data-alt="Treatment room 2">
+        <img src="/assets/Massage-Raum-Oerlikon.jpg"
+             alt="Treatment room 2"
+             loading="lazy">
+      </button>
+    </figure>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>Testimonials</h2>
+  <p class="subtitle">What our patients say</p>
+
+  <div class="testimonial-grid">
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„ Ein grosses Lob an Herr Tai!
+Er begleitet mich seit Jahren.
+Sehr professionell, ein herausragender Spezialist für TCM . Apsolut empfehlenswert.“</p>
+      <p class="author">— Marija D.</p>
+    </div>
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„ Ich war schon mit verschiedenen Problemen bei Hr. Tai und seine Behandlung hat immer gut geholfen.
+Ich war auch schon in anderen TCM, aber seine manuelle Arbeit (Massage etc.) finde ich deutlich besser.“</p>
+      <p class="author">— Karin H.</p>
+    </div>
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„ Tai 醫師 is a highly skilled third-generation TCM practitioner with extensive expertise in both acupuncture and chiropractic.
+I would confidently recommend him to anyone seeking authentic, results-driven Traditional Chinese Medicine care.“</p>
+      <p class="author">— Lim J.</p>
+    </div>
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„ Dr. Tai ist sehr kompetent und professionell, ausserdem versteht gut Deutsch.
+Seine Behandlungen haben immer eine hervorragende Wirkung.
+Ich kann ihn nur weiter empfehlen.“</p>
+      <p class="author">— Moni H.</p>
+    </div>
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„ Dr Tai is a very reliable and very experienced doctor.
+He knows what he is doing and knows how to handle the problems you have.“</p>
+      <p class="author">— Joe Z.</p>
+    </div>
+
+    <div class="card">
+      <p class="stars">★★★★★</p>
+      <p>„Lo estoy echando de menos.
+A todo aquel que tenga problemas en general lo recomiendo.“</p>
+      <p class="author">— JLuis G.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<div id="footer-placeholder"></div>
+
+<script>
+fetch("/en/components/footer.html")
+  .then(r => r.text())
+  .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+  });
+</script>
+
+</div> <!-- content-wrapper END -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>

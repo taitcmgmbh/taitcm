@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me – TAI TCM GmbH</title>
+
+  <!-- ✅ shared CSS -->
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="about">
+
+<div class="content-wrapper">
+
+  <!-- Header (EN) -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("/en/components/header.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+        if (window.initSiteHeader) {
+      window.initSiteHeader();
+    }
+      });
+  </script>
+
+  <!-- HERO -->
+  <section class="hero-split">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>About Me</h1>
+        <p>Certified TCM practitioner · Tuina · Acupuncture · Manual therapy</p>
+
+        <a class="btn-hero"
+           href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
+           target="_blank" rel="noopener">
+          Book appointment online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section class="uebermich-section">
+
+    <div class="uebermich-photo">
+      <img src="/en/assets/xinbo-tai-tcm-zuerich.jpg"
+           alt="Mr. Xinbo Tai – TCM practitioner"
+           class="uebermich-img"
+           style="
+             max-width: 820px !important;
+             width: 100% !important;
+             border-radius: 18px;
+             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+           ">
+    </div>
+
+    <div class="uebermich-text">
+      <h2>Professional Background</h2>
+
+      <p><b>1990 – 1995</b><br>Studied at Guangzhou University of Traditional Chinese Medicine (China)</p>
+      <p><b>1995 – 2011</b><br>Physician at Shandong Gaomi TCM Hospital</p>
+      <p><b>2008</b><br>Advanced training in Tuina massage in Beijing</p>
+      <p><b>Dec 2011 – Feb 2019</b><br>Specialist at ChinaMed Center Zurich</p>
+      <p><b>Mar 2019</b><br>Founded TAI TCM GmbH</p>
+
+      <h3>Languages</h3>
+      <p>German, English, Chinese (Mandarin & Cantonese)</p>
+    </div>
+
+  </section>
+ <section class="certificates" aria-label="Certificates and Recognitions">
+  <h3 class="cert-title">Recognised Qualifications</h3>
+  <!-- ✅ 上面：NAREG 单独居中 -->
+  <div class="cert-single">
+    <button class="cert-item" type="button"
+      data-img="/assets/nareg.png" aria-label="NAREG registration">
+      <img src="/assets/nareg.png" alt="NAREG registration">
+    </button>
+  </div>
+
+  <!-- ✅ 下面：2×2（四张） -->
+  <div class="cert-grid-2x2">
+    <button class="cert-item" type="button" data-img="/assets/emr1.png" aria-label="EMR certificate 1">
+      <img src="/assets/emr1.png" alt="EMR certificate 1">
+    </button>
+
+    <button class="cert-item" type="button" data-img="/assets/emr2.png" aria-label="EMR certificate 2">
+      <img src="/assets/emr2.png" alt="EMR certificate 2">
+    </button>
+
+    <button class="cert-item" type="button" data-img="/assets/emr3.png" aria-label="EMR certificate 3">
+      <img src="/assets/emr3.png" alt="EMR certificate 3">
+    </button>
+
+    <!-- 右下角：ASCA -->
+    <button class="cert-item" type="button" data-img="/assets/asca.png" aria-label="ASCA recognition">
+      <img src="/assets/asca.png" alt="ASCA recognition">
+    </button>
+  </div>
+</section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="certLightbox" aria-hidden="true">
+    <div class="lightbox__backdrop"></div>
+    <div class="lightbox__content">
+      <button class="lightbox__close" type="button" aria-label="Close">×</button>
+      <img class="lightbox__img" alt="">
+    </div>
+  </div>
+
+  <!-- Specialities -->
+  <section class="spezial-wrapper">
+    <h2>TCM specialities for the following conditions:</h2>
+
+    <ul>
+      <li><b>Neurological conditions:</b> migraine, headaches, dizziness, tinnitus, trigeminal neuralgia, post-stroke paralysis, urinary dysfunction, bladder weakness</li>
+      <li><b>Orthopaedic conditions:</b> low back pain, back pain, sciatica, neck–shoulder–arm syndrome, tennis elbow, arthritis, osteoarthritis, rheumatic conditions, Achilles tendon symptoms, heel pain</li>
+      <li><b>Internal medicine:</b> bronchitis, urinary tract infections, cardiac arrhythmia, hypertension, bloating, nausea, constipation, diarrhoea, digestive disorders, irritable bowel syndrome</li>
+      <li><b>Gynaecological conditions:</b> menstrual discomfort, pregnancy-related complaints, birth preparation, infertility, menopausal symptoms</li>
+      <li><b>Mental health:</b> depression, sleep disorders, burnout</li>
+      <li><b>Allergy & skin:</b> hay fever, asthma, acne, eczema, atopic dermatitis, psoriasis, ENT and eye-related conditions</li>
+      <li><b>Other:</b> smoking cessation, overweight, weakened immune system, supportive therapy before and after cancer/tumour surgery</li>
+    </ul>
+  </section>
+
+  <!-- Footer (EN) -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("/en/components/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+      });
+  </script>
+
+</div><!-- content-wrapper END -->
+
+<script>
+(function () {
+  const lightbox = document.getElementById("certLightbox");
+  if (!lightbox) return;
+
+  const imgEl = lightbox.querySelector(".lightbox__img");
+  const closeBtn = lightbox.querySelector(".lightbox__close");
+  const backdrop = lightbox.querySelector(".lightbox__backdrop");
+
+  function openLightbox(src, alt) {
+    imgEl.src = src;
+    imgEl.alt = alt || "";
+    lightbox.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    imgEl.src = "";
+    document.body.style.overflow = "";
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".cert-item");
+    if (btn) openLightbox(btn.dataset.img, btn.querySelector("img")?.alt);
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+  backdrop.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+})();
+</script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

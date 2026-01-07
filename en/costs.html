@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treatment Costs – TAI TCM GmbH</title>
+
+  <!-- ✅ absolute path, shared by DE / EN -->
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body data-page="costs">
+
+<div class="content-wrapper">
+
+  <!-- ========================================================= -->
+  <!-- Header -->
+  <!-- ========================================================= -->
+  <div id="header-placeholder"></div>
+
+  <script>
+    fetch("/en/components/header.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+        /* menu + active handled globally in main.js */
+        if (window.initSiteHeader) {
+      window.initSiteHeader();
+    }
+      });
+  </script>
+
+  <!-- ========================================================= -->
+  <!-- HERO -->
+  <!-- ========================================================= -->
+  <section class="hero-split">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Treatment Costs</h1>
+        <p>Traditional Chinese Medicine · Massage · Acupuncture</p>
+
+        <a class="btn-hero"
+           href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
+           target="_blank" rel="noopener">
+          Book appointment online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notice -->
+  <div class="footer-box" style="margin-top:40px;">
+    As a certified TCM practitioner with a Swiss federal diploma, Mr. Tai is recognised by many Swiss health insurance providers.<br>
+    Coverage depends on your supplementary insurance – please check directly with your insurer in advance.
+  </div>
+
+  <!-- Prices -->
+  <section class="price-section">
+    <h2 class="price-title">Prices & Services</h2>
+
+    <div class="price-table">
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Combined treatment 60 min</div>
+          <div class="price-desc">with additional therapies (excluding herbs and diagnosis)</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Tuina massage approx. 60 min</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Acupuncture 45 min</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">TCM diagnostic consultation approx. 10 min</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Cupping therapy approx. 15 min</div>
+        </div>
+        <div class="price-right">45.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Herbal medicine</div>
+          <div class="price-desc">Initial prescription</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Herbal medicine</div>
+          <div class="price-desc">Repeat prescription / refill</div>
+        </div>
+        <div class="price-right">15.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Auricular acupuncture</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Self-pay (60 min)</div>
+          <div class="price-desc">One hour combined treatment or as requested</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- Footer -->
+  <!-- ========================================================= -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("/en/components/footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+      });
+  </script>
+
+</div> <!-- END content-wrapper -->
+<script src="/js/main.js"></script>
+
+</body>
+</html>
