@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TAI TCM GmbH – Traditional Chinese Medicine in Zurich</title>
 
-<!-- ✅ Absolute path: DE/EN no need to change -->
+<!-- ✅ GitHub Pages（/taitcm/en/）正确写法：回到上一级 -->
 <link rel="stylesheet" href="../style/style.css">
 
 <style>
@@ -31,14 +31,15 @@ input, textarea {
 <div id="header-placeholder"></div>
 
 <script>
-fetch("./en/components/header.html")
+fetch("./components/header.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
-      // ✅ Highlight handled by main.js / header script
+
+      // ✅ 汉堡 + 高亮 + 语言切换统一交给 main.js
       if (window.initSiteHeader) {
-      window.initSiteHeader();
-    }
+        window.initSiteHeader();
+      }
   });
 </script>
 
@@ -202,7 +203,7 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 <div id="footer-placeholder"></div>
 
 <script>
-fetch("./en/components/footer.html")
+fetch("./components/footer.html")
   .then(r => r.text())
   .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
@@ -210,6 +211,7 @@ fetch("./en/components/footer.html")
 </script>
 
 </div> <!-- content-wrapper END -->
+
 <script src="../js/main.js"></script>
 
 </body>
