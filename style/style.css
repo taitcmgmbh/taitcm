@@ -263,7 +263,18 @@ nav a.active {
   padding-left: 24px;
   padding-right: 24px;
 }
+/* ✅ Testimonials 标题居中（不影响卡片网格） */
+.testimonials h2,
+.testimonials .subtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+/* 如果你还想让整个区块内容默认居中（标题+副标题更稳） */
+.testimonials {
+  text-align: center;
+}
 /* ===========================================
    PRICE LIST
 =========================================== */
