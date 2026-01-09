@@ -1,7 +1,7 @@
 /* js/main.js
    - Mobile hamburger menu
    - Active nav highlight
-   - Language switch DE <-> EN keeping the same page
+   - Language switch DE <-> EN keeping same page
    - Works for:
      1) GitHub Pages project site: /taitcm/...
      2) Custom domain root site: /...
@@ -9,54 +9,50 @@
 (function () {
   "use strict";
 
-  // ---------- A) Detect base path ----------
-  function getBasePath() {
-    const p = window.location.pathname; // e.g. /taitcm/en/costs.html or /en/costs.html or /index.html
-    // ✅ Project-site base (GitHub Pages repo name)
-    if (p.startsWith("/taitcm/")) return "/taitcm/";
-    // ✅ Custom domain root
-    return "/";
-  }
-
-  // Normalize path join (avoid double slashes)
+  // ---- 0) helpers ----
   function join(base, path) {
     const b = base.endsWith("/") ? base : base + "/";
     const s = path.startsWith("/") ? path.slice(1) : path;
     return b + s;
   }
 
-  // ✅ Robust: get current page filename
-  // Handles:
-  // - /taitcm/en/index.html
-  // - /taitcm/en/
-  // - /en/
-  // - /taitcm/
-  function getCurrentFile() {
-    const base = getBasePath();
-    let p = window.location.pathname;
+  // ✅ auto-detect base path
+  // - If URL is /taitcm/... -> base = /taitcm/
+  // - If URL is /en/... or /index.html -> base = /
+  function getBasePath() {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    if (parts.length === 0) return "/";
 
-    // Strip base prefix
-    if (p.startsWith(base)) p = p.slice(base.length); // e.g. "en/index.html" or "index.html" or "en/"
-    p = p.replace(/^\/+/, ""); // remove leading slashes if any
+    // root site cases
+    if (parts[0] === "en") return "/";
+    if (parts[0].endsWith(".html")) return "/";
 
-    // If ends with "/" -> treat as index.html
-    if (p === "" || p.endsWith("/")) return "index.html";
+    // project site cases: /<project>/en/... or /<project>/index.html
+    if (parts.length >= 2 && parts[1] === "en") return "/" + parts[0] + "/";
+    if (parts.length >= 2 && parts[1].endsWith(".html")) return "/" + parts[0] + "/";
 
-    const last = p.split("/").pop() || "index.html";
-
-    // If last segment has no ".html" (rare, but can happen) => treat as index.html
-    if (!last.includes(".")) return "index.html";
-
-    return last.split("?")[0].split("#")[0];
+    // fallback:
+    // if you have ONLY one project folder, treat first segment as project name
+    // (keeps GitHub project site stable)
+    return "/" + parts[0] + "/";
   }
 
-  // ✅ Robust: is current in EN folder?
+  // ✅ get current filename reliably (works for /en/ and /taitcm/en/)
+  function getCurrentFile() {
+    const p = window.location.pathname;
+    // if ends with "/" => index.html
+    if (p.endsWith("/")) return "index.html";
+    const last = (p.split("/").pop() || "index.html").split("?")[0].split("#")[0];
+    if (!last.includes(".")) return "index.html";
+    return last;
+  }
+
   function isEnglishPage() {
     const base = getBasePath();
     return window.location.pathname.startsWith(join(base, "en/"));
   }
 
-  // ---------- B) Hamburger menu ----------
+  // ---- 1) hamburger menu ----
   function initHeaderMenu() {
     const header = document.querySelector(".site-header");
     if (!header) return;
@@ -65,7 +61,6 @@
     const toggleBtn = header.querySelector(".menu-toggle");
     if (!nav || !toggleBtn) return;
 
-    // Prevent duplicate listeners (if init called more than once)
     if (toggleBtn.dataset.bound === "1") return;
     toggleBtn.dataset.bound = "1";
 
@@ -86,22 +81,19 @@
     nav.addEventListener("click", (e) => e.stopPropagation());
     document.addEventListener("click", closeMenu);
 
-    nav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", closeMenu);
-    });
+    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
   }
 
-  // ---------- C) Active nav highlight ----------
+  // ---- 2) active nav highlight ----
   function highlightCurrentPage() {
-    const currentPage = document.body.dataset.page; // home/costs/about/contact/faq/...
+    const currentPage = document.body.dataset.page;
     if (!currentPage) return;
-
     document.querySelectorAll("#navMenu a[data-page]").forEach((link) => {
       link.classList.toggle("active", link.dataset.page === currentPage);
     });
   }
 
-  // ---------- D) Force rewrite header nav + logo ----------
+  // ---- 3) force rewrite nav links + logo link (keeps everything consistent) ----
   function normalizeHeaderNavLinks() {
     const header = document.querySelector(".site-header");
     if (!header) return;
@@ -110,40 +102,23 @@
     if (!nav) return;
 
     const base = getBasePath();
-    const isEN = isEnglishPage();
+    const en = isEnglishPage();
 
-    // Map logical pages -> filenames
-    const map = isEN
-      ? {
-          home: "en/index.html",
-          costs: "en/costs.html",
-          about: "en/about.html",
-          contact: "en/contact.html",
-          faq: "en/faq.html",
-        }
-      : {
-          home: "index.html",
-          costs: "behandlungskosten.html",
-          about: "ueber-mich.html",
-          contact: "kontakt.html",
-          faq: "faq.html",
-        };
+    const map = en
+      ? { home: "en/index.html", costs: "en/costs.html", about: "en/about.html", contact: "en/contact.html", faq: "en/faq.html" }
+      : { home: "index.html", costs: "behandlungskosten.html", about: "ueber-mich.html", contact: "kontakt.html", faq: "faq.html" };
 
-    // Force rewrite nav links (ignore whatever is in header.html)
     nav.querySelectorAll("a[data-page]").forEach((a) => {
       const key = a.dataset.page;
       if (!key || !map[key]) return;
       a.href = join(base, map[key]);
     });
 
-    // Force rewrite logo link
     const logoLink = header.querySelector(".logo-link");
-    if (logoLink) {
-      logoLink.href = join(base, isEN ? "en/index.html" : "index.html");
-    }
+    if (logoLink) logoLink.href = join(base, en ? "en/index.html" : "index.html");
   }
 
-  // ---------- E) Language switch (DE <-> EN keep same page) ----------
+  // ---- 4) language switch links (no more /en/en and supports /taitcm/) ----
   function updateLangSwitchLinks() {
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
@@ -154,10 +129,9 @@
     if (!deA || !enA) return;
 
     const base = getBasePath();
-    const isEN = isEnglishPage();
-    const file = getCurrentFile(); // ✅ always "index.html" / "costs.html" etc.
+    const en = isEnglishPage();
+    const file = getCurrentFile(); // "index.html" / "costs.html" / etc.
 
-    // DE -> EN mapping
     const deToEn = {
       "index.html": "index.html",
       "behandlungskosten.html": "costs.html",
@@ -169,27 +143,29 @@
       "barrierefreiheit.html": "accessibility.html",
     };
 
-    // EN -> DE mapping
     const enToDe = Object.fromEntries(Object.entries(deToEn).map(([de, en]) => [en, de]));
 
-    if (!isEN) {
-      // On DE page
+    if (!en) {
       const enFile = deToEn[file] || "index.html";
       deA.href = join(base, file);
       enA.href = join(base, "en/" + enFile);
     } else {
-      // On EN page
       const deFile = enToDe[file] || "index.html";
       deA.href = join(base, deFile);
       enA.href = join(base, "en/" + file);
     }
 
-    // If header.html uses href="#" keep it overridden
-    if (deA.getAttribute("href") === "#") deA.setAttribute("href", deA.href);
-    if (enA.getAttribute("href") === "#") enA.setAttribute("href", enA.href);
+    // ✅ make sure click always navigates even if href was "#"
+    [deA, enA].forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = a.href;
+        if (target && target !== "#") window.location.href = target;
+      });
+    });
   }
 
-  // ---------- Public entry ----------
+  // ---- public entry (call after header inserted) ----
   window.initSiteHeader = function () {
     initHeaderMenu();
     highlightCurrentPage();
