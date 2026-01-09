@@ -1,30 +1,35 @@
 <!-- HEADER (EN) -->
 <div class="header-container">
   <header class="site-header">
-    <!-- Logo -->
-    <a href="./index.html" class="logo-link" aria-label="TAI TCM – Home">
-      <img src="./assets/logo.webp" class="logo" alt="TAI TCM Logo">
+
+    <!-- Logo (href 由 main.js 统一设置) -->
+    <a href="#" class="logo-link" aria-label="TAI TCM – Home" data-home-link>
+      <img src="../assets/logo.webp" class="logo" alt="TAI TCM Logo">
     </a>
 
     <!-- Hamburger -->
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <button class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false">
       ☰
     </button>
 
-    <!-- Navigation -->
+    <!-- Navigation (href 交给 main.js 强制重写) -->
     <nav id="navMenu" aria-label="Main navigation">
-      <a href="./index.html" data-page="home">Home</a>
-      <a href="./costs.html" data-page="costs">Treatment Costs</a>
-      <a href="./about.html" data-page="about">About Me</a>
-      <a href="./contact.html" data-page="contact">Contact</a>
-      <a href="./faq.html" data-page="faq">FAQ</a>
+      <a href="#" data-page="home">Home</a>
+      <a href="#" data-page="costs">Treatment Costs</a>
+      <a href="#" data-page="about">About Me</a>
+      <a href="#" data-page="contact">Contact</a>
+      <a href="#" data-page="faq">FAQ</a>
     </nav>
 
-    <!-- Language switch -->
+    <!-- Language switch (href 交给 main.js 动态计算) -->
     <div class="lang-switch" aria-label="Switch language">
       <a href="#" data-lang="de">DE</a>
       <span>|</span>
       <a href="#" class="active" aria-current="page" data-lang="en">EN</a>
     </div>
+
   </header>
 </div>
