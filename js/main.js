@@ -1,5 +1,54 @@
 (function () {
-  // ---------- 1) 汉堡菜单 + 点击空白关闭 ----------
+  "use strict";
+
+  // =========================
+  // 0) Helpers
+  // =========================
+  function safeRemoveListener(el, type, fn, opts) {
+    if (!el) return;
+    try { el.removeEventListener(type, fn, opts); } catch (e) {}
+  }
+
+  // ✅ 计算站点 basePath（兼容 GitHub Pages project: /taitcm/ 以及根域名）
+  function getBasePath() {
+    // 例：
+    // /taitcm/index.html           -> /taitcm/
+    // /taitcm/en/index.html        -> /taitcm/
+    // /en/index.html               -> /
+    // /index.html                  -> /
+    const parts = window.location.pathname.split("/").filter(Boolean);
+
+    if (parts.length === 0) return "/";
+
+    const first = parts[0];
+
+    // ✅ 根站点语言目录：/en/xxx -> base "/"
+    if (first === "en") return "/";
+
+    // ✅ 根站点：/index.html
+    if (first.endsWith(".html")) return "/";
+
+    // ✅ GitHub Pages project：/taitcm/...
+    return "/" + first + "/";
+  }
+
+  // ✅ 判断是否在英文目录（兼容 /en/xxx 与 /taitcm/en/xxx）
+  function isEnglishPath() {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    // ["en","index.html"] 或 ["taitcm","en","index.html"]
+    return (parts[0] === "en") || (parts[1] === "en");
+  }
+
+  // ✅ 获取当前文件名（无 query/hash）
+  function getCurrentFile() {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    const last = parts[parts.length - 1] || "index.html";
+    return last.split("?")[0].split("#")[0];
+  }
+
+  // =========================
+  // 1) Hamburger menu
+  // =========================
   function initHeader() {
     const header = document.querySelector(".site-header");
     if (!header) return;
@@ -18,25 +67,39 @@
       toggleBtn.setAttribute("aria-expanded", "false");
     }
 
-    function toggleMenu(e) {
+    function onToggleClick(e) {
       e.stopPropagation();
       nav.classList.contains("show-menu") ? closeMenu() : openMenu();
     }
 
-    // 先移除旧监听（避免某些页面重复 init 导致叠加）
-    toggleBtn.onclick = null;
+    function onNavClick(e) {
+      e.stopPropagation();
+    }
 
-    toggleBtn.addEventListener("click", toggleMenu);
-    nav.addEventListener("click", e => e.stopPropagation());
-    document.addEventListener("click", closeMenu);
+    function onDocClick() {
+      closeMenu();
+    }
 
-    // 点任意菜单链接后自动关闭（手机体验）
+    function onAnyNavLinkClick() {
+      closeMenu();
+    }
+
+    // ✅ 防止重复 init 导致监听叠加：用 dataset 标记
+    if (header.dataset.headerInited === "1") return;
+    header.dataset.headerInited = "1";
+
+    toggleBtn.addEventListener("click", onToggleClick);
+    nav.addEventListener("click", onNavClick);
+    document.addEventListener("click", onDocClick);
+
     nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", closeMenu);
+      a.addEventListener("click", onAnyNavLinkClick);
     });
   }
 
-  // ---------- 2) 当前页面高亮 ----------
+  // =========================
+  // 2) Active highlight
+  // =========================
   function highlightCurrentPage() {
     const currentPage = document.body.dataset.page;
     if (!currentPage) return;
@@ -46,25 +109,9 @@
     });
   }
 
-  // ✅ 计算站点 basePath（兼容 GitHub Pages project: /taitcm/）
-  function getBasePath() {
-    // 例：
-    // /taitcm/index.html           -> /taitcm/
-    // /taitcm/en/index.html        -> /taitcm/
-    // /index.html                  -> /
-    const parts = window.location.pathname.split("/").filter(Boolean); // ["taitcm","en","index.html"]
-    if (parts.length === 0) return "/";
-
-    const first = parts[0];
-
-    // 如果第一段就是 html 文件名，说明在根目录（用户主页站点）
-    if (first.endsWith(".html")) return "/";
-
-    // 否则第一段就是项目名（taitcm）
-    return "/" + first + "/";
-  }
-
-  // ---------- 3) 语言切换：保持在对应页面（✅ 修复 /taitcm/） ----------
+  // =========================
+  // 3) Language switch mapping
+  // =========================
   function updateLangSwitchLinks() {
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
@@ -74,17 +121,9 @@
     const enA = links[1]; // 第二个 a = EN
     if (!deA || !enA) return;
 
-    const base = getBasePath();
-
-    // pathParts: e.g. ["taitcm","en","contact.html"] 或 ["taitcm","kontakt.html"]
-    const pathParts = window.location.pathname.split("/").filter(Boolean);
-
-    const isEN = pathParts.includes("en");
-
-    // 当前文件名（无 query/hash）
-    const file = (pathParts[pathParts.length - 1] || "index.html")
-      .split("?")[0]
-      .split("#")[0];
+    const base = getBasePath();        // "/" 或 "/taitcm/"
+    const isEN = isEnglishPath();      // true/false
+    const file = getCurrentFile();     // "kontakt.html" / "contact.html" / "index.html"
 
     // 德语 -> 英文 对应表
     const deToEn = {
@@ -116,7 +155,9 @@
     }
   }
 
-  // ===== 对外入口（header 是 fetch 进来的，所以必须在 header 插入后调用）=====
+  // =========================
+  // 4) Public entry (call after header fetched)
+  // =========================
   window.initSiteHeader = function () {
     initHeader();
     highlightCurrentPage();
