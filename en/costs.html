@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Treatment Costs – TAI TCM GmbH</title>
 
-  <!-- ✅ absolute path, shared by DE / EN -->
   <link rel="stylesheet" href="../style/style.css">
+
+  <!-- ✅ main.js 先加载（defer），这样 fetch 回调里 initSiteHeader 一定存在 -->
+  <script src="../js/main.js" defer></script>
 
   <style>
     :root {
       --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
                    "Segoe UI", Roboto, Arial, sans-serif;
     }
-
     body, h1, h2, h3, h4, h5, h6, p, li, a, button,
     input, textarea {
       font-family: var(--font-apple) !important;
@@ -26,26 +27,18 @@
 
 <div class="content-wrapper">
 
-  <!-- ========================================================= -->
   <!-- Header -->
-  <!-- ========================================================= -->
   <div id="header-placeholder"></div>
-
   <script>
     fetch("./components/header.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
-        /* menu + active handled globally in main.js */
-        if (window.initSiteHeader) {
-          window.initSiteHeader();
-        }
+        if (window.initSiteHeader) window.initSiteHeader();
       });
   </script>
 
-  <!-- ========================================================= -->
   <!-- HERO -->
-  <!-- ========================================================= -->
   <section class="hero-split">
     <div class="hero-overlay">
       <div class="hero-content">
@@ -82,30 +75,22 @@
       </div>
 
       <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Tuina massage approx. 60 min</div>
-        </div>
+        <div class="price-left"><div class="price-item">Tuina massage approx. 60 min</div></div>
         <div class="price-right">150.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Acupuncture 45 min</div>
-        </div>
+        <div class="price-left"><div class="price-item">Acupuncture 45 min</div></div>
         <div class="price-right">120.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">TCM diagnostic consultation approx. 10 min</div>
-        </div>
+        <div class="price-left"><div class="price-item">TCM diagnostic consultation approx. 10 min</div></div>
         <div class="price-right">30.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Cupping therapy approx. 15 min</div>
-        </div>
+        <div class="price-left"><div class="price-item">Cupping therapy approx. 15 min</div></div>
         <div class="price-right">45.–</div>
       </div>
 
@@ -126,9 +111,7 @@
       </div>
 
       <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Auricular acupuncture</div>
-        </div>
+        <div class="price-left"><div class="price-item">Auricular acupuncture</div></div>
         <div class="price-right">30.–</div>
       </div>
 
@@ -143,11 +126,8 @@
     </div>
   </section>
 
-  <!-- ========================================================= -->
   <!-- Footer -->
-  <!-- ========================================================= -->
   <div id="footer-placeholder"></div>
-
   <script>
     fetch("./components/footer.html")
       .then(r => r.text())
@@ -157,7 +137,6 @@
   </script>
 
 </div> <!-- END content-wrapper -->
-<script src="../js/main.js"></script>
 
 </body>
 </html>
