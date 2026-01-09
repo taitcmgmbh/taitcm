@@ -1,55 +1,34 @@
+/* js/main.js
+   - Mobile hamburger menu
+   - Active nav highlight
+   - Language switch DE <-> EN keeping the same page
+   - Works for:
+     1) GitHub Pages project site: /taitcm/...
+     2) Custom domain root site: /...
+*/
 (function () {
   "use strict";
 
-  // =========================
-  // 0) Helpers
-  // =========================
-  function safeRemoveListener(el, type, fn, opts) {
-    if (!el) return;
-    try { el.removeEventListener(type, fn, opts); } catch (e) {}
-  }
-
-  // ✅ 计算站点 basePath（兼容 GitHub Pages project: /taitcm/ 以及根域名）
+  // ---------- A) Detect base path ----------
+  // If your repo is published as a project site, URL starts with /taitcm/ (or any repo-name folder).
+  // If it's a custom domain root site, base is "/".
   function getBasePath() {
-    // 例：
-    // /taitcm/index.html           -> /taitcm/
-    // /taitcm/en/index.html        -> /taitcm/
-    // /en/index.html               -> /
-    // /index.html                  -> /
-    const parts = window.location.pathname.split("/").filter(Boolean);
-
-    if (parts.length === 0) return "/";
-
-    const first = parts[0];
-
-    // ✅ 根站点语言目录：/en/xxx -> base "/"
-    if (first === "en") return "/";
-
-    // ✅ 根站点：/index.html
-    if (first.endsWith(".html")) return "/";
-
-    // ✅ GitHub Pages project：/taitcm/...
-    return "/" + first + "/";
+    const p = window.location.pathname; // e.g. /taitcm/en/costs.html or /en/costs.html or /index.html
+    // ✅ Hard rule: if it starts with "/taitcm/", treat that as base. Otherwise base is root "/".
+    // (This avoids the classic mistake: treating "en" as a project folder.)
+    if (p.startsWith("/taitcm/")) return "/taitcm/";
+    return "/";
   }
 
-  // ✅ 判断是否在英文目录（兼容 /en/xxx 与 /taitcm/en/xxx）
-  function isEnglishPath() {
-    const parts = window.location.pathname.split("/").filter(Boolean);
-    // ["en","index.html"] 或 ["taitcm","en","index.html"]
-    return (parts[0] === "en") || (parts[1] === "en");
+  // Normalize path join (avoid double slashes)
+  function join(base, path) {
+    const b = base.endsWith("/") ? base : base + "/";
+    const s = path.startsWith("/") ? path.slice(1) : path;
+    return b + s;
   }
 
-  // ✅ 获取当前文件名（无 query/hash）
-  function getCurrentFile() {
-    const parts = window.location.pathname.split("/").filter(Boolean);
-    const last = parts[parts.length - 1] || "index.html";
-    return last.split("?")[0].split("#")[0];
-  }
-
-  // =========================
-  // 1) Hamburger menu
-  // =========================
-  function initHeader() {
+  // ---------- B) Hamburger menu ----------
+  function initHeaderMenu() {
     const header = document.querySelector(".site-header");
     if (!header) return;
 
@@ -57,75 +36,105 @@
     const toggleBtn = header.querySelector(".menu-toggle");
     if (!nav || !toggleBtn) return;
 
+    // Prevent duplicate listeners (if init called more than once)
+    if (toggleBtn.dataset.bound === "1") return;
+    toggleBtn.dataset.bound = "1";
+
     function openMenu() {
       nav.classList.add("show-menu");
       toggleBtn.setAttribute("aria-expanded", "true");
     }
-
     function closeMenu() {
       nav.classList.remove("show-menu");
       toggleBtn.setAttribute("aria-expanded", "false");
     }
-
-    function onToggleClick(e) {
+    function toggleMenu(e) {
       e.stopPropagation();
       nav.classList.contains("show-menu") ? closeMenu() : openMenu();
     }
 
-    function onNavClick(e) {
-      e.stopPropagation();
-    }
+    toggleBtn.addEventListener("click", toggleMenu);
+    nav.addEventListener("click", (e) => e.stopPropagation());
+    document.addEventListener("click", closeMenu);
 
-    function onDocClick() {
-      closeMenu();
-    }
-
-    function onAnyNavLinkClick() {
-      closeMenu();
-    }
-
-    // ✅ 防止重复 init 导致监听叠加：用 dataset 标记
-    if (header.dataset.headerInited === "1") return;
-    header.dataset.headerInited = "1";
-
-    toggleBtn.addEventListener("click", onToggleClick);
-    nav.addEventListener("click", onNavClick);
-    document.addEventListener("click", onDocClick);
-
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", onAnyNavLinkClick);
+    nav.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", closeMenu);
     });
   }
 
-  // =========================
-  // 2) Active highlight
-  // =========================
+  // ---------- C) Active nav highlight ----------
   function highlightCurrentPage() {
-    const currentPage = document.body.dataset.page;
+    const currentPage = document.body.dataset.page; // home/costs/about/contact/faq/...
     if (!currentPage) return;
 
-    document.querySelectorAll("nav a[data-page]").forEach(link => {
+    document.querySelectorAll("#navMenu a[data-page]").forEach((link) => {
       link.classList.toggle("active", link.dataset.page === currentPage);
     });
   }
 
-  // =========================
-  // 3) Language switch mapping
-  // =========================
+  // ---------- D) Rewrite header nav links (optional but makes everything consistent) ----------
+  // Even if header.html contains /index.html or ./index.html, we normalize them here.
+  function normalizeHeaderNavLinks() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    const nav = header.querySelector("#navMenu");
+    if (!nav) return;
+
+    const base = getBasePath();
+    const path = window.location.pathname;
+    const isEN = path.startsWith(join(base, "en/"));
+
+    // Map the logical pages to filenames
+    const map = isEN
+      ? {
+          home: "en/index.html",
+          costs: "en/costs.html",
+          about: "en/about.html",
+          contact: "en/contact.html",
+          faq: "en/faq.html",
+        }
+      : {
+          home: "index.html",
+          costs: "behandlungskosten.html",
+          about: "ueber-mich.html",
+          contact: "kontakt.html",
+          faq: "faq.html",
+        };
+
+    nav.querySelectorAll("a[data-page]").forEach((a) => {
+      const key = a.dataset.page;
+      if (!key || !map[key]) return;
+      a.href = join(base, map[key]);
+    });
+
+    // Also normalize logo link if present
+    const logoLink = header.querySelector(".logo-link");
+    if (logoLink) {
+      logoLink.href = join(base, isEN ? "en/index.html" : "index.html");
+    }
+  }
+
+  // ---------- E) Language switch (DE <-> EN keep same page) ----------
   function updateLangSwitchLinks() {
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
 
     const links = switchEl.querySelectorAll("a");
-    const deA = links[0]; // 第一个 a = DE
-    const enA = links[1]; // 第二个 a = EN
+    const deA = links[0];
+    const enA = links[1];
     if (!deA || !enA) return;
 
-    const base = getBasePath();        // "/" 或 "/taitcm/"
-    const isEN = isEnglishPath();      // true/false
-    const file = getCurrentFile();     // "kontakt.html" / "contact.html" / "index.html"
+    const base = getBasePath();
+    const fullPath = window.location.pathname;
 
-    // 德语 -> 英文 对应表
+    const isEN = fullPath.startsWith(join(base, "en/"));
+
+    // Current filename
+    const parts = fullPath.split("/").filter(Boolean);
+    const file = (parts[parts.length - 1] || "index.html").split("?")[0].split("#")[0];
+
+    // DE -> EN mapping
     const deToEn = {
       "index.html": "index.html",
       "behandlungskosten.html": "costs.html",
@@ -134,33 +143,34 @@
       "faq.html": "faq.html",
       "impressum.html": "imprint.html",
       "datenschutz.html": "privacy.html",
-      "barrierefreiheit.html": "accessibility.html"
+      "barrierefreiheit.html": "accessibility.html",
     };
 
-    // 英文 -> 德语（反转映射）
-    const enToDe = Object.fromEntries(
-      Object.entries(deToEn).map(([de, en]) => [en, de])
-    );
+    // EN -> DE mapping
+    const enToDe = Object.fromEntries(Object.entries(deToEn).map(([de, en]) => [en, de]));
 
     if (!isEN) {
-      // 当前是德语页：EN 跳到对应英文页；DE 保持当前页
+      // On DE page
       const enFile = deToEn[file] || "index.html";
-      deA.href = base + file;
-      enA.href = base + "en/" + enFile;
+      deA.href = join(base, file);
+      enA.href = join(base, "en/" + enFile);
     } else {
-      // 当前是英文页：DE 跳到对应德语页；EN 保持当前页
+      // On EN page (IMPORTANT: file is like "costs.html", "index.html"...)
       const deFile = enToDe[file] || "index.html";
-      deA.href = base + deFile;
-      enA.href = base + "en/" + file;
+      deA.href = join(base, deFile);
+      enA.href = join(base, "en/" + file);
     }
+
+    // Prevent "#" jumps if someone left href="#" in header.html
+    if (deA.getAttribute("href") === "#") deA.setAttribute("href", deA.href);
+    if (enA.getAttribute("href") === "#") enA.setAttribute("href", enA.href);
   }
 
-  // =========================
-  // 4) Public entry (call after header fetched)
-  // =========================
+  // ---------- Public entry ----------
   window.initSiteHeader = function () {
-    initHeader();
+    initHeaderMenu();
     highlightCurrentPage();
+    normalizeHeaderNavLinks();
     updateLangSwitchLinks();
   };
 })();
