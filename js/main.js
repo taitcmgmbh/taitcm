@@ -46,21 +46,43 @@
     });
   }
 
-  // ---------- 3) 语言切换：保持在对应页面 ----------
+  // ✅ 计算站点 basePath（兼容 GitHub Pages project: /taitcm/）
+  function getBasePath() {
+    // 例：
+    // /taitcm/index.html           -> /taitcm/
+    // /taitcm/en/index.html        -> /taitcm/
+    // /index.html                  -> /
+    const parts = window.location.pathname.split("/").filter(Boolean); // ["taitcm","en","index.html"]
+    if (parts.length === 0) return "/";
+
+    const first = parts[0];
+
+    // 如果第一段就是 html 文件名，说明在根目录（用户主页站点）
+    if (first.endsWith(".html")) return "/";
+
+    // 否则第一段就是项目名（taitcm）
+    return "/" + first + "/";
+  }
+
+  // ---------- 3) 语言切换：保持在对应页面（✅ 修复 /taitcm/） ----------
   function updateLangSwitchLinks() {
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
 
     const links = switchEl.querySelectorAll("a");
-    const deA = links[0]; // 约定：第一个 a = DE
-    const enA = links[1]; // 约定：第二个 a = EN
+    const deA = links[0]; // 第一个 a = DE
+    const enA = links[1]; // 第二个 a = EN
     if (!deA || !enA) return;
 
-    const path = window.location.pathname; // e.g. /kontakt.html 或 /en/contact.html
-    const isEN = path.startsWith("/en/");
+    const base = getBasePath();
+
+    // pathParts: e.g. ["taitcm","en","contact.html"] 或 ["taitcm","kontakt.html"]
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+    const isEN = pathParts.includes("en");
 
     // 当前文件名（无 query/hash）
-    const file = (path.split("/").pop() || "index.html")
+    const file = (pathParts[pathParts.length - 1] || "index.html")
       .split("?")[0]
       .split("#")[0];
 
@@ -84,13 +106,13 @@
     if (!isEN) {
       // 当前是德语页：EN 跳到对应英文页；DE 保持当前页
       const enFile = deToEn[file] || "index.html";
-      deA.href = "/" + file;
-      enA.href = "/en/" + enFile;
+      deA.href = base + file;
+      enA.href = base + "en/" + enFile;
     } else {
       // 当前是英文页：DE 跳到对应德语页；EN 保持当前页
       const deFile = enToDe[file] || "index.html";
-      deA.href = "/" + deFile;
-      enA.href = "/en/" + file;
+      deA.href = base + deFile;
+      enA.href = base + "en/" + file;
     }
   }
 
