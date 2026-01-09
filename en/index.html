@@ -8,7 +8,7 @@
 <!-- ✅ GitHub Pages（/taitcm/en/）正确写法：回到上一级 -->
 <link rel="stylesheet" href="../style/style.css">
 
-<!-- ✅ ✅ 关键改动 #1：提前加载 main.js（必须用 defer） -->
+<!-- ✅ 提前加载 main.js（必须用 defer） -->
 <script src="../js/main.js" defer></script>
 
 <style>
@@ -39,7 +39,7 @@ fetch("./components/header.html")
   .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
 
-      // ✅ 关键改动 #2：header 插入后再初始化（main.js 已 defer 进来）
+      // ✅ header 插入后再初始化（main.js 已 defer 进来）
       if (window.initSiteHeader) {
         window.initSiteHeader();
       }
@@ -128,9 +128,9 @@ fetch("./components/header.html")
     <!-- Room 1 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
-        data-img="./assets/Akupunktur-Raum-Oerlikon.jpg"
+        data-img="../assets/Akupunktur-Raum-Oerlikon.jpg"
         data-alt="Treatment room 1">
-        <img src="./assets/Akupunktur-Raum-Oerlikon.jpg"
+        <img src="../assets/Akupunktur-Raum-Oerlikon.jpg"
              alt="Treatment room 1"
              loading="lazy">
       </button>
@@ -139,9 +139,9 @@ fetch("./components/header.html")
     <!-- Room 2 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
-        data-img="./assets/Massage-Raum-Oerlikon.jpg"
+        data-img="../assets/Massage-Raum-Oerlikon.jpg"
         data-alt="Treatment room 2">
-        <img src="./assets/Massage-Raum-Oerlikon.jpg"
+        <img src="../assets/Massage-Raum-Oerlikon.jpg"
              alt="Treatment room 2"
              loading="lazy">
       </button>
