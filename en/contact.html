@@ -48,7 +48,7 @@
   <!-- Header (EN) -->
   <div id="header-placeholder"></div>
   <script>
-    fetch("./en/components/header.html")
+    fetch("./components/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -169,7 +169,7 @@
   <!-- Footer (EN) -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("./en/components/footer.html")
+    fetch("./components/footer.html")
       .then(res => res.text())
       .then(html => document.getElementById("footer-placeholder").innerHTML = html);
   </script>
