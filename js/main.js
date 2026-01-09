@@ -10,13 +10,11 @@
   "use strict";
 
   // ---------- A) Detect base path ----------
-  // If your repo is published as a project site, URL starts with /taitcm/ (or any repo-name folder).
-  // If it's a custom domain root site, base is "/".
   function getBasePath() {
     const p = window.location.pathname; // e.g. /taitcm/en/costs.html or /en/costs.html or /index.html
-    // ✅ Hard rule: if it starts with "/taitcm/", treat that as base. Otherwise base is root "/".
-    // (This avoids the classic mistake: treating "en" as a project folder.)
+    // ✅ Project-site base (GitHub Pages repo name)
     if (p.startsWith("/taitcm/")) return "/taitcm/";
+    // ✅ Custom domain root
     return "/";
   }
 
@@ -25,6 +23,37 @@
     const b = base.endsWith("/") ? base : base + "/";
     const s = path.startsWith("/") ? path.slice(1) : path;
     return b + s;
+  }
+
+  // ✅ Robust: get current page filename
+  // Handles:
+  // - /taitcm/en/index.html
+  // - /taitcm/en/
+  // - /en/
+  // - /taitcm/
+  function getCurrentFile() {
+    const base = getBasePath();
+    let p = window.location.pathname;
+
+    // Strip base prefix
+    if (p.startsWith(base)) p = p.slice(base.length); // e.g. "en/index.html" or "index.html" or "en/"
+    p = p.replace(/^\/+/, ""); // remove leading slashes if any
+
+    // If ends with "/" -> treat as index.html
+    if (p === "" || p.endsWith("/")) return "index.html";
+
+    const last = p.split("/").pop() || "index.html";
+
+    // If last segment has no ".html" (rare, but can happen) => treat as index.html
+    if (!last.includes(".")) return "index.html";
+
+    return last.split("?")[0].split("#")[0];
+  }
+
+  // ✅ Robust: is current in EN folder?
+  function isEnglishPage() {
+    const base = getBasePath();
+    return window.location.pathname.startsWith(join(base, "en/"));
   }
 
   // ---------- B) Hamburger menu ----------
@@ -72,8 +101,7 @@
     });
   }
 
-  // ---------- D) Rewrite header nav links (optional but makes everything consistent) ----------
-  // Even if header.html contains /index.html or ./index.html, we normalize them here.
+  // ---------- D) Force rewrite header nav + logo ----------
   function normalizeHeaderNavLinks() {
     const header = document.querySelector(".site-header");
     if (!header) return;
@@ -82,10 +110,9 @@
     if (!nav) return;
 
     const base = getBasePath();
-    const path = window.location.pathname;
-    const isEN = path.startsWith(join(base, "en/"));
+    const isEN = isEnglishPage();
 
-    // Map the logical pages to filenames
+    // Map logical pages -> filenames
     const map = isEN
       ? {
           home: "en/index.html",
@@ -102,13 +129,14 @@
           faq: "faq.html",
         };
 
+    // Force rewrite nav links (ignore whatever is in header.html)
     nav.querySelectorAll("a[data-page]").forEach((a) => {
       const key = a.dataset.page;
       if (!key || !map[key]) return;
       a.href = join(base, map[key]);
     });
 
-    // Also normalize logo link if present
+    // Force rewrite logo link
     const logoLink = header.querySelector(".logo-link");
     if (logoLink) {
       logoLink.href = join(base, isEN ? "en/index.html" : "index.html");
@@ -126,13 +154,8 @@
     if (!deA || !enA) return;
 
     const base = getBasePath();
-    const fullPath = window.location.pathname;
-
-    const isEN = fullPath.startsWith(join(base, "en/"));
-
-    // Current filename
-    const parts = fullPath.split("/").filter(Boolean);
-    const file = (parts[parts.length - 1] || "index.html").split("?")[0].split("#")[0];
+    const isEN = isEnglishPage();
+    const file = getCurrentFile(); // ✅ always "index.html" / "costs.html" etc.
 
     // DE -> EN mapping
     const deToEn = {
@@ -155,13 +178,13 @@
       deA.href = join(base, file);
       enA.href = join(base, "en/" + enFile);
     } else {
-      // On EN page (IMPORTANT: file is like "costs.html", "index.html"...)
+      // On EN page
       const deFile = enToDe[file] || "index.html";
       deA.href = join(base, deFile);
       enA.href = join(base, "en/" + file);
     }
 
-    // Prevent "#" jumps if someone left href="#" in header.html
+    // If header.html uses href="#" keep it overridden
     if (deA.getAttribute("href") === "#") deA.setAttribute("href", deA.href);
     if (enA.getAttribute("href") === "#") enA.setAttribute("href", enA.href);
   }
