@@ -190,7 +190,7 @@ nav a.active {
 .feature-box {
   padding: 26px 28px;
   border-radius: 18px;
-  background: var(--card-bg);
+  background:none;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
