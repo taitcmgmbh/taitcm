@@ -2,8 +2,8 @@
 <div class="header-container">
   <header class="site-header">
 
-    <!-- Logo -->
-    <a href="./index.html" class="logo-link" aria-label="TAI TCM – Startseite">
+    <!-- Logo (由 main.js 统一设置正确首页链接) -->
+    <a href="#" class="logo-link" aria-label="TAI TCM – Startseite" data-home-link>
       <img src="./assets/logo.webp" class="logo" alt="TAI TCM Logo">
     </a>
 
@@ -15,7 +15,7 @@
       ☰
     </button>
 
-    <!-- Navigation -->
+    <!-- Navigation (链接保持当前语言目录下的相对路径即可) -->
     <nav id="navMenu" aria-label="Hauptnavigation">
       <a href="./index.html" data-page="home">Home</a>
       <a href="./behandlungskosten.html" data-page="costs">Behandlungskosten</a>
@@ -24,16 +24,13 @@
       <a href="./faq.html" data-page="faq">FAQ</a>
     </nav>
 
-    <!-- Language switch -->
+    <!-- Language switch (href 交给 main.js 动态计算，保持在对应页) -->
     <div class="lang-switch" aria-label="Sprache wechseln">
-      <a href="./index.html"
-         class="active"
-         aria-current="page"
-         data-lang="de">DE</a>
+      <a href="#" class="active" aria-current="page" data-lang="de">DE</a>
       <span>|</span>
-      <a href="./en/index.html"
-         data-lang="en">EN</a>
+      <a href="#" data-lang="en">EN</a>
     </div>
 
   </header>
 </div>
+
