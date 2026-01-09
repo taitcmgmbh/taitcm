@@ -253,6 +253,16 @@ nav a.active {
 @media (max-width: 850px) {
   .testimonial-grid { grid-template-columns: 1fr; }
 }
+.features,
+.testimonials,
+.clinic-photos,
+.price-section {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
 
 /* ===========================================
    PRICE LIST
