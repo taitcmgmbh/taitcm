@@ -8,6 +8,9 @@
 <!-- ✅ GitHub Pages（/taitcm/en/）正确写法：回到上一级 -->
 <link rel="stylesheet" href="../style/style.css">
 
+<!-- ✅ ✅ 关键改动 #1：提前加载 main.js（必须用 defer） -->
+<script src="../js/main.js" defer></script>
+
 <style>
 :root {
     --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
@@ -36,7 +39,7 @@ fetch("./components/header.html")
   .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
 
-      // ✅ 汉堡 + 高亮 + 语言切换统一交给 main.js
+      // ✅ 关键改动 #2：header 插入后再初始化（main.js 已 defer 进来）
       if (window.initSiteHeader) {
         window.initSiteHeader();
       }
@@ -211,7 +214,6 @@ fetch("./components/footer.html")
 </script>
 
 </div> <!-- content-wrapper END -->
-
 
 </body>
 </html>
