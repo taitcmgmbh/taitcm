@@ -215,15 +215,18 @@ nav a.active {
 /* ===========================================
    TESTIMONIALS
 =========================================== */
+
 .stars {
   color: #E8B923;
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 .testimonials h2 {
   text-align: center;
   font-size: 30px;
 }
+
 .testimonials .subtitle {
   text-align: center;
   margin-top: 6px;
@@ -231,12 +234,14 @@ nav a.active {
   color: #244b3a;
   font-size: 17px;
 }
+
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
   padding: 20px 10px;
 }
+
 .card {
   background: var(--card-bg);
   padding: 26px 30px;
@@ -245,14 +250,20 @@ nav a.active {
   font-size: 17px;
   font-style: italic;
 }
+
 .card .author {
   margin-top: 14px;
   font-weight: bold;
   font-style: normal;
 }
+
 @media (max-width: 850px) {
-  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* 页面统一内容宽度 */
 .features,
 .testimonials,
 .clinic-photos,
@@ -263,19 +274,7 @@ nav a.active {
   padding-left: 24px;
   padding-right: 24px;
 }
-/* ✅ Testimonials 标题居中（不影响卡片网格） */
-.testimonials h2,
-.testimonials .subtitle {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-/* 如果你还想让整个区块内容默认居中（标题+副标题更稳） */
-.testimonials {
-  text-align: center;
-}
-/* ===========================================
    PRICE LIST
 =========================================== */
 .price-section { text-align: center; }
