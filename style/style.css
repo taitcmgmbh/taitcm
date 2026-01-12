@@ -972,3 +972,41 @@ nav a.active {
     border-bottom: none;
   }
 }
+/* ===== FIX: Prices / Behandlungskosten 居中对齐 ===== */
+
+/* 1) 价格区块整体：限制宽度 + 居中 */
+.price-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 2) 标题：跟整个区块一致（你现在标题明显比表格更靠左） */
+.price-section .price-title,
+.price-section h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3) 表格：再单独收窄并居中（看起来更“往中间凑”） */
+.price-table {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 4) 行：左右两列对齐更稳定 */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* 左列自动占满，右列价格固定宽度 */
+.price-left { flex: 1; }
+.price-right {
+  width: 110px;
+  text-align: right;
+  white-space: nowrap;
+}
