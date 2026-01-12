@@ -278,27 +278,67 @@ nav a.active {
   padding-right: 24px;
 }
 
+/* ===========================================
    PRICE LIST
 =========================================== */
-.price-section { text-align: center; }
-.price-title { font-size: 28px; margin-bottom: 20px; }
-.price-table { max-width: 820px; margin: 0 auto; }
-.price-row {
+
+/* 外层区块：确保整个模块居中 */
+.price-section{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 标题必须居中（不受其它 left !important 影响） */
+.price-title{
+  font-size: 28px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+/* 表格整体再收窄并居中（你想“往中间凑凑”就是靠它） */
+.price-table{
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* 每一行：左右两列 */
+.price-row{
   display: flex;
   justify-content: space-between;
+  gap: 24px;
   padding: 18px 0;
   border-bottom: 1px solid rgba(0,0,0,0.18);
 }
-.price-row,
+
+/* 左边内容允许左对齐，但不要用 !important 去污染其它元素 */
 .price-left,
 .price-item,
-.price-desc { text-align: left !important; }
-@media (max-width: 850px) {
-  .price-row {
+.price-desc{
+  text-align: left;
+}
+
+/* 右侧价格列固定宽度 + 右对齐 */
+.price-right{
+  width: 110px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 手机：改成上下排列 */
+@media (max-width: 850px){
+  .price-row{
     flex-direction: column;
     align-items: flex-start;
   }
+  .price-right{
+    width: auto;
+    text-align: left;
+    margin-top: 8px;
+  }
 }
+
 
 /* ===========================================
    CONTACT
@@ -971,42 +1011,4 @@ nav a.active {
   .site-header #navMenu a:last-child{
     border-bottom: none;
   }
-}
-/* ===== FIX: Prices / Behandlungskosten 居中对齐 ===== */
-
-/* 1) 价格区块整体：限制宽度 + 居中 */
-.price-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* 2) 标题：跟整个区块一致（你现在标题明显比表格更靠左） */
-.price-section .price-title,
-.price-section h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 3) 表格：再单独收窄并居中（看起来更“往中间凑”） */
-.price-table {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* 4) 行：左右两列对齐更稳定 */
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-/* 左列自动占满，右列价格固定宽度 */
-.price-left { flex: 1; }
-.price-right {
-  width: 110px;
-  text-align: right;
-  white-space: nowrap;
 }
