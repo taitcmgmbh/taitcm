@@ -1012,3 +1012,6 @@ nav a.active {
     border-bottom: none;
   }
 }
+/* 仅仅这一段，为你的动态组件预留位置 */
+#header-placeholder { min-height: 80px; display: block; }
+#footer-placeholder { min-height: 200px; display: block; }
