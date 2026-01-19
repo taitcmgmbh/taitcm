@@ -30,15 +30,25 @@
   <div class="content-wrapper">
 
     <!-- ================= HEADER ================= -->
-    <div id="header-placeholder"></div>
-    <script>
-      fetch("./components/header.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("header-placeholder").innerHTML = html;
-          if (window.initSiteHeader) window.initSiteHeader();
-        });
-    </script>
+   <div id="header-placeholder"></div>
+<script>
+  fetch("./components/header.html")
+    .then(r => {
+      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
+      return r.text();
+    })
+    .then(html => {
+      const el = document.getElementById("header-placeholder");
+      if (el) el.innerHTML = html;
+      if (window.initSiteHeader) window.initSiteHeader();
+    })
+    .catch(err => {
+      console.error("Error loading header:", err);
+      const el = document.getElementById("header-placeholder");
+      if (el) el.innerHTML = "<!-- header failed to load -->";
+    });
+</script>
+
 
     <!-- ================= HERO ================= -->
     <section class="hero-split">
@@ -194,14 +204,24 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 </section>
 
     <!-- ================= FOOTER ================= -->
-    <div id="footer-placeholder"></div>
-    <script>
-      fetch("./components/footer.html")
-        .then(r => r.text())
-        .then(html => {
-          document.getElementById("footer-placeholder").innerHTML = html;
-        });
-    </script>
+   <div id="footer-placeholder"></div>
+<script>
+  fetch("./components/footer.html")
+    .then(r => {
+      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
+      return r.text();
+    })
+    .then(html => {
+      const el = document.getElementById("footer-placeholder");
+      if (el) el.innerHTML = html;
+    })
+    .catch(err => {
+      console.error("Error loading footer:", err);
+      const el = document.getElementById("footer-placeholder");
+      if (el) el.innerHTML = "<!-- footer failed to load -->";
+    });
+</script>
+
 
   </div><!-- content-wrapper END -->
 
