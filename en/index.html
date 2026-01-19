@@ -29,22 +29,25 @@ input, textarea {
 <body data-page="home">
 
 <!-- ================= HEADER (inside wrapper) ================ -->
-<div class="content-wrapper">
-
 <div id="header-placeholder"></div>
-
 <script>
-fetch("./components/header.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // ✅ header 插入后再初始化（main.js 已 defer 进来）
-      if (window.initSiteHeader) {
-        window.initSiteHeader();
-      }
-  });
+  fetch("./components/header.html")
+    .then(r => {
+      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
+      return r.text();
+    })
+    .then(html => {
+      const el = document.getElementById("header-placeholder");
+      if (el) el.innerHTML = html;
+      if (window.initSiteHeader) window.initSiteHeader();
+    })
+    .catch(err => {
+      console.error("Error loading header:", err);
+      const el = document.getElementById("header-placeholder");
+      if (el) el.innerHTML = "<!-- header failed to load -->";
+    });
 </script>
+
 
 <!-- ================= HERO ================= -->
 <section class="hero-split">
@@ -204,13 +207,21 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 
 <!-- ================= FOOTER ================= -->
 <div id="footer-placeholder"></div>
-
 <script>
-fetch("./components/footer.html")
-  .then(r => r.text())
-  .then(html => {
-      document.getElementById("footer-placeholder").innerHTML = html;
-  });
+  fetch("./components/footer.html")
+    .then(r => {
+      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
+      return r.text();
+    })
+    .then(html => {
+      const el = document.getElementById("footer-placeholder");
+      if (el) el.innerHTML = html;
+    })
+    .catch(err => {
+      console.error("Error loading footer:", err);
+      const el = document.getElementById("footer-placeholder");
+      if (el) el.innerHTML = "<!-- footer failed to load -->";
+    });
 </script>
 
 </div> <!-- content-wrapper END -->
