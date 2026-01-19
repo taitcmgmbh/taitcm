@@ -67,18 +67,19 @@ html, body { overflow-x: hidden; }
 }
 .logo { height: 50px; }
 
-nav {
+/* ✅ 仅作用于 header 的 nav，避免误伤其它页面 nav */
+.site-header #navMenu {
   flex: 1;
   display: flex;
   justify-content: center;
   gap: 32px;
 }
-nav a {
+.site-header #navMenu a {
   text-decoration: none;
   color: #0E2F24;
   font-weight: 550;
 }
-nav a.active {
+.site-header #navMenu a.active {
   border-bottom: 2px solid #0E2F24;
   padding-bottom: 3px;
 }
@@ -99,12 +100,12 @@ nav a.active {
   font-weight: 700;
 }
 
+/* desktop default */
 .menu-toggle {
   display: none;
   font-size: 30px;
   cursor: pointer;
 }
-
 
 /* ===========================================
    HERO（苹果风）
@@ -190,7 +191,7 @@ nav a.active {
 .feature-box {
   padding: 26px 28px;
   border-radius: 18px;
-  background:none;
+  background: none;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -215,7 +216,6 @@ nav a.active {
 /* ===========================================
    TESTIMONIALS
 =========================================== */
-
 .stars {
   color: #E8B923;
   font-size: 20px;
@@ -338,7 +338,6 @@ nav a.active {
     margin-top: 8px;
   }
 }
-
 
 /* ===========================================
    CONTACT
@@ -559,8 +558,8 @@ nav a.active {
 /* Kontakt: 左右两列固定比例，避免 DE/EN 文案导致布局变化 */
 .kontakt-left,
 .kontakt-right{
-  flex: 1 1 0;   /* 两列各占一半（可改成 1.2/0.8 等比例） */
-  min-width: 0;  /* 关键：允许内容缩小，否则会被标题撑开 */
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 /* 可选：让两列从顶部对齐 */
@@ -752,6 +751,7 @@ nav a.active {
   }
   .cert-item img { max-width: 260px; }
 }
+
 /* ==============================
    CERTIFICATES – NAREG single + 2x2 below
 ============================== */
@@ -849,89 +849,11 @@ nav a.active {
   font-size: 26px;
   cursor: pointer;
 }
-/* ===============================
-   HEADER + MOBILE HAMBURGER MENU (DROP-IN)
-   Paste into style/style.css (near the end)
-=============================== */
 
-/* Desktop: hamburger hidden by default */
-.menu-toggle {
-  display: none;
-}
-
-/* Mobile layout */
-@media (max-width: 850px) {
-
-  /* Header container spacing */
-  .header-container {
-    max-width: 100%;
-    margin: 0;
-    padding: 0 16px;
-  }
-
-  /* Make sure header stays on top of hero overlays etc. */
-  .site-header {
-    position: relative;
-    z-index: 10000;
-  }
-
-  /* Hamburger button */
-  .menu-toggle {
-    display: inline-flex;          /* show on mobile */
-    align-items: center;
-    justify-content: center;
-    position: relative;            /* IMPORTANT for z-index */
-    z-index: 10001;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-
-    /* remove default button styles */
-    background: none;
-    border: none;
-    padding: 8px 10px;
-    margin: 0;
-  }
-
-  /* IMPORTANT: only control the header navMenu (avoid styling other navs) */
-  .site-header #navMenu {
-    display: none;                 /* hidden by default */
-    position: absolute;
-    top: 64px;
-    right: 0;
-    width: 260px;
-
-    background: #ffffff;
-    padding: 16px 18px;
-    border-radius: 14px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-    z-index: 10000;
-  }
-
-  /* Show menu when JS adds .show-menu */
-  .site-header #navMenu.show-menu {
-    display: block;
-  }
-
-  /* Menu links */
-  .site-header #navMenu a {
-    display: block;
-    padding: 12px 0;
-    font-size: 18px;
-    color: #0E2F24;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-  }
-
-  .site-header #navMenu a:last-child {
-    border-bottom: none;
-  }
-}
 /* ===============================
    FIX: GLASS / BACKDROP FILTER
    (put near the END of style.css)
 =============================== */
-
 .content-wrapper {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -1012,6 +934,8 @@ nav a.active {
     border-bottom: none;
   }
 }
+
 /* 仅仅这一段，为你的动态组件预留位置 */
 #header-placeholder { min-height: 80px; display: block; }
 #footer-placeholder { min-height: 200px; display: block; }
+
