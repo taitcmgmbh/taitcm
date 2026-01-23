@@ -229,29 +229,45 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 
 <script>
 (function() {
-  window.addEventListener('load', function() {
+  // 1. 定义一个触发函数
+  function initBooking() {
     const myBtn = document.getElementById('booking-button-de');
     const hiddenBox = document.getElementById('google-hidden-container');
+    
+    if (!myBtn || !hiddenBox) return;
 
-    // 1. 让 Google 悄悄地在隐藏盒子内初始化
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
-      color: '#2c3e50',
-      target: hiddenBox, // 指向隐藏盒子，黑框就永远不会出现在页面上
+    // 2. 让 Google 在隐藏盒子内加载
+    if (window.calendar && window.calendar.schedulingButton) {
+      window.calendar.schedulingButton.load({
+        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
+        color: '#2c3e50',
+        target: hiddenBox,
+      });
+    }
+
+    // 3. 增强版点击逻辑
+    myBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 尝试在隐藏盒子里找 Google 生成的按钮（兼容多种可能的标签）
+      const realGoogleBtn = hiddenBox.querySelector('button, [role="button"], .calendar-scheduling-button');
+      
+      if (realGoogleBtn) {
+        realGoogleBtn.click(); // 成功触发弹窗
+      } else {
+        // 【兜底方案】如果 Google 还没加载完，直接新开页面预约，保证生意不流失
+        console.log("Google script not ready, fallback to link.");
+        window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57', '_blank');
+      }
     });
-
-    // 2. 当病人点击您的绿色按钮时
-    // 修改这一段，增加一个跳转兜底
-myBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  const realGoogleBtn = hiddenBox.querySelector('button');
-  if (realGoogleBtn) {
-    realGoogleBtn.click();
-  } else {
-    // 万一脚本还没加载好，直接打开原链接，保证病人能约上
-    window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57', '_blank');
   }
-});
+
+  // 确保在页面加载完成后运行
+  if (document.readyState === 'complete') {
+    initBooking();
+  } else {
+    window.addEventListener('load', initBooking);
+  }
 })();
 </script>
 </body>
