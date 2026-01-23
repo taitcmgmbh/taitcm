@@ -51,19 +51,21 @@
 
 
     <!-- ================= HERO ================= -->
-    <section class="hero-split">
-      <div class="hero-overlay">
-        <div class="hero-content">
-  <h1>Herzlich willkommen im TAI TCM GmbH</h1>
-  <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
+   <section class="hero-split">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Herzlich willkommen im TAI TCM GmbH</h1>
+      <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
 
-  <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
-    Termin online buchen
-  </a>
-
-  <div id="google-hidden-container" style="display: none;"></div>
-</div>
-    </section>
+      <a class="btn-hero" 
+         href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57" 
+         target="_blank" 
+         rel="noopener">
+        Termin online buchen
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- ================= INFO ================= -->
     <div class="footer-box">
@@ -224,51 +226,6 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 
 
   </div><!-- content-wrapper END -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
-<script>
-(function() {
-  // 1. 定义一个触发函数
-  function initBooking() {
-    const myBtn = document.getElementById('booking-button-de');
-    const hiddenBox = document.getElementById('google-hidden-container');
-    
-    if (!myBtn || !hiddenBox) return;
-
-    // 2. 让 Google 在隐藏盒子内加载
-    if (window.calendar && window.calendar.schedulingButton) {
-      window.calendar.schedulingButton.load({
-        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
-        color: '#2c3e50',
-        target: hiddenBox,
-      });
-    }
-
-    // 3. 增强版点击逻辑
-    myBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // 尝试在隐藏盒子里找 Google 生成的按钮（兼容多种可能的标签）
-      const realGoogleBtn = hiddenBox.querySelector('button, [role="button"], .calendar-scheduling-button');
-      
-      if (realGoogleBtn) {
-        realGoogleBtn.click(); // 成功触发弹窗
-      } else {
-        // 【兜底方案】如果 Google 还没加载完，直接新开页面预约，保证生意不流失
-        console.log("Google script not ready, fallback to link.");
-        window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57', '_blank');
-      }
-    });
-  }
-
-  // 确保在页面加载完成后运行
-  if (document.readyState === 'complete') {
-    initBooking();
-  } else {
-    window.addEventListener('load', initBooking);
-  }
-})();
-</script>
 </body>
 </html>
