@@ -57,11 +57,11 @@
           <h1>Herzlich willkommen im TAI TCM GmbH</h1>
           <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
 
-    <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
+   <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
   Termin online buchen
 </a>
 
-<div id="google-scheduling-container" style="display: none;"></div>
+<div id="google-hidden-box" style="display: none;"></div>
 
 <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
@@ -70,23 +70,23 @@
 (function() {
   window.addEventListener('load', function() {
     const myBtn = document.getElementById('booking-button-de');
-    const hiddenContainer = document.getElementById('google-scheduling-container');
+    const hiddenBox = document.getElementById('google-hidden-box');
 
-    // 第一步：在页面加载时，就在隐藏容器里初始化 Google 逻辑
-    // 这样它只会加载一次，且不会在您的绿色按钮里产生黑框
+    // 第一步：在隐藏的盒子内初始化 Google 预约功能
+    // 这样它生成的任何“黑框”都在隐藏盒子内，病人看不见
     calendar.schedulingButton.load({
       url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
       color: '#2c3e50',
-      target: hiddenContainer,
+      target: hiddenBox,
     });
 
-    // 第二步：当病人点您的绿色按钮时，我们去触发那个隐藏按钮的点击事件
+    // 第二步：点击您的绿色按钮时，通过脚本去“点”那个隐藏的 Google 按钮
     myBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      // 找到 Google 在隐藏容器里生成的那个真正的按钮并点击它
-      const realGoogleBtn = hiddenContainer.querySelector('button');
+      // 在隐藏盒子里找到 Google 生成的那个真正的按钮
+      const realGoogleBtn = hiddenBox.querySelector('button');
       if (realGoogleBtn) {
-        realGoogleBtn.click();
+        realGoogleBtn.click(); // 触发弹出窗口
       }
     });
   });
