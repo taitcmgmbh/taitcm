@@ -57,11 +57,31 @@
           <h1>Herzlich willkommen im TAI TCM GmbH</h1>
           <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
 
-          <a class="btn-hero"
-             href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
-             target="_blank" rel="noopener">
-            Termin online buchen
-          </a>
+          <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
+  Termin online buchen
+</a>
+
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+<script>
+(function() {
+  window.addEventListener('load', function() {
+    const btn = document.getElementById('booking-button-de');
+    if (!btn) return;
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // 阻止跳转
+      calendar.schedulingButton.load({
+        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
+        color: '#2c3e50',
+        target: btn
+      });
+    });
+  });
+})();
+</script>
+
         </div>
       </div>
     </section>
