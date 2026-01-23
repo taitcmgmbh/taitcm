@@ -143,7 +143,9 @@ html, body { overflow-x: hidden; }
 }
 
 .btn-hero:hover { transform: translateY(-3px); }
-
+.btn-hero {
+    -webkit-tap-highlight-color: transparent; /* 消除 iOS 手机点击的高亮色 */
+}
 @media (max-width: 850px) {
   .hero-content {
     padding: 35px 20px;
