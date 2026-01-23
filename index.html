@@ -54,47 +54,15 @@
     <section class="hero-split">
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1>Herzlich willkommen im TAI TCM GmbH</h1>
-          <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
+  <h1>Herzlich willkommen im TAI TCM GmbH</h1>
+  <p>Praxis für Traditionelle Chinesische Medizin, Massage und Akupunktur</p>
 
-   <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
-  Termin online buchen
-</a>
+  <a class="btn-hero" id="booking-button-de" style="cursor: pointer;">
+    Termin online buchen
+  </a>
 
-<div id="google-hidden-box" style="display: none;"></div>
-
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-
-<script>
-(function() {
-  window.addEventListener('load', function() {
-    const myBtn = document.getElementById('booking-button-de');
-    const hiddenBox = document.getElementById('google-hidden-box');
-
-    // 第一步：在隐藏的盒子内初始化 Google 预约功能
-    // 这样它生成的任何“黑框”都在隐藏盒子内，病人看不见
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
-      color: '#2c3e50',
-      target: hiddenBox,
-    });
-
-    // 第二步：点击您的绿色按钮时，通过脚本去“点”那个隐藏的 Google 按钮
-    myBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      // 在隐藏盒子里找到 Google 生成的那个真正的按钮
-      const realGoogleBtn = hiddenBox.querySelector('button');
-      if (realGoogleBtn) {
-        realGoogleBtn.click(); // 触发弹出窗口
-      }
-    });
-  });
-})();
-</script>
-
-        </div>
-      </div>
+  <div id="google-hidden-container" style="display: none;"></div>
+</div>
     </section>
 
     <!-- ================= INFO ================= -->
@@ -256,6 +224,35 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
 
 
   </div><!-- content-wrapper END -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
+<script>
+(function() {
+  window.addEventListener('load', function() {
+    const myBtn = document.getElementById('booking-button-de');
+    const hiddenBox = document.getElementById('google-hidden-container');
+
+    // 1. 让 Google 悄悄地在隐藏盒子内初始化
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57',
+      color: '#2c3e50',
+      target: hiddenBox, // 指向隐藏盒子，黑框就永远不会出现在页面上
+    });
+
+    // 2. 当病人点击您的绿色按钮时
+    // 修改这一段，增加一个跳转兜底
+myBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  const realGoogleBtn = hiddenBox.querySelector('button');
+  if (realGoogleBtn) {
+    realGoogleBtn.click();
+  } else {
+    // 万一脚本还没加载好，直接打开原链接，保证病人能约上
+    window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57', '_blank');
+  }
+});
+})();
+</script>
 </body>
 </html>
