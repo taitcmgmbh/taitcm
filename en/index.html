@@ -6,10 +6,8 @@
 <title>TAI TCM GmbH – Traditional Chinese Medicine in Zurich</title>
 <meta name="description" content="TAI TCM is your trusted Traditional Chinese Medicine clinic in Zurich Oerlikon. We specialize in acupuncture, Tuina massage, and personalized treatments. Recognized by Swiss health insurance (Tariff 590).">
 
-<!-- ✅ GitHub Pages（/taitcm/en/）正确写法：回到上一级 -->
 <link rel="stylesheet" href="../style/style.css">
 
-<!-- ✅ 提前加载 main.js（必须用 defer） -->
 <script src="../js/main.js" defer></script>
 
 <style>
@@ -30,7 +28,6 @@ input, textarea {
 <body data-page="home">
 <div class="content-wrapper">
 
-<!-- ================= HEADER (inside wrapper) ================ -->
 <div id="header-placeholder"></div>
 <script>
   fetch("./components/header.html")
@@ -46,12 +43,12 @@ input, textarea {
     .catch(err => {
       console.error("Error loading header:", err);
       const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
+      if (el) el.innerHTML = "";
     });
 </script>
 
+<main id="main-content">
 
-<!-- ================= HERO ================= -->
 <section class="hero-split">
     <div class="hero-overlay">
         <div class="hero-content">
@@ -67,7 +64,6 @@ input, textarea {
     </div>
 </section>
 
-<!-- ================= Info notice ================= -->
 <div class="footer-box">
     During treatments I cannot answer phone calls.<br>
     Please book online.
@@ -75,7 +71,6 @@ input, textarea {
 
 <section class="features features-medical">
 
-  <!-- Left: Treatment -->
   <div class="feature-column">
     <h2 class="feature-group-title">Treatment & Medicine</h2>
 
@@ -96,7 +91,6 @@ input, textarea {
     </div>
   </div>
 
-  <!-- Right: Trust -->
   <div class="feature-column">
     <h2 class="feature-group-title">Experience & Trust</h2>
 
@@ -119,9 +113,6 @@ input, textarea {
 
 </section>
 
-<!-- ===============================
-   CLINIC PHOTOS (Homepage)
-================================ -->
 <section class="clinic-photos" aria-label="Clinic impressions">
   <div class="clinic-photos__header">
     <h2>Our treatment rooms</h2>
@@ -129,7 +120,6 @@ input, textarea {
   </div>
 
   <div class="clinic-photos__grid clinic-photos__grid--two">
-    <!-- Room 1 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
         data-img="../assets/Akupunktur-Raum-Oerlikon.jpg"
@@ -140,7 +130,6 @@ input, textarea {
       </button>
     </figure>
 
-    <!-- Room 2 -->
     <figure class="clinic-photo">
       <button class="clinic-photo__btn" type="button"
         data-img="../assets/Massage-Raum-Oerlikon.jpg"
@@ -176,7 +165,7 @@ Ich war auch schon in anderen TCM, aber seine manuelle Arbeit (Massage etc.) fin
 
     <div class="card">
       <p class="stars">★★★★★</p>
-      <p>„ Tai 醫師 is a highly skilled third-generation TCM practitioner with extensive expertise in both acupuncture and chiropractic.
+      <p>„ Tai 医师 is a highly skilled third-generation TCM practitioner with extensive expertise in both acupuncture and chiropractic.
 I would confidently recommend him to anyone seeking authentic, results-driven Traditional Chinese Medicine care.“</p>
       <p class="author">— Lim J.</p>
     </div>
@@ -206,8 +195,7 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<div id="footer-placeholder"></div>
+</main> <div id="footer-placeholder"></div>
 <script>
   fetch("./components/footer.html")
     .then(r => {
@@ -221,11 +209,9 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
     .catch(err => {
       console.error("Error loading footer:", err);
       const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
+      if (el) el.innerHTML = "";
     });
 </script>
 
-</div> <!-- content-wrapper END -->
-
-</body>
+</div> </body>
 </html>
