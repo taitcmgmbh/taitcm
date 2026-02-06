@@ -6,10 +6,8 @@
   <title>TAI TCM GmbH – Traditionelle Chinesische Medizin in Zürich</title>
 <meta name="description" content="TAI TCM ist Ihre Praxis für Traditionelle Chinesische Medizin in Zürich Oerlikon. Spezialisiert auf Akupunktur, Tuina-Massage und individuelle Therapie. Krankenkassen anerkannt (Tarif 590).">
 
-  <!-- ✅ 统一：站点根目录样式 -->
   <link rel="stylesheet" href="./style/style.css" />
 
-  <!-- ✅ main.js 必须提前加载（defer） -->
   <script src="./js/main.js" defer></script>
 
   <style>
@@ -30,8 +28,7 @@
 
   <div class="content-wrapper">
 
-    <!-- ================= HEADER ================= -->
-   <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 <script>
   fetch("./components/header.html")
     .then(r => {
@@ -46,13 +43,13 @@
     .catch(err => {
       console.error("Error loading header:", err);
       const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
+      if (el) el.innerHTML = "";
     });
 </script>
 
+    <main id="main-content">
 
-    <!-- ================= HERO ================= -->
-   <section class="hero-split">
+    <section class="hero-split">
   <div class="hero-overlay">
     <div class="hero-content">
       <h1>Herzlich willkommen im TAI TCM GmbH</h1>
@@ -68,13 +65,11 @@
   </div>
 </section>
 
-    <!-- ================= INFO ================= -->
     <div class="footer-box">
       Während der Behandlungen bin ich telefonisch nicht erreichbar.<br />
       Vielen Dank für Ihr Verständnis – bitte nutzen Sie die Online-Terminbuchung.
     </div>
 
-    <!-- ================= FEATURES ================= -->
     <section class="features features-medical">
 
       <div class="feature-column">
@@ -118,11 +113,10 @@
 
     </section>
 
-    <!-- ================= CLINIC PHOTOS ================= -->
     <section class="clinic-photos" aria-label="Praxis Impressionen">
       <div class="clinic-photos__header">
         <h2>Unsere Behandlungsräume</h2>
-        <p>Ruhige, saubere und professionelle Atmosphäre für Ihre Behandlung.</p>
+        <p>Ruhige, saubere and professionelle Atmosphäre für Ihre Behandlung.</p>
       </div>
 
       <div class="clinic-photos__grid clinic-photos__grid--two">
@@ -148,8 +142,7 @@
       </div>
     </section>
 
-    <!-- ================= TESTIMONIALS ================= -->
-   <section class="testimonials">
+    <section class="testimonials">
   <h2>Erfahrungsberichte</h2>
   <p class="subtitle">Was unsere Patientinnen und Patienten sagen</p>
 
@@ -202,11 +195,7 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
     </div>
 
   </div>
-</section>  <!-- ✅ 补这一行：testimonials section END -->
-
-
-    <!-- ================= FOOTER ================= -->
-   <div id="footer-placeholder"></div>
+</section>  </main> <div id="footer-placeholder"></div>
 <script>
   fetch("./components/footer.html")
     .then(r => {
@@ -220,12 +209,10 @@ A todo aquel que tenga problemas en general lo recomiendo.“</p>
     .catch(err => {
       console.error("Error loading footer:", err);
       const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
+      if (el) el.innerHTML = "";
     });
 </script>
 
 
-  </div><!-- content-wrapper END -->
-
-</body>
+  </div></body>
 </html>
