@@ -4,21 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me – TAI TCM GmbH</title>
-<meta name="description" content="Dr. Tai is a licensed TCM specialist trained in China with extensive experience in Switzerland. Professional diagnosis and holistic treatment approach.">
+  <meta name="description" content="Dr. Tai is a licensed TCM specialist trained in China with extensive experience in Switzerland. Professional diagnosis and holistic treatment approach.">
 
-  <!-- ✅ shared CSS -->
   <link rel="stylesheet" href="../style/style.css">
 
   <style>
     :root {
       --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
                    "Segoe UI", Roboto, Arial, sans-serif;
+      --tcm-teal: #7fbbad;
     }
 
     body, h1, h2, h3, h4, h5, h6, p, li, a, button,
     input, textarea {
       font-family: var(--font-apple) !important;
       font-weight: 400;
+    }
+
+    /* Link hover effect for better discoverability */
+    .spezial-wrapper ul li a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 1px dotted transparent;
+    }
+    .spezial-wrapper ul li a:hover {
+      color: var(--tcm-teal);
+      border-bottom: 1px dotted var(--tcm-teal);
     }
   </style>
   <script src="../js/main.js" defer></script>
@@ -29,28 +41,25 @@
 
 <div class="content-wrapper">
 
-  <!-- Header (EN) -->
   <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
+  <script>
+    fetch("./components/header.html")
+      .then(r => {
+        if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
+        return r.text();
+      })
+      .then(html => {
+        const el = document.getElementById("header-placeholder");
+        if (el) el.innerHTML = html;
+        if (window.initSiteHeader) window.initSiteHeader();
+      })
+      .catch(err => {
+        console.error("Error loading header:", err);
+        const el = document.getElementById("header-placeholder");
+        if (el) el.innerHTML = "";
+      });
+  </script>
 
-
-  <!-- HERO -->
   <section class="hero-split">
     <div class="hero-overlay">
       <div class="hero-content">
@@ -66,7 +75,6 @@
     </div>
   </section>
 
-  <!-- About section -->
   <section class="uebermich-section">
 
     <div class="uebermich-photo">
@@ -95,38 +103,36 @@
     </div>
 
   </section>
- <section class="certificates" aria-label="Certificates and Recognitions">
-  <h3 class="cert-title">Recognised Qualifications</h3>
-  <!-- ✅ 上面：NAREG 单独居中 -->
-  <div class="cert-single">
-    <button class="cert-item" type="button"
-      data-img="./assets/nareg.png" aria-label="NAREG registration">
-      <img src="./assets/nareg.png" alt="NAREG registration">
-    </button>
-  </div>
 
-  <!-- ✅ 下面：2×2（四张） -->
-  <div class="cert-grid-2x2">
-    <button class="cert-item" type="button" data-img="./assets/emr1.png" aria-label="EMR certificate 1">
-      <img src="./assets/emr1.png" alt="EMR certificate 1">
-    </button>
+  <section class="certificates" aria-label="Certificates and Recognitions">
+    <h3 class="cert-title">Recognised Qualifications</h3>
+    
+    <div class="cert-single">
+      <button class="cert-item" type="button"
+        data-img="./assets/nareg.png" aria-label="NAREG registration">
+        <img src="./assets/nareg.png" alt="NAREG registration">
+      </button>
+    </div>
 
-    <button class="cert-item" type="button" data-img="./assets/emr2.png" aria-label="EMR certificate 2">
-      <img src="./assets/emr2.png" alt="EMR certificate 2">
-    </button>
+    <div class="cert-grid-2x2">
+      <button class="cert-item" type="button" data-img="./assets/emr1.png" aria-label="EMR certificate 1">
+        <img src="./assets/emr1.png" alt="EMR certificate 1">
+      </button>
 
-    <button class="cert-item" type="button" data-img="./assets/emr3.png" aria-label="EMR certificate 3">
-      <img src="./assets/emr3.png" alt="EMR certificate 3">
-    </button>
+      <button class="cert-item" type="button" data-img="./assets/emr2.png" aria-label="EMR certificate 2">
+        <img src="./assets/emr2.png" alt="EMR certificate 2">
+      </button>
 
-    <!-- 右下角：ASCA -->
-    <button class="cert-item" type="button" data-img="./assets/asca.png" aria-label="ASCA recognition">
-      <img src="./assets/asca.png" alt="ASCA recognition">
-    </button>
-  </div>
-</section>
+      <button class="cert-item" type="button" data-img="./assets/emr3.png" aria-label="EMR certificate 3">
+        <img src="./assets/emr3.png" alt="EMR certificate 3">
+      </button>
 
-  <!-- Lightbox -->
+      <button class="cert-item" type="button" data-img="./assets/asca.png" aria-label="ASCA recognition">
+        <img src="./assets/asca.png" alt="ASCA recognition">
+      </button>
+    </div>
+  </section>
+
   <div class="lightbox" id="certLightbox" aria-hidden="true">
     <div class="lightbox__backdrop"></div>
     <div class="lightbox__content">
@@ -135,44 +141,92 @@
     </div>
   </div>
 
-  <!-- Specialities -->
   <section class="spezial-wrapper">
     <h2>TCM specialities for the following conditions:</h2>
 
     <ul>
-      <li><b>Neurological conditions:</b> migraine, headaches, dizziness, tinnitus, trigeminal neuralgia, post-stroke paralysis, urinary dysfunction, bladder weakness</li>
-      <li><b>Orthopaedic conditions:</b> low back pain, back pain, sciatica, neck–shoulder–arm syndrome, tennis elbow, arthritis, osteoarthritis, rheumatic conditions, Achilles tendon symptoms, heel pain</li>
-      <li><b>Internal medicine:</b> bronchitis, urinary tract infections, cardiac arrhythmia, hypertension, bloating, nausea, constipation, diarrhoea, digestive disorders, irritable bowel syndrome</li>
-      <li><b>Gynaecological conditions:</b> menstrual discomfort, pregnancy-related complaints, birth preparation, infertility, menopausal symptoms</li>
-      <li><b>Mental health:</b> depression, sleep disorders, burnout</li>
-      <li><b>Allergy & skin:</b> hay fever, asthma, acne, eczema, atopic dermatitis, psoriasis, ENT and eye-related conditions</li>
-      <li><b>Other:</b> smoking cessation, overweight, weakened immune system, supportive therapy before and after cancer/tumour surgery</li>
+      <li><b>Neurological conditions:</b> 
+        <a href="https://blog.taitcm.ch/en/migraine.html" target="_blank" rel="noopener">migraine</a>, 
+        <a href="https://blog.taitcm.ch/en/headaches.html" target="_blank" rel="noopener">headaches</a>, 
+        <a href="https://blog.taitcm.ch/en/dizziness.html" target="_blank" rel="noopener">dizziness</a>, 
+        <a href="https://blog.taitcm.ch/en/tinnitus.html" target="_blank" rel="noopener">tinnitus</a>, 
+        <a href="https://blog.taitcm.ch/en/trigeminal-neuralgia.html" target="_blank" rel="noopener">trigeminal neuralgia</a>, 
+        <a href="https://blog.taitcm.ch/en/post-stroke-paralysis.html" target="_blank" rel="noopener">post-stroke paralysis</a>, 
+        <a href="https://blog.taitcm.ch/en/bladder-emptying-disorder.html" target="_blank" rel="noopener">urinary dysfunction</a>, 
+        <a href="https://blog.taitcm.ch/en/bladder-weakness.html" target="_blank" rel="noopener">bladder weakness</a>
+      </li>
+      <li><b>Orthopaedic conditions:</b> 
+        <a href="https://blog.taitcm.ch/en/lumbago.html" target="_blank" rel="noopener">low back pain</a>, 
+        <a href="https://blog.taitcm.ch/en/back-pain.html" target="_blank" rel="noopener">back pain</a>, 
+        <a href="https://blog.taitcm.ch/en/sciatica.html" target="_blank" rel="noopener">sciatica</a>, 
+        <a href="https://blog.taitcm.ch/en/neck-shoulder-arm-syndrome.html" target="_blank" rel="noopener">neck–shoulder–arm syndrome</a>, 
+        <a href="https://blog.taitcm.ch/en/tennis-elbow.html" target="_blank" rel="noopener">tennis elbow</a>, 
+        <a href="https://blog.taitcm.ch/en/arthritis.html" target="_blank" rel="noopener">arthritis</a>, 
+        <a href="https://blog.taitcm.ch/en/arthritis.html" target="_blank" rel="noopener">osteoarthritis</a>, 
+        <a href="https://blog.taitcm.ch/en/rheumatism.html" target="_blank" rel="noopener">rheumatic conditions</a>, 
+        <a href="https://blog.taitcm.ch/en/achilles-tendon.html" target="_blank" rel="noopener">Achilles tendon symptoms</a>, 
+        <a href="https://blog.taitcm.ch/en/heel-pain.html" target="_blank" rel="noopener">heel pain</a>
+      </li>
+      <li><b>Internal medicine:</b> 
+        <a href="https://blog.taitcm.ch/en/bronchitis.html" target="_blank" rel="noopener">bronchitis</a>, 
+        <a href="https://blog.taitcm.ch/en/urinary-tract-infection.html" target="_blank" rel="noopener">urinary tract infections</a>, 
+        <a href="https://blog.taitcm.ch/en/arrhythmia.html" target="_blank" rel="noopener">cardiac arrhythmia</a>, 
+        <a href="https://blog.taitcm.ch/en/hypertension.html" target="_blank" rel="noopener">hypertension</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">bloating</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">nausea</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">constipation</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">diarrhoea</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">digestive disorders</a>, 
+        <a href="https://blog.taitcm.ch/en/digestive-disorders.html" target="_blank" rel="noopener">irritable bowel syndrome</a>
+      </li>
+      <li><b>Gynaecological conditions:</b> 
+        <a href="https://blog.taitcm.ch/en/menstrual-discomfort.html" target="_blank" rel="noopener">menstrual discomfort</a>, 
+        <a href="https://blog.taitcm.ch/en/pregnancy.html" target="_blank" rel="noopener">pregnancy-related complaints</a>, 
+        <a href="https://blog.taitcm.ch/en/pregnancy.html" target="_blank" rel="noopener">birth preparation</a>, 
+        <a href="https://blog.taitcm.ch/en/infertility.html" target="_blank" rel="noopener">infertility</a>, 
+        <a href="https://blog.taitcm.ch/en/menopause.html" target="_blank" rel="noopener">menopausal symptoms</a>
+      </li>
+      <li><b>Mental health:</b> 
+        <a href="https://blog.taitcm.ch/en/depression.html" target="_blank" rel="noopener">depression</a>, 
+        <a href="https://blog.taitcm.ch/en/sleep-disorders.html" target="_blank" rel="noopener">sleep disorders</a>, 
+        <a href="https://blog.taitcm.ch/en/burnout.html" target="_blank" rel="noopener">burnout</a>
+      </li>
+      <li><b>Allergy & skin:</b> 
+        <a href="https://blog.taitcm.ch/en/hay-fever.html" target="_blank" rel="noopener">hay fever</a>, 
+        <a href="https://blog.taitcm.ch/en/bronchitis.html" target="_blank" rel="noopener">asthma</a>, 
+        <a href="https://blog.taitcm.ch/en/acne.html" target="_blank" rel="noopener">acne</a>, 
+        <a href="https://blog.taitcm.ch/en/eczema.html" target="_blank" rel="noopener">eczema</a>, 
+        <a href="https://blog.taitcm.ch/en/eczema.html" target="_blank" rel="noopener">atopic dermatitis</a>, 
+        <a href="https://blog.taitcm.ch/en/eczema.html" target="_blank" rel="noopener">psoriasis</a>
+      </li>
+      <li><b>Other:</b> 
+        <a href="https://blog.taitcm.ch/en/smoking-cessation.html" target="_blank" rel="noopener">smoking cessation</a>, 
+        <a href="https://blog.taitcm.ch/en/overweight.html" target="_blank" rel="noopener">overweight</a>, 
+        <a href="https://blog.taitcm.ch/en/immune-system.html" target="_blank" rel="noopener">weakened immune system</a>, 
+        supportive therapy before and after cancer/tumour surgery
+      </li>
     </ul>
   </section>
 
-  <!-- Footer (EN) -->
   <div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
+  <script>
+    fetch("./components/footer.html")
+      .then(r => {
+        if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
+        return r.text();
+      })
+      .then(html => {
+        const el = document.getElementById("footer-placeholder");
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => {
+        console.error("Error loading footer:", err);
+        const el = document.getElementById("footer-placeholder");
+        if (el) el.innerHTML = "";
+      });
+  </script>
 
-
-</div><!-- content-wrapper END -->
-
-<script>
+</div><script>
 (function () {
   const lightbox = document.getElementById("certLightbox");
   if (!lightbox) return;
