@@ -4,21 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über mich – TAI TCM GmbH</title>
-<meta name="description" content="Dr. Tai ist erfahrener TCM-Therapeut mit Ausbildung in China und langjähriger Praxis in der Schweiz. Professionelle Diagnose und ganzheitliche Behandlung.">
+  <meta name="description" content="Dr. Tai ist erfahrener TCM-Therapeut mit Ausbildung in China und langjähriger Praxis in der Schweiz. Professionelle Diagnose und ganzheitliche Behandlung.">
 
-  <!-- ✅ 建议统一绝对路径，DE/EN 都不需要改 -->
   <link rel="stylesheet" href="./style/style.css">
 
   <style>
     :root {
       --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
                    "Segoe UI", Roboto, Arial, sans-serif;
+      --tcm-teal: #7fbbad;
     }
 
     body, h1, h2, h3, h4, h5, h6, p, li, a, button,
     input, textarea {
       font-family: var(--font-apple) !important;
       font-weight: 400;
+    }
+
+    /* 优化列表中的病名链接视觉效果 */
+    .spezial-wrapper ul li a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 1px dotted transparent;
+    }
+    .spezial-wrapper ul li a:hover {
+      color: var(--tcm-teal);
+      border-bottom: 1px dotted var(--tcm-teal);
     }
   </style>
   <script src="./js/main.js" defer></script>
@@ -29,28 +41,25 @@
 
 <div class="content-wrapper">
 
-  <!-- Header -->
- <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("./components/header.html")
+      .then(r => {
+        if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
+        return r.text();
+      })
+      .then(html => {
+        const el = document.getElementById("header-placeholder");
+        if (el) el.innerHTML = html;
+        if (window.initSiteHeader) window.initSiteHeader();
+      })
+      .catch(err => {
+        console.error("Error loading header:", err);
+        const el = document.getElementById("header-placeholder");
+        if (el) el.innerHTML = "";
+      });
+  </script>
 
-
-  <!-- HERO -->
   <section class="hero-split">
     <div class="hero-overlay">
       <div class="hero-content">
@@ -66,7 +75,6 @@
     </div>
   </section>
 
-  <!-- About section -->
   <section class="uebermich-section">
 
     <div class="uebermich-photo">
@@ -97,39 +105,34 @@
   </section>
 
   <section class="certificates" aria-label="Certificates and Recognitions">
-  <h3 class="cert-title">Anerkannte Qualifikationen & Registrierungen</h3>
+    <h3 class="cert-title">Anerkannte Qualifikationen & Registrierungen</h3>
 
-  <!-- ✅ 上面：NAREG 单独居中 -->
-  <div class="cert-single">
-    <button class="cert-item" type="button"
-      data-img="./assets/nareg.png" aria-label="NAREG registration">
-      <img src="./assets/nareg.png" alt="NAREG registration">
-    </button>
-  </div>
+    <div class="cert-single">
+      <button class="cert-item" type="button"
+        data-img="./assets/nareg.png" aria-label="NAREG registration">
+        <img src="./assets/nareg.png" alt="NAREG registration">
+      </button>
+    </div>
 
-  <!-- ✅ 下面：2×2（四张） -->
-  <div class="cert-grid-2x2">
-    <button class="cert-item" type="button" data-img="./assets/emr1.png" aria-label="EMR certificate 1">
-      <img src="./assets/emr1.png" alt="EMR certificate 1">
-    </button>
+    <div class="cert-grid-2x2">
+      <button class="cert-item" type="button" data-img="./assets/emr1.png" aria-label="EMR certificate 1">
+        <img src="./assets/emr1.png" alt="EMR certificate 1">
+      </button>
 
-    <button class="cert-item" type="button" data-img="./assets/emr2.png" aria-label="EMR certificate 2">
-      <img src="./assets/emr2.png" alt="EMR certificate 2">
-    </button>
+      <button class="cert-item" type="button" data-img="./assets/emr2.png" aria-label="EMR certificate 2">
+        <img src="./assets/emr2.png" alt="EMR certificate 2">
+      </button>
 
-    <button class="cert-item" type="button" data-img="./assets/emr3.png" aria-label="EMR certificate 3">
-      <img src="./assets/emr3.png" alt="EMR certificate 3">
-    </button>
+      <button class="cert-item" type="button" data-img="./assets/emr3.png" aria-label="EMR certificate 3">
+        <img src="./assets/emr3.png" alt="EMR certificate 3">
+      </button>
 
-    <!-- 右下角：ASCA -->
-    <button class="cert-item" type="button" data-img="./assets/asca.png" aria-label="ASCA recognition">
-      <img src="./assets/asca.png" alt="ASCA recognition">
-    </button>
-  </div>
-</section>
+      <button class="cert-item" type="button" data-img="./assets/asca.png" aria-label="ASCA recognition">
+        <img src="./assets/asca.png" alt="ASCA recognition">
+      </button>
+    </div>
+  </section>
 
-
-  <!-- Lightbox -->
   <div class="lightbox" id="certLightbox" aria-hidden="true">
     <div class="lightbox__backdrop"></div>
     <div class="lightbox__content">
@@ -138,43 +141,91 @@
     </div>
   </div>
 
-  <!-- Spezialgebiete -->
   <section class="spezial-wrapper">
     <h2>Spezialgebiete TCM bei folgenden Beschwerden:</h2>
     <ul>
-      <li><b>Neurologische Erkrankungen:</b> Migräne, Kopfschmerzen, Schwindel, Tinnitus, Trigeminusneuralgie, Lähmung nach Schlaganfall, Blasenentleerungsstörung, Blasenschwäche</li>
-      <li><b>Orthopädische Erkrankungen:</b> Lumbalgie, Rückenschmerzen, Ischiasbeschwerden, Nacken-Schulter-Arm-Syndrom, Tennis-Arm, Arthritis, Arthrose, Rheuma, Achillessehnen-Symptome, Fersenschmerz</li>
-      <li><b>Innere Krankheiten:</b> Bronchitis, Harnwegsinfekte, Herzrhythmusstörungen, Bluthochdruck, Blähungen, Übelkeit, Verstopfung, Durchfall, Magenleiden, Reizdarm</li>
-      <li><b>Gynäkologische Erkrankungen:</b> Menstruationsbeschwerden, Schwangerschaftsbeschwerden, Vorbereitung auf die Geburt, Unfruchtbarkeit, Wechseljahresbeschwerden</li>
-      <li><b>Psychische Erkrankungen:</b> Depression, Schlafstörung, Burn-out-Syndrom</li>
-      <li><b>Allergie/Hauterkrankungen:</b> Heuschnupfen, Asthma, Akne, Ekzem, Neurodermitis, Psoriasis, Hals-, Nase-, Ohren-, Augen-Erkrankungen</li>
-      <li><b>Sonstiges:</b> Nikotinentwöhnung, Übergewicht, schwaches Immunsystem, unterstützende Therapie vor und nach einer Krebs/Tumor-Operation</li>
+      <li><b>Neurologische Erkrankungen:</b> 
+        <a href="https://blog.taitcm.ch/de/migraene.html">Migräne</a>, 
+        <a href="https://blog.taitcm.ch/de/kopfschmerzen.html">Kopfschmerzen</a>, 
+        <a href="https://blog.taitcm.ch/de/schwindel.html">Schwindel</a>, 
+        <a href="https://blog.taitcm.ch/de/tinnitus.html">Tinnitus</a>, 
+        <a href="https://blog.taitcm.ch/de/trigeminusneuralgie.html">Trigeminusneuralgie</a>, 
+        <a href="https://blog.taitcm.ch/de/schlaganfall-laehmung.html">Lähmung nach Schlaganfall</a>, 
+        <a href="https://blog.taitcm.ch/de/blasenentleerungsstoerung.html">Blasenentleerungsstörung</a>, 
+        <a href="https://blog.taitcm.ch/de/blasenschwaeche.html">Blasenschwäche</a>
+      </li>
+      <li><b>Orthopädische Erkrankungen:</b> 
+        <a href="https://blog.taitcm.ch/de/lumbalgie.html">Lumbalgie</a>, 
+        <a href="https://blog.taitcm.ch/de/rueckenschmerzen.html">Rückenschmerzen</a>, 
+        <a href="https://blog.taitcm.ch/de/ischiasbeschwerden.html">Ischiasbeschwerden</a>, 
+        <a href="https://blog.taitcm.ch/de/nacken-schulter-arm-syndrom.html">Nacken-Schulter-Arm-Syndrom</a>, 
+        <a href="https://blog.taitcm.ch/de/tennis-arm.html">Tennis-Arm</a>, 
+        <a href="https://blog.taitcm.ch/de/arthritis.html">Arthritis</a>, 
+        <a href="https://blog.taitcm.ch/de/arthritis.html">Arthrose</a>, 
+        <a href="https://blog.taitcm.ch/de/rheuma.html">Rheuma</a>, 
+        <a href="https://blog.taitcm.ch/de/achillessehnen-symptome.html">Achillessehnen-Symptome</a>, 
+        <a href="https://blog.taitcm.ch/de/fersenschmerz.html">Fersenschmerz</a>
+      </li>
+      <li><b>Innere Krankheiten:</b> 
+        <a href="https://blog.taitcm.ch/de/bronchitis.html">Bronchitis</a>, 
+        <a href="https://blog.taitcm.ch/de/harnwegsinfekt.html">Harnwegsinfekte</a>, 
+        <a href="https://blog.taitcm.ch/de/herzrhythmusstoerungen.html">Herzrhythmusstörungen</a>, 
+        <a href="https://blog.taitcm.ch/de/bluthochdruck.html">Bluthochdruck</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Blähungen</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Übelkeit</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Verstopfung</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Durchfall</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Magenleiden</a>, 
+        <a href="https://blog.taitcm.ch/de/magenleiden.html">Reizdarm</a>
+      </li>
+      <li><b>Gynäkologische Erkrankungen:</b> 
+        <a href="https://blog.taitcm.ch/de/menstruationsbeschwerden.html">Menstruationsbeschwerden</a>, 
+        <a href="https://blog.taitcm.ch/de/schwangerschaftsbeschwerden.html">Schwangerschaftsbeschwerden</a>, 
+        <a href="https://blog.taitcm.ch/de/schwangerschaftsbeschwerden.html">Vorbereitung auf die Geburt</a>, 
+        <a href="https://blog.taitcm.ch/de/unfruchtbarkeit.html">Unfruchtbarkeit</a>, 
+        <a href="https://blog.taitcm.ch/de/wechseljahresbeschwerden.html">Wechseljahresbeschwerden</a>
+      </li>
+      <li><b>Psychische Erkrankungen:</b> 
+        <a href="https://blog.taitcm.ch/de/depression.html">Depression</a>, 
+        <a href="https://blog.taitcm.ch/de/schlafstoerung.html">Schlafstörung</a>, 
+        <a href="https://blog.taitcm.ch/de/burn-out-syndrom.html">Burn-out-Syndrom</a>
+      </li>
+      <li><b>Allergie/Hauterkrankungen:</b> 
+        <a href="https://blog.taitcm.ch/de/heuschnupfen.html">Heuschnupfen</a>, 
+        <a href="https://blog.taitcm.ch/de/bronchitis.html">Asthma</a>, 
+        <a href="https://blog.taitcm.ch/de/acne.html">Akne</a>, 
+        <a href="https://blog.taitcm.ch/de/ekzem.html">Ekzem</a>, 
+        <a href="https://blog.taitcm.ch/de/ekzem.html">Neurodermitis</a>, 
+        <a href="https://blog.taitcm.ch/de/ekzem.html">Psoriasis</a>
+      </li>
+      <li><b>Sonstiges:</b> 
+        <a href="https://blog.taitcm.ch/de/nikotinentwoehnung.html">Nikotinentwöhnung</a>, 
+        <a href="https://blog.taitcm.ch/de/uebergewicht.html">Übergewicht</a>, 
+        <a href="https://blog.taitcm.ch/de/immunsystem.html">schwaches Immunsystem</a>, 
+        unterstützende Therapie vor und nach einer Krebs-Operation
+      </li>
     </ul>
   </section>
 
-  <!-- Footer -->
   <div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
+  <script>
+    fetch("./components/footer.html")
+      .then(r => {
+        if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
+        return r.text();
+      })
+      .then(html => {
+        const el = document.getElementById("footer-placeholder");
+        if (el) el.innerHTML = html;
+      })
+      .catch(err => {
+        console.error("Error loading footer:", err);
+        const el = document.getElementById("footer-placeholder");
+        if (el) el.innerHTML = "";
+      });
+  </script>
 
-</div><!-- content-wrapper END -->
-
-<!-- ✅ Lightbox JS 放在 body 末尾 -->
-<script>
+</div><script>
 (function () {
   const lightbox = document.getElementById("certLightbox");
   if (!lightbox) return;
