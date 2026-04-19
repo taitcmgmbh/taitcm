@@ -512,10 +512,14 @@ html, body { overflow-x: hidden; }
 }
 
 .spezial-wrapper h2 {
-  font-size: 32px;
-  color: var(--green);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--teal);
   margin-bottom: 25px;
   text-align: left;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 10px;
 }
 
 .spezial-wrapper ul {
@@ -528,15 +532,16 @@ html, body { overflow-x: hidden; }
 .spezial-wrapper li b { color: var(--green); }
 
 .spezial-wrapper ul li a {
-  color: inherit;
+  color: var(--teal);
   text-decoration: none;
-  border-bottom: 1px dotted transparent;
+  border-bottom: 1px dotted var(--teal);
   transition: color 0.2s, border-bottom 0.2s;
 }
 .spezial-wrapper ul li a:hover {
-  color: var(--teal-light);
-  border-bottom: 1px dotted var(--teal-light);
+  color: var(--green);
+  border-bottom: 1px dotted var(--green);
 }
+
 
 /* ===========================================
    KONTAKT FORM
