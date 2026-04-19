@@ -2,9 +2,9 @@
     - Mobile hamburger menu
     - Active nav highlight
     - Language switch DE <-> EN keeping same page
-    - Header / Footer auto-fetch (consolidated here, remove inline scripts from all HTML pages)
-    - Google Tag dynamic injection (single, no duplicate)
-    - Booking modal (open / close)
+    - Header / Footer auto-fetch
+    - Google Tag dynamic injection
+    - FAQ accordion
 */
 (function () {
   "use strict";
@@ -47,12 +47,7 @@
     const el = document.getElementById("header-placeholder");
     if (!el) return;
 
-    // 判断当前是 en/ 子目录还是根目录
-    const headerPath = isEnglishPage()
-      ? "./components/header.html"
-      : "./components/header.html";
-
-    fetch(headerPath)
+    fetch("./components/header.html")
       .then(r => {
         if (!r.ok) throw new Error(`Header fetch failed: ${r.status}`);
         return r.text();
@@ -98,7 +93,6 @@
     const toggleBtn = header.querySelector(".menu-toggle");
     if (!nav || !toggleBtn) return;
 
-    // 防止重复绑定
     if (toggleBtn.dataset.bound === "1") return;
     toggleBtn.dataset.bound = "1";
 
@@ -164,7 +158,6 @@
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
 
-    // ✅ 防止重复绑定
     if (switchEl.dataset.bound === "1") return;
     switchEl.dataset.bound = "1";
 
@@ -211,7 +204,7 @@
   }
 
   /* =============================================
-     7) GOOGLE ANALYTICS（单次注入，不重复）
+     7) GOOGLE ANALYTICS
   ============================================= */
   function injectGoogleTag() {
     if (window.gtag_injected) return;
@@ -219,14 +212,12 @@
 
     const GA_ID = "G-Q7RWQDS859";
 
-    // 先初始化 gtag，再注入脚本，避免脚本加载前调用报错
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag("js", new Date());
     gtag("config", GA_ID);
 
-    // 延迟1秒加载，不影响首屏，同时不会漏掉快速跳出用户
     setTimeout(function () {
       const script = document.createElement("script");
       script.async = true;
@@ -236,48 +227,12 @@
   }
 
   /* =============================================
-     8) BOOKING MODAL
-  ============================================= */
-  function initBookingModal() {
-    const modal = document.getElementById("bookingModal");
-    if (!modal) return;
-
-    // 点背景关闭
-    modal.addEventListener("click", function (e) {
-      if (e.target === modal) closeBookingModal();
-    });
-
-    // ESC 键关闭
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeBookingModal();
-    });
-  }
-
-  // 暴露到全局，让 HTML 按钮 onclick 调用
-  window.openBookingModal = function () {
-    const modal = document.getElementById("bookingModal");
-    if (!modal) return;
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  };
-
-  window.closeBookingModal = function () {
-    const modal = document.getElementById("bookingModal");
-    if (!modal) return;
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  };
-
-  /* =============================================
-     9) FAQ ACCORDION
+     8) FAQ ACCORDION
   ============================================= */
   function initFaqAccordion() {
     document.querySelectorAll(".faq-question").forEach(btn => {
-      // 防止重复绑定
       if (btn.dataset.bound === "1") return;
       btn.dataset.bound = "1";
-
-      // ✅ 初始化 aria-expanded
       btn.setAttribute("aria-expanded", "false");
 
       btn.addEventListener("click", () => {
@@ -288,8 +243,7 @@
   }
 
   /* =============================================
-     10) PUBLIC ENTRY — initSiteHeader()
-         Called after header HTML is injected
+     9) PUBLIC ENTRY
   ============================================= */
   window.initSiteHeader = function () {
     initHeaderMenu();
@@ -300,12 +254,11 @@
   };
 
   /* =============================================
-     11) AUTO-INIT ON DOM READY
+     10) AUTO-INIT
   ============================================= */
   document.addEventListener("DOMContentLoaded", function () {
-    loadHeader();   // ✅ 统一在这里 fetch header
-    loadFooter();   // ✅ 统一在这里 fetch footer
-    initBookingModal();
+    loadHeader();
+    loadFooter();
     initFaqAccordion();
   });
 
