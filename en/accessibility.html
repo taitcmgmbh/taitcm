@@ -4,133 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessibility – TAI TCM GmbH</title>
-
-  <!-- ✅ 统一用绝对路径：DE/EN 都不需要改 -->
+  <link rel="canonical" href="https://www.taitcm.ch/en/accessibility.html">
   <link rel="stylesheet" href="../style/style.css">
-
-  <style>
-    .accessibility-content {
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.7;
-      font-size: 17px;
-    }
-    .accessibility-content h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-    .accessibility-content h2 {
-      font-size: 24px;
-      margin-top: 35px;
-      margin-bottom: 10px;
-    }
-    .accessibility-content a {
-      color: #0E2F24;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .accessibility-content a:hover {
-      opacity: 0.7;
-    }
-  </style>
   <script src="../js/main.js" defer></script>
-
 </head>
-
 <body data-page="accessibility">
-  <div class="content-wrapper">
+<div class="content-wrapper">
 
-    <!-- ================= HEADER (EN) ================= -->
-    <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
+  <div id="header-placeholder"></div>
 
+  <section class="accessibility-content">
+    <h1>Accessibility Statement</h1>
 
-    <!-- ================= CONTENT ================= -->
-    <section class="accessibility-content">
-      <h1>Accessibility Statement</h1>
+    <p>
+      <strong>TAI TCM GmbH</strong> is committed to making its website accessible to
+      the widest possible audience, regardless of individual ability or technical limitations.
+    </p>
 
-      <p>
-        <strong>TAI TCM GmbH</strong> is committed to making its website accessible to
-        the widest possible audience, regardless of individual ability or technical limitations.
-      </p>
+    <h2>Compliance status</h2>
+    <p>
+      This website is designed with reference to the
+      <strong>Web Content Accessibility Guidelines (WCAG 2.1, Level AA)</strong>
+      published by the World Wide Web Consortium (W3C).
+    </p>
+    <p>
+      We continuously work to improve accessibility and to reduce potential barriers step by step.
+    </p>
 
-      <h2>Compliance status</h2>
-      <p>
-        This website is designed with reference to the
-        <strong>Web Content Accessibility Guidelines (WCAG 2.1, Level AA)</strong>
-        published by the World Wide Web Consortium (W3C).
-      </p>
+    <h2>Measures already implemented</h2>
+    <ul>
+      <li>Clear page structure and easy-to-understand navigation</li>
+      <li>Sufficient color contrast for improved readability</li>
+      <li>Responsive design for mobile devices</li>
+      <li>Basic usability without a mouse (keyboard navigation)</li>
+    </ul>
 
-      <p>
-        We continuously work to improve accessibility and to reduce potential barriers step by step.
-      </p>
+    <h2>Known limitations</h2>
+    <p>
+      Despite our efforts, some content or functions may not yet be fully accessible.
+      In particular, we have limited control over the accessibility of external services
+      embedded on this website (e.g., Google Maps or online appointment booking).
+    </p>
 
-      <h2>Measures already implemented</h2>
-      <ul>
-        <li>Clear page structure and easy-to-understand navigation</li>
-        <li>Sufficient color contrast for improved readability</li>
-        <li>Responsive design for mobile devices</li>
-        <li>Basic usability without a mouse (keyboard navigation)</li>
-      </ul>
+    <h2>Feedback and contact</h2>
+    <p>
+      If you encounter any barriers or have suggestions for improvement, please contact us:
+      <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
+    </p>
 
-      <h2>Known limitations</h2>
-      <p>
-        Despite our efforts, some content or functions may not yet be fully accessible.
-        In particular, we have limited control over the accessibility of external services
-        embedded on this website (e.g., Google Maps or online appointment booking).
-      </p>
+    <p style="margin-top:40px;">
+      <a href="./index.html">&larr; Back to homepage</a>
+    </p>
+  </section>
 
-      <h2>Feedback and contact</h2>
-      <p>
-        If you encounter any barriers or have suggestions for improvement, we would appreciate your feedback.
-      </p>
+  <div id="footer-placeholder"></div>
 
-      <p>
-        Please contact us by email:<br>
-        <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
-      </p>
-
-      <p style="margin-top:40px;">
-        <a href="./index.html">&larr; Back to Home</a>
-      </p>
-    </section>
-
-    <!-- ================= FOOTER (EN) ================= -->
-    <div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
-
-
-  </div>
+</div>
 </body>
 </html>
