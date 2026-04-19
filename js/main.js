@@ -237,23 +237,6 @@
     });
   }
 
-  /* =============================================
-     9) SCROLL REVEAL
-     ✅ 排除 header/footer placeholder
-  ============================================= */
-  function initScrollReveal() {
-    const selectors = [
-      ".feature-box",
-      ".card",
-      ".clinic-photo",
-      ".cert-item",
-      ".price-row",
-      ".faq-item",
-      ".uebermich-section",
-      ".spezial-wrapper",
-      ".footer-box",
-      ".kontakt-container",
-    ];
 
     selectors.forEach(function(sel) {
       document.querySelectorAll(sel).forEach(function(el, i) {
