@@ -302,6 +302,8 @@ html, body { overflow-x: hidden; }
   font-size: 28px;
   margin: 0 auto 20px;
   text-align: center;
+  color: var(--green);
+  letter-spacing: 1px;
 }
 
 .price-table {
@@ -314,7 +316,7 @@ html, body { overflow-x: hidden; }
   justify-content: space-between;
   gap: 24px;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.18);
+  border-bottom: 1px solid rgba(102,178,152,0.35);
 }
 
 .price-left,
