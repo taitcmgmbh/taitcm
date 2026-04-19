@@ -468,11 +468,6 @@ html, body { overflow-x: hidden; }
   color: var(--green);
 }
 
-.uebermich-text h3 {
-  margin-top: 30px;
-  font-size: 22px;
-  color: var(--green);
-}
 .uebermich-text p {
   padding-left: 16px;
   border-left: 3px solid var(--teal);
