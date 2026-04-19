@@ -97,11 +97,15 @@
       <img src="./assets/tai-tcm-eingang.jpg"
            alt="Eingang TAI TCM GmbH Zürich Oerlikon"
            width="320" height="240"
-           style="border-radius:16px;" loading="lazy">
+           style="border-radius:16px; cursor:pointer;"
+           loading="lazy"
+           onclick="openImg(this.src, this.alt)">
       <img src="./assets/tai-tcm-parkplatz.jpg"
            alt="Parkplatz TAI TCM GmbH Zürich Oerlikon"
            width="320" height="240"
-           style="border-radius:16px;" loading="lazy">
+           style="border-radius:16px; cursor:pointer;"
+           loading="lazy"
+           onclick="openImg(this.src, this.alt)">
     </div>
 
     <div style="text-align:center; margin-top:50px;">
@@ -123,9 +127,49 @@
 
 </div>
 
+<!-- Lightbox für Bilder -->
+<div class="lightbox" id="imgLightbox" aria-hidden="true">
+  <div class="lightbox__backdrop"></div>
+  <div class="lightbox__content">
+    <button class="lightbox__close" type="button" aria-label="Schliessen">×</button>
+    <img class="lightbox__img" alt="">
+  </div>
+</div>
+
 <div class="success-popup" id="successPopup">✔ Ihre Nachricht wurde erfolgreich gesendet!</div>
 
 <script>
+function openImg(src, alt) {
+  const lb = document.getElementById("imgLightbox");
+  lb.querySelector(".lightbox__img").src = src;
+  lb.querySelector(".lightbox__img").alt = alt || "";
+  lb.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  lb.setAttribute("aria-hidden", "false");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const lb = document.getElementById("imgLightbox");
+  if (!lb) return;
+  lb.querySelector(".lightbox__close").addEventListener("click", function() {
+    lb.classList.remove("is-open");
+    document.body.style.overflow = "";
+    lb.setAttribute("aria-hidden", "true");
+  });
+  lb.querySelector(".lightbox__backdrop").addEventListener("click", function() {
+    lb.classList.remove("is-open");
+    document.body.style.overflow = "";
+    lb.setAttribute("aria-hidden", "true");
+  });
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+      lb.setAttribute("aria-hidden", "true");
+    }
+  });
+});
+
 document.getElementById("kontaktForm").addEventListener("submit", async function(e) {
   e.preventDefault();
   const form = e.target;
