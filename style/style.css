@@ -943,8 +943,8 @@ html, body { overflow-x: hidden; }
   .site-header #navMenu a:last-child { border-bottom: none; }
 }
 
-#header-placeholder { display: block; min-height: 78px; }
-#footer-placeholder { display: block; }
+#header-placeholder { display: block; min-height: 78px; opacity: 1 !important; transform: none !important; }
+#footer-placeholder { display: block; opacity: 1 !important; transform: none !important; }
 
 
 /* ===========================================
