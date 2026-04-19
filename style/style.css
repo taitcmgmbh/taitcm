@@ -619,7 +619,13 @@ html, body { overflow-x: hidden; }
   align-self: flex-start;
   text-align: center;
 }
-
+.contact-section img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-section img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
 @media (max-width: 850px) {
   .kontakt-form .row-2 { grid-template-columns: 1fr; }
   .kontakt-btn { width: 100%; }
