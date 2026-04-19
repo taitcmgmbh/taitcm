@@ -5,7 +5,7 @@
   "name": "TAI TCM GmbH",
   "url": "https://www.taitcm.ch",
   "logo": "https://www.taitcm.ch/assets/logo.webp",
-  "image": "https://www.taitcm.ch/assets/logo.webp", 
+  "image": "https://www.taitcm.ch/assets/logo.webp",
   "priceRange": "CHF",
   "inLanguage": "de-CH",
   "telephone": "+41448119955",
@@ -23,8 +23,8 @@
   },
   "medicalSpecialty": "TraditionalChineseMedicine",
   "knowsAbout": [
-    "Akupunktur", "Traditionelle Chinesische Medizin", "Tuina Massage", 
-    "Kräutertherapie", "Schmerztherapie", "Rückenschmerzen", 
+    "Akupunktur", "Traditionelle Chinesische Medizin", "Tuina Massage",
+    "Kräutertherapie", "Schmerztherapie", "Rückenschmerzen",
     "Nackenschmerzen", "Stressbehandlung", "Schlafstörungen", "Allergien"
   ],
   "openingHoursSpecification": [
@@ -44,10 +44,10 @@
 <div class="header-container">
   <header class="site-header">
     <a href="./index.html" class="logo-link" aria-label="TAI TCM – Startseite">
-      <img src="./assets/logo.webp" 
-           class="logo" 
-           alt="TAI TCM Logo" 
-           width="192" 
+      <img src="./assets/logo.webp"
+           class="logo"
+           alt="TAI TCM Logo"
+           width="192"
            height="50">
     </a>
 
@@ -69,4 +69,24 @@
       <a href="#" data-lang="en">EN</a>
     </div>
   </header>
+</div>
+
+<!-- ===== BOOKING MODAL（所有德语页面共用） ===== -->
+<div id="bookingModal" aria-modal="true" aria-label="Termin buchen" role="dialog">
+  <div class="booking-modal__inner">
+    <div class="booking-modal__header">
+      <span>Termin buchen – TAI TCM GmbH</span>
+      <button class="booking-modal__close"
+              onclick="closeBookingModal()"
+              aria-label="Schließen">✕</button>
+    </div>
+    <div class="booking-modal__body">
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true"
+        title="Termin bei TAI TCM GmbH buchen"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
 </div>
