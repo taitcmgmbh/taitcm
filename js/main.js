@@ -30,39 +30,51 @@
   }
 
   function loadHeader() {
-    const el = document.getElementById("header-placeholder");
-    if (!el) return;
-    fetch("./components/header.html")
-      .then(r => {
-        if (!r.ok) throw new Error(`Header fetch failed: ${r.status}`);
-        return r.text();
-      })
-      .then(html => {
-        el.innerHTML = html;
-        initSiteHeader();
-      })
-      .catch(err => {
-        console.error("Error loading header:", err);
-        el.innerHTML = "";
-      });
-  }
+  const el = document.getElementById("header-placeholder");
+  if (!el) return;
 
-  function loadFooter() {
-    const el = document.getElementById("footer-placeholder");
-    if (!el) return;
-    fetch("./components/footer.html")
-      .then(r => {
-        if (!r.ok) throw new Error(`Footer fetch failed: ${r.status}`);
-        return r.text();
-      })
-      .then(html => {
-        el.innerHTML = html;
-      })
-      .catch(err => {
-        console.error("Error loading footer:", err);
-        el.innerHTML = "";
-      });
-  }
+  const isEn = window.location.pathname.includes("/en/");
+  const headerUrl = isEn
+    ? "https://taitcm.ch/en/components/header.html"
+    : "https://taitcm.ch/components/header.html";
+
+  fetch(headerUrl)
+    .then(r => {
+      if (!r.ok) throw new Error(`Header fetch failed: ${r.status}`);
+      return r.text();
+    })
+    .then(html => {
+      el.innerHTML = html;
+      initSiteHeader();
+    })
+    .catch(err => {
+      console.error("Error loading header:", err);
+      el.innerHTML = "";
+    });
+}
+
+function loadFooter() {
+  const el = document.getElementById("footer-placeholder");
+  if (!el) return;
+
+  const isEn = window.location.pathname.includes("/en/");
+  const footerUrl = isEn
+    ? "https://taitcm.ch/en/components/footer.html"
+    : "https://taitcm.ch/components/footer.html";
+
+  fetch(footerUrl)
+    .then(r => {
+      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status}`);
+      return r.text();
+    })
+    .then(html => {
+      el.innerHTML = html;
+    })
+    .catch(err => {
+      console.error("Error loading footer:", err);
+      el.innerHTML = "";
+    });
+}
 
   function initHeaderMenu() {
     const header = document.querySelector(".site-header");
