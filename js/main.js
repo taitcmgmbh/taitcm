@@ -29,13 +29,9 @@
     return window.location.pathname.startsWith(join(base, "en/"));
   }
 
-  /* =============================================
-     1) FETCH HEADER
-  ============================================= */
   function loadHeader() {
     const el = document.getElementById("header-placeholder");
     if (!el) return;
-
     fetch("./components/header.html")
       .then(r => {
         if (!r.ok) throw new Error(`Header fetch failed: ${r.status}`);
@@ -43,9 +39,6 @@
       })
       .then(html => {
         el.innerHTML = html;
-        // ✅ header 加载完才初始化，确保可见
-        el.style.opacity = "1";
-        el.style.transform = "none";
         initSiteHeader();
       })
       .catch(err => {
@@ -54,13 +47,9 @@
       });
   }
 
-  /* =============================================
-     2) FETCH FOOTER
-  ============================================= */
   function loadFooter() {
     const el = document.getElementById("footer-placeholder");
     if (!el) return;
-
     fetch("./components/footer.html")
       .then(r => {
         if (!r.ok) throw new Error(`Footer fetch failed: ${r.status}`);
@@ -68,9 +57,6 @@
       })
       .then(html => {
         el.innerHTML = html;
-        // ✅ footer 加载完确保可见
-        el.style.opacity = "1";
-        el.style.transform = "none";
       })
       .catch(err => {
         console.error("Error loading footer:", err);
@@ -78,16 +64,12 @@
       });
   }
 
-  /* =============================================
-     3) HAMBURGER MENU
-  ============================================= */
   function initHeaderMenu() {
     const header = document.querySelector(".site-header");
     if (!header) return;
     const nav = header.querySelector("#navMenu");
     const toggleBtn = header.querySelector(".menu-toggle");
     if (!nav || !toggleBtn) return;
-
     if (toggleBtn.dataset.bound === "1") return;
     toggleBtn.dataset.bound = "1";
 
@@ -110,9 +92,6 @@
     nav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
   }
 
-  /* =============================================
-     4) ACTIVE NAV HIGHLIGHT
-  ============================================= */
   function highlightCurrentPage() {
     const currentPage = document.body.dataset.page;
     if (!currentPage) return;
@@ -121,15 +100,11 @@
     });
   }
 
-  /* =============================================
-     5) NORMALIZE NAV LINKS
-  ============================================= */
   function normalizeHeaderNavLinks() {
     const header = document.querySelector(".site-header");
     if (!header) return;
     const nav = header.querySelector("#navMenu");
     if (!nav) return;
-
     const base = getBasePath();
     const en = isEnglishPage();
     const map = en
@@ -146,13 +121,9 @@
     if (logoLink) logoLink.href = join(base, en ? "en/index.html" : "index.html");
   }
 
-  /* =============================================
-     6) LANGUAGE SWITCH
-  ============================================= */
   function updateLangSwitchLinks() {
     const switchEl = document.querySelector(".lang-switch");
     if (!switchEl) return;
-
     if (switchEl.dataset.bound === "1") return;
     switchEl.dataset.bound = "1";
 
@@ -198,21 +169,15 @@
     });
   }
 
-  /* =============================================
-     7) GOOGLE ANALYTICS
-  ============================================= */
   function injectGoogleTag() {
     if (window.gtag_injected) return;
     window.gtag_injected = true;
-
     const GA_ID = "G-Q7RWQDS859";
-
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag("js", new Date());
     gtag("config", GA_ID);
-
     setTimeout(function () {
       const script = document.createElement("script");
       script.async = true;
@@ -221,15 +186,11 @@
     }, 1000);
   }
 
-  /* =============================================
-     8) FAQ ACCORDION
-  ============================================= */
   function initFaqAccordion() {
     document.querySelectorAll(".faq-question").forEach(btn => {
       if (btn.dataset.bound === "1") return;
       btn.dataset.bound = "1";
       btn.setAttribute("aria-expanded", "false");
-
       btn.addEventListener("click", () => {
         const isOpen = btn.parentElement.classList.toggle("open");
         btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
@@ -237,36 +198,6 @@
     });
   }
 
-
-    selectors.forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el, i) {
-        // ✅ 确保不影响 header/footer placeholder
-        if (el.id === "header-placeholder" || el.id === "footer-placeholder") return;
-        if (el.closest("#header-placeholder") || el.closest("#footer-placeholder")) return;
-
-        el.classList.add("reveal");
-        const delay = Math.min(i * 0.1, 0.4);
-        el.style.transitionDelay = delay + "s";
-      });
-    });
-
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll(".reveal").forEach(function(el) {
-      observer.observe(el);
-    });
-  }
-
-  /* =============================================
-     10) PUBLIC ENTRY
-  ============================================= */
   window.initSiteHeader = function () {
     initHeaderMenu();
     highlightCurrentPage();
@@ -275,14 +206,10 @@
     injectGoogleTag();
   };
 
-  /* =============================================
-     11) AUTO-INIT
-  ============================================= */
   document.addEventListener("DOMContentLoaded", function () {
     loadHeader();
     loadFooter();
     initFaqAccordion();
-    initScrollReveal();
   });
 
 })();
