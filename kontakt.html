@@ -3,14 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Über mich – TAI TCM GmbH</title>
-  <meta name="description" content="Dr. Tai ist erfahrener TCM-Therapeut mit Ausbildung in China und langjähriger Praxis in der Schweiz. Professionelle Diagnose und ganzheitliche Behandlung.">
-  <link rel="canonical" href="https://taitcm.ch/ueber-mich.html">
+  <title>Kontakt – TAI TCM GmbH</title>
+  <meta name="description" content="Kontaktieren Sie TAI TCM in Zürich Oerlikon. Einfach Termin vereinbaren per Telefon, E-Mail oder Online-Kalender. Gute Erreichbarkeit mit ÖV.">
+  <link rel="canonical" href="https://taitcm.ch/kontakt.html">
   <link rel="stylesheet" href="./style/style.css?v=20260419-4">
   <script src="./js/main.js?v=20260419-4" defer></script>
+
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button, input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+
+    .success-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #2ecc71;
+      color: white;
+      padding: 16px 22px;
+      border-radius: 12px;
+      font-size: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: all .35s ease;
+      z-index: 9999;
+    }
+
+    .success-popup.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
-<body data-page="about">
+<body data-page="contact">
   <div class="content-wrapper">
 
     <div id="header-placeholder"></div>
@@ -18,225 +51,137 @@
     <section class="hero-split">
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1>Über mich</h1>
-          <p>TCM Naturheilpraktiker, Tuina, Akupunktur und manuelle Therapie</p>
-          <a class="btn-hero" href="#termin">Termin online buchen</a>
+          <h1>Kontaktformular & Anfahrt</h1>
+          <p>Wir freuen uns auf Ihre Nachricht</p>
         </div>
       </div>
     </section>
 
-    <section class="uebermich-section">
-      <div class="uebermich-photo">
-        <img
-          src="./assets/xinbo-tai-tcm-zuerich.jpg"
-          alt="Herr Xinbo Tai – TCM Therapeut in Zürich"
-          class="uebermich-img"
-          width="320"
-          loading="lazy">
-      </div>
+    <section class="kontakt-wrapper">
+      <div class="kontakt-container">
 
-      <div class="uebermich-text">
-        <h2>Lebenslauf</h2>
-        <p><b>1990 – 1995</b><br>Studium an der TCM Universität Guangzhou, VR China</p>
-        <p><b>1995 – 2011</b><br>Arzt im TCM Spital Shandong Gaomi</p>
-        <p><b>2008</b><br>Weiterbildung in Beijing für Tuina-Massage</p>
-        <p><b>Dez 2011 – Feb 2019</b><br>Spezialist im ChinaMed Zentrum Zürich</p>
-        <p><b>März 2019</b><br>Gründung der TAI TCM GmbH</p>
+        <div class="kontakt-left">
+          <h2>KONTAKTFORMULAR</h2>
 
-        <h3>Sprachen</h3>
-        <p>Deutsch, Englisch, Chinesisch (Mandarin & Kantonesisch)</p>
+          <form class="kontakt-form" id="kontaktForm"
+                action="https://api.web3forms.com/submit"
+                method="POST">
+
+            <input type="hidden" name="access_key" value="ec52df63-ed45-43d7-b378-68814e97be0b">
+
+            <div class="row-2">
+              <div class="form-group">
+                <label>E-Mail-Adresse*</label>
+                <input type="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label>Name*</label>
+                <input type="text" name="nachname" required>
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="form-group">
+                <label>Vorname*</label>
+                <input type="text" name="vorname" required>
+              </div>
+
+              <div class="form-group">
+                <label>Telefon*</label>
+                <input type="text" name="telefon" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Nachricht</label>
+              <textarea rows="5" name="message"></textarea>
+            </div>
+
+            <label class="checkbox-line">
+              <input type="checkbox" name="zustimmung" required>
+              Ich bin damit einverstanden, dass meine Daten für den angegebenen Zweck verwendet werden.
+            </label>
+
+            <button type="submit" class="btn-hero kontakt-btn">Absenden</button>
+          </form>
+        </div>
+
+        <div class="kontakt-right">
+          <h2>ÖFFNUNGSZEITEN</h2>
+          <p><b>Mo–Fr:</b> 8:45–12:00, 14:00–19:00</p>
+          <p><b>Sa–So:</b> Geschlossen</p>
+
+          <br><br>
+
+          <h2>KONTAKTDATEN TAI TCM GMBH</h2>
+          <p>TAI TCM GmbH</p>
+          <p>Schaffhauserstrasse 359 (im 1. Stock)</p>
+          <p>8050 Zürich</p>
+
+          <p><a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a></p>
+          <p><a href="tel:0448119955">044 811 99 55</a></p>
+        </div>
+
       </div>
     </section>
 
-    <section class="certificates" aria-label="Zertifikate und Anerkennungen">
-      <h3 class="cert-title">Anerkannte Qualifikationen & Registrierungen</h3>
+    <section class="contact-section" style="text-align:center;">
+      <h2>IM ZENTRUM VON ZÜRICH OERLIKON</h2>
 
-      <div class="cert-single">
-        <button class="cert-item" type="button"
-          data-img="./assets/nareg.png"
-          aria-label="NAREG Registrierung vergrößern">
-          <img src="./assets/nareg.png" alt="NAREG Registrierung">
-        </button>
+      <p>Mit dem Zug/Bus/Tram bis zum Bahnhof Oerlikon/Sternen Oerlikon fahren.</p>
+      <p>Ein Parkplatz steht hinter der Praxis zur Verfügung – bitte anmelden.</p>
+      <p>Vom Sternen Oerlikon/Bahnhof Oerlikon 1–2 Min. zu Fuss.</p>
+
+      <br>
+
+      <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+        <img src="./assets/tai-tcm-eingang.jpg" alt="Eingang" style="width:320px; border-radius:16px;">
+        <img src="./assets/tai-tcm-parkplatz.jpg" alt="Parkplatz" style="width:320px; border-radius:16px;">
       </div>
 
-      <div class="cert-grid-2x2">
-        <button class="cert-item" type="button"
-          data-img="./assets/emr1.png"
-          aria-label="EMR Zertifikat 1 vergrößern">
-          <img src="./assets/emr1.png" alt="EMR Zertifikat 1">
-        </button>
-
-        <button class="cert-item" type="button"
-          data-img="./assets/emr2.png"
-          aria-label="EMR Zertifikat 2 vergrößern">
-          <img src="./assets/emr2.png" alt="EMR Zertifikat 2">
-        </button>
-
-        <button class="cert-item" type="button"
-          data-img="./assets/emr3.png"
-          aria-label="EMR Zertifikat 3 vergrößern">
-          <img src="./assets/emr3.png" alt="EMR Zertifikat 3">
-        </button>
-
-        <button class="cert-item" type="button"
-          data-img="./assets/asca.png"
-          aria-label="ASCA Anerkennung vergrößern">
-          <img src="./assets/asca.png" alt="ASCA Anerkennung">
-        </button>
-      </div>
-    </section>
-
-    <div class="lightbox" id="certLightbox" aria-hidden="true">
-      <div class="lightbox__backdrop"></div>
-      <div class="lightbox__content">
-        <button class="lightbox__close" type="button" aria-label="Schliessen">×</button>
-        <img class="lightbox__img" alt="">
-      </div>
-    </div>
-
-    <section class="spezial-wrapper">
-      <h2>Spezialgebiete TCM bei folgenden Beschwerden:</h2>
-      <ul>
-        <li><b>Neurologische Erkrankungen:</b>
-          <a href="https://blog.taitcm.ch/de/migraene.html" target="_blank" rel="noopener">Migräne</a>,
-          <a href="https://blog.taitcm.ch/de/kopfschmerzen.html" target="_blank" rel="noopener">Kopfschmerzen</a>,
-          <a href="https://blog.taitcm.ch/de/schwindel.html" target="_blank" rel="noopener">Schwindel</a>,
-          <a href="https://blog.taitcm.ch/de/tinnitus.html" target="_blank" rel="noopener">Tinnitus</a>,
-          <a href="https://blog.taitcm.ch/de/trigeminusneuralgie.html" target="_blank" rel="noopener">Trigeminusneuralgie</a>,
-          <a href="https://blog.taitcm.ch/de/schlaganfall-laehmung.html" target="_blank" rel="noopener">Lähmung nach Schlaganfall</a>,
-          <a href="https://blog.taitcm.ch/de/blasenentleerungsstoerung.html" target="_blank" rel="noopener">Blasenentleerungsstörung</a>,
-          <a href="https://blog.taitcm.ch/de/blasenschwaeche.html" target="_blank" rel="noopener">Blasenschwäche</a>
-        </li>
-
-        <li><b>Orthopädische Erkrankungen:</b>
-          <a href="https://blog.taitcm.ch/de/lumbalgie.html" target="_blank" rel="noopener">Lumbalgie</a>,
-          <a href="https://blog.taitcm.ch/de/rueckenschmerzen.html" target="_blank" rel="noopener">Rückenschmerzen</a>,
-          <a href="https://blog.taitcm.ch/de/ischiasbeschwerden.html" target="_blank" rel="noopener">Ischiasbeschwerden</a>,
-          <a href="https://blog.taitcm.ch/de/nacken-schulter-arm-syndrom.html" target="_blank" rel="noopener">Nacken-Schulter-Arm-Syndrom</a>,
-          <a href="https://blog.taitcm.ch/de/tennis-arm.html" target="_blank" rel="noopener">Tennis-Arm</a>,
-          <a href="https://blog.taitcm.ch/de/arthritis.html" target="_blank" rel="noopener">Arthritis</a>,
-          <a href="https://blog.taitcm.ch/de/arthritis.html" target="_blank" rel="noopener">Arthrose</a>,
-          <a href="https://blog.taitcm.ch/de/rheuma.html" target="_blank" rel="noopener">Rheuma</a>,
-          <a href="https://blog.taitcm.ch/de/achillessehnen-symptome.html" target="_blank" rel="noopener">Achillessehnen-Symptome</a>,
-          <a href="https://blog.taitcm.ch/de/fersenschmerz.html" target="_blank" rel="noopener">Fersenschmerz</a>
-        </li>
-
-        <li><b>Innere Krankheiten:</b>
-          <a href="https://blog.taitcm.ch/de/bronchitis.html" target="_blank" rel="noopener">Bronchitis</a>,
-          <a href="https://blog.taitcm.ch/de/harnwegsinfekt.html" target="_blank" rel="noopener">Harnwegsinfekte</a>,
-          <a href="https://blog.taitcm.ch/de/herzrhythmusstoerungen.html" target="_blank" rel="noopener">Herzrhythmusstörungen</a>,
-          <a href="https://blog.taitcm.ch/de/bluthochdruck.html" target="_blank" rel="noopener">Bluthochdruck</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Blähungen</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Übelkeit</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Verstopfung</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Durchfall</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Magenleiden</a>,
-          <a href="https://blog.taitcm.ch/de/magenleiden.html" target="_blank" rel="noopener">Reizdarm</a>
-        </li>
-
-        <li><b>Gynäkologische Erkrankungen:</b>
-          <a href="https://blog.taitcm.ch/de/menstruationsbeschwerden.html" target="_blank" rel="noopener">Menstruationsbeschwerden</a>,
-          <a href="https://blog.taitcm.ch/de/schwangerschaftsbeschwerden.html" target="_blank" rel="noopener">Schwangerschaftsbeschwerden</a>,
-          <a href="https://blog.taitcm.ch/de/schwangerschaftsbeschwerden.html" target="_blank" rel="noopener">Vorbereitung auf die Geburt</a>,
-          <a href="https://blog.taitcm.ch/de/unfruchtbarkeit.html" target="_blank" rel="noopener">Unfruchtbarkeit</a>,
-          <a href="https://blog.taitcm.ch/de/wechseljahresbeschwerden.html" target="_blank" rel="noopener">Wechseljahresbeschwerden</a>
-        </li>
-
-        <li><b>Psychische Erkrankungen:</b>
-          <a href="https://blog.taitcm.ch/de/depression.html" target="_blank" rel="noopener">Depression</a>,
-          <a href="https://blog.taitcm.ch/de/schlafstoerung.html" target="_blank" rel="noopener">Schlafstörung</a>,
-          <a href="https://blog.taitcm.ch/de/burn-out-syndrom.html" target="_blank" rel="noopener">Burn-out-Syndrom</a>
-        </li>
-
-        <li><b>Allergie/Hauterkrankungen:</b>
-          <a href="https://blog.taitcm.ch/de/heuschnupfen.html" target="_blank" rel="noopener">Heuschnupfen</a>,
-          <a href="https://blog.taitcm.ch/de/bronchitis.html" target="_blank" rel="noopener">Asthma</a>,
-          <a href="https://blog.taitcm.ch/de/acne.html" target="_blank" rel="noopener">Akne</a>,
-          <a href="https://blog.taitcm.ch/de/ekzem.html" target="_blank" rel="noopener">Ekzem</a>,
-          <a href="https://blog.taitcm.ch/de/ekzem.html" target="_blank" rel="noopener">Neurodermitis</a>,
-          <a href="https://blog.taitcm.ch/de/ekzem.html" target="_blank" rel="noopener">Psoriasis</a>
-        </li>
-
-        <li><b>Sonstiges:</b>
-          <a href="https://blog.taitcm.ch/de/nikotinentwoehnung.html" target="_blank" rel="noopener">Nikotinentwöhnung</a>,
-          <a href="https://blog.taitcm.ch/de/uebergewicht.html" target="_blank" rel="noopener">Übergewicht</a>,
-          <a href="https://blog.taitcm.ch/de/immunsystem.html" target="_blank" rel="noopener">schwaches Immunsystem</a>,
-          unterstützende Therapie vor und nach einer Krebs-Operation
-        </li>
-      </ul>
-    </section>
-
-    <section id="termin" style="max-width:900px; margin:60px auto; padding:0 20px;">
-      <h2 style="text-align:center; color:#0E2F24; margin-bottom:24px;">
-        Termin online buchen
-      </h2>
-      <div id="terminBtn" style="text-align:center; padding:40px 0;">
-        <button onclick="loadCalendar()" class="btn-hero">
-          Kalender öffnen
-        </button>
-      </div>
-      <div id="terminFrame" style="display:none;">
+      <section style="text-align:center; margin-top:50px;">
+        <h2 style="margin-bottom: 20px; color: #0E2F24;">STANDORT</h2>
         <iframe
-          id="calendarIframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.062351582971!2d8.543775076381955!3d47.41072497117251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b98b5e3aa84b%3A0x69bae2a97a4b9a70!2sTAI%20TCM%20GmbH!5e0!3m2!1sde!2sch!4v1772607159966!5m2!1sde!2sch"
           width="100%"
-          height="600"
-          frameborder="0"
-          title="Termin bei TAI TCM GmbH buchen"
-          style="border-radius:12px;">
+          height="450"
+          style="border:0; border-radius:18px; max-width:1100px; box-shadow:0 8px 24px rgba(0,0,0,0.15);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-      </div>
+      </section>
     </section>
 
     <div id="footer-placeholder"></div>
 
   </div>
 
-  <script>
-    function loadCalendar() {
-      document.getElementById("terminBtn").style.display = "none";
-      document.getElementById("terminFrame").style.display = "block";
-      document.getElementById("calendarIframe").src =
-        "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true";
-      document.getElementById("termin").scrollIntoView({ behavior: "smooth" });
-    }
-  </script>
+  <div class="success-popup" id="successPopup">✔ Ihre Nachricht wurde erfolgreich gesendet!</div>
 
   <script>
-    (function () {
-      const lightbox = document.getElementById("certLightbox");
-      if (!lightbox) return;
+    document.getElementById("kontaktForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-      const imgEl = lightbox.querySelector(".lightbox__img");
-      const closeBtn = lightbox.querySelector(".lightbox__close");
-      const backdrop = lightbox.querySelector(".lightbox__backdrop");
+      const form = e.target;
+      const data = new FormData(form);
 
-      function openLightbox(src, alt) {
-        imgEl.src = src;
-        imgEl.alt = alt || "";
-        lightbox.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-        lightbox.setAttribute("aria-hidden", "false");
+      try {
+        const response = await fetch(form.action, { method: "POST", body: data });
+
+        if (response.ok) {
+          const popup = document.getElementById("successPopup");
+          popup.classList.add("show");
+          form.reset();
+          setTimeout(() => popup.classList.remove("show"), 3000);
+        } else {
+          alert("❌ Fehler beim Senden. Bitte versuchen Sie es erneut.");
+        }
+      } catch (err) {
+        alert("❌ Netzwerkfehler. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.");
       }
-
-      function closeLightbox() {
-        lightbox.classList.remove("is-open");
-        imgEl.src = "";
-        document.body.style.overflow = "";
-        lightbox.setAttribute("aria-hidden", "true");
-      }
-
-      document.addEventListener("click", function (e) {
-        const btn = e.target.closest(".cert-item");
-        if (btn) openLightbox(btn.dataset.img, btn.querySelector("img")?.alt);
-      });
-
-      closeBtn.addEventListener("click", closeLightbox);
-      backdrop.addEventListener("click", closeLightbox);
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeLightbox();
-      });
-    })();
+    });
   </script>
 </body>
 </html>
