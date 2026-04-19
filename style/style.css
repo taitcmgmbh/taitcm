@@ -212,6 +212,7 @@ html, body { overflow-x: hidden; }
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--green);
+  text-align: center;
 }
 
 .feature-text {
