@@ -1,18 +1,6 @@
-/* js/main.js
-    - Mobile hamburger menu
-    - Active nav highlight
-    - Language switch DE <-> EN keeping same page
-    - Header / Footer auto-fetch
-    - Google Tag dynamic injection
-    - FAQ accordion
-    - Scroll reveal animation
-*/
 (function () {
   "use strict";
 
-  /* =============================================
-     0) HELPERS
-  ============================================= */
   function join(base, path) {
     const b = base.endsWith("/") ? base : base + "/";
     const s = path.startsWith("/") ? path.slice(1) : path;
@@ -55,6 +43,9 @@
       })
       .then(html => {
         el.innerHTML = html;
+        // ✅ header 加载完才初始化，确保可见
+        el.style.opacity = "1";
+        el.style.transform = "none";
         initSiteHeader();
       })
       .catch(err => {
@@ -77,6 +68,9 @@
       })
       .then(html => {
         el.innerHTML = html;
+        // ✅ footer 加载完确保可见
+        el.style.opacity = "1";
+        el.style.transform = "none";
       })
       .catch(err => {
         console.error("Error loading footer:", err);
@@ -245,10 +239,9 @@
 
   /* =============================================
      9) SCROLL REVEAL
-     自动给常见元素加动画，所有页面无需改HTML
+     ✅ 排除 header/footer placeholder
   ============================================= */
   function initScrollReveal() {
-    // 自动给这些元素加 reveal class
     const selectors = [
       ".feature-box",
       ".card",
@@ -264,14 +257,16 @@
 
     selectors.forEach(function(sel) {
       document.querySelectorAll(sel).forEach(function(el, i) {
+        // ✅ 确保不影响 header/footer placeholder
+        if (el.id === "header-placeholder" || el.id === "footer-placeholder") return;
+        if (el.closest("#header-placeholder") || el.closest("#footer-placeholder")) return;
+
         el.classList.add("reveal");
-        // 同类元素依次延迟，最多延迟0.4秒
         const delay = Math.min(i * 0.1, 0.4);
         el.style.transitionDelay = delay + "s";
       });
     });
 
-    // IntersectionObserver 监听
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
