@@ -414,15 +414,16 @@ html, body { overflow-x: hidden; }
    NOTICE BOX
 =========================================== */
 .footer-box {
-  background: rgba(225, 238, 210, 0.9);
+  background: rgba(102,178,152,0.12);
+  border: 1px solid rgba(102,178,152,0.4);
   padding: 20px;
   border-radius: 12px;
   text-align: center;
   margin: 40px auto;
   max-width: 900px;
   font-size: 18px;
+  color: var(--green);
 }
-
 /* ===========================================
    ÜBER MICH
 =========================================== */
