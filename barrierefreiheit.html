@@ -4,138 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barrierefreiheit – TAI TCM GmbH</title>
-
-  <!-- ✅ 统一用绝对路径：DE/EN 都不需要改 -->
+  <link rel="canonical" href="https://www.taitcm.ch/barrierefreiheit.html">
   <link rel="stylesheet" href="./style/style.css">
-
-  <style>
-    .barrierefreiheit-content {
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.7;
-      font-size: 17px;
-    }
-    .barrierefreiheit-content h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-    .barrierefreiheit-content h2 {
-      font-size: 24px;
-      margin-top: 35px;
-      margin-bottom: 10px;
-    }
-    .barrierefreiheit-content a {
-      color: #0E2F24;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .barrierefreiheit-content a:hover {
-      opacity: 0.7;
-    }
-  </style>
   <script src="./js/main.js" defer></script>
-
 </head>
-
 <body data-page="barrierefreiheit">
-  <div class="content-wrapper">
+<div class="content-wrapper">
 
-    <!-- ================= HEADER ================= -->
-   <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
+  <div id="header-placeholder"></div>
 
+  <section class="barrierefreiheit-content">
+    <h1>Erklärung zur Barrierefreiheit</h1>
 
-    <!-- ================= CONTENT ================= -->
-    <section class="barrierefreiheit-content">
-      <h1>Erklärung zur Barrierefreiheit</h1>
+    <p>
+      Die <strong>TAI TCM GmbH</strong> ist bestrebt, ihre Website für ein möglichst
+      breites Publikum zugänglich zu machen – unabhängig von individuellen Fähigkeiten
+      oder technischen Voraussetzungen.
+    </p>
 
-      <p>
-        Die <strong>TAI TCM GmbH</strong> ist bestrebt, ihre Website für ein möglichst
-        breites Publikum zugänglich zu machen – unabhängig von individuellen Fähigkeiten
-        oder technischen Voraussetzungen.
-      </p>
+    <h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
+    <p>
+      Diese Website orientiert sich an den
+      <strong>Web Content Accessibility Guidelines (WCAG 2.1, Konformitätsstufe AA)</strong>.
+    </p>
+    <p>
+      Wir arbeiten kontinuierlich daran, die Zugänglichkeit unserer Website zu verbessern
+      und bestehende Barrieren schrittweise abzubauen.
+    </p>
 
-      <h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
-      <p>
-        Diese Website orientiert sich an den
-        <strong>Web Content Accessibility Guidelines (WCAG 2.1, Konformitätsstufe AA)</strong>,
-        wie sie vom World Wide Web Consortium (W3C) veröffentlicht wurden.
-      </p>
+    <h2>Bereits umgesetzte Massnahmen</h2>
+    <ul>
+      <li>Klare Seitenstruktur und verständliche Navigation</li>
+      <li>Ausreichende Farbkontraste für gute Lesbarkeit</li>
+      <li>Responsives Design für mobile Geräte</li>
+      <li>Bedienbarkeit der Website ohne Maus (Tastatur-Navigation)</li>
+    </ul>
 
-      <p>
-        Wir arbeiten kontinuierlich daran, die Zugänglichkeit unserer Website zu verbessern
-        und bestehende Barrieren schrittweise abzubauen.
-      </p>
+    <h2>Bekannte Einschränkungen</h2>
+    <p>
+      Trotz unserer Bemühungen kann es vorkommen, dass einzelne Inhalte oder
+      Funktionen noch nicht vollständig barrierefrei sind. Insbesondere bei extern
+      eingebundenen Diensten (z. B. Google Maps oder Online-Terminbuchung)
+      haben wir nur eingeschränkten Einfluss auf die Barrierefreiheit.
+    </p>
 
-      <h2>Bereits umgesetzte Massnahmen</h2>
-      <ul>
-        <li>Klare Seitenstruktur und verständliche Navigation</li>
-        <li>Ausreichende Farbkontraste für gute Lesbarkeit</li>
-        <li>Responsives Design für mobile Geräte</li>
-        <li>Bedienbarkeit der Website ohne Maus (Tastatur-Navigation)</li>
-      </ul>
+    <h2>Feedback und Kontakt</h2>
+    <p>
+      Wenn Sie auf Barrieren stossen oder Anregungen haben, freuen wir uns über Ihre Rückmeldung:
+      <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
+    </p>
 
-      <h2>Bekannte Einschränkungen</h2>
-      <p>
-        Trotz unserer Bemühungen kann es vorkommen, dass einzelne Inhalte oder
-        Funktionen noch nicht vollständig barrierefrei sind.
-        Insbesondere bei extern eingebundenen Diensten
-        (z. B. Google Maps oder Online-Terminbuchung)
-        haben wir nur eingeschränkten Einfluss auf die Barrierefreiheit.
-      </p>
+    <p style="margin-top:40px;">
+      <a href="./index.html">&larr; Zurück zur Startseite</a>
+    </p>
+  </section>
 
-      <h2>Feedback und Kontakt</h2>
-      <p>
-        Wenn Sie auf Barrieren stossen oder Anregungen zur Verbesserung der
-        Zugänglichkeit unserer Website haben, freuen wir uns über Ihre Rückmeldung.
-      </p>
+  <div id="footer-placeholder"></div>
 
-      <p>
-        Kontaktieren Sie uns gerne per E-Mail:<br>
-        <a href="mailto:xinbotai@gmail.com">xinbotai@gmail.com</a>
-      </p>
-
-      <p style="margin-top:40px;">
-        <a href="./index.html">&larr; Zurück zur Startseite</a>
-      </p>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-   <div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
-
-
-  </div>
+</div>
 </body>
 </html>
