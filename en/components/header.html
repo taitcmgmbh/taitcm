@@ -3,7 +3,7 @@
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   "name": "TAI TCM GmbH",
-  "url": "https://www.taitcm.ch/en", 
+  "url": "https://www.taitcm.ch/en",
   "logo": "https://www.taitcm.ch/assets/logo.webp",
   "image": "https://www.taitcm.ch/assets/logo.webp",
   "priceRange": "CHF",
@@ -23,16 +23,9 @@
   },
   "medicalSpecialty": "TraditionalChineseMedicine",
   "knowsAbout": [
-    "Acupuncture",
-    "Traditional Chinese Medicine",
-    "Tuina Massage",
-    "Herbal Therapy",
-    "Pain Management",
-    "Back Pain",
-    "Neck Pain",
-    "Stress Management",
-    "Sleep Disorders",
-    "Allergy Treatment"
+    "Acupuncture", "Traditional Chinese Medicine", "Tuina Massage",
+    "Herbal Therapy", "Pain Management", "Back Pain",
+    "Neck Pain", "Stress Management", "Sleep Disorders", "Allergy Treatment"
   ],
   "openingHoursSpecification": [
     {
@@ -42,28 +35,26 @@
       "closes": "19:00"
     }
   ],
-   "sameAs": [
+  "sameAs": [
     "https://www.google.com/maps/search/?api=1&query=TAI+TCM+GmbH+Zurich&query_place_id=ChIJS6g6Xou5kUcRcJpLeqniumk"
   ]
 }
 </script>
-<!-- HEADER (EN) -->
+
 <div class="header-container">
   <header class="site-header">
-
-  <a href="#" class="logo-link" aria-label="TAI TCM – Homepage" data-home-link>
-      <img src="../assets/logo.webp" class="logo" alt="TAI TCM Logo" width="192" height="50">
+    <a href="#" class="logo-link" aria-label="TAI TCM – Homepage" data-home-link>
+      <img src="../assets/logo.webp"
+           class="logo"
+           alt="TAI TCM Logo"
+           width="192"
+           height="50">
     </a>
 
-    <!-- Hamburger -->
-    <button class="menu-toggle"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false">
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
       ☰
     </button>
 
-    <!-- Navigation (href 交给 main.js 强制重写) -->
     <nav id="navMenu" aria-label="Main navigation">
       <a href="#" data-page="home">Home</a>
       <a href="#" data-page="costs">Treatment Costs</a>
@@ -72,12 +63,30 @@
       <a href="#" data-page="faq">FAQ</a>
     </nav>
 
-    <!-- Language switch (href 交给 main.js 动态计算) -->
     <div class="lang-switch" aria-label="Switch language">
       <a href="#" data-lang="de">DE</a>
       <span>|</span>
       <a href="#" class="active" aria-current="page" data-lang="en">EN</a>
     </div>
-
   </header>
+</div>
+
+<!-- ===== BOOKING MODAL（all EN pages shared） ===== -->
+<div id="bookingModal" aria-modal="true" aria-label="Book appointment" role="dialog">
+  <div class="booking-modal__inner">
+    <div class="booking-modal__header">
+      <span>Book Appointment – TAI TCM GmbH</span>
+      <button class="booking-modal__close"
+              onclick="closeBookingModal()"
+              aria-label="Close">✕</button>
+    </div>
+    <div class="booking-modal__body">
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true"
+        title="Book appointment at TAI TCM GmbH"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
 </div>
