@@ -4,76 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Treatment Costs – TAI TCM GmbH</title>
-<meta name="description" content="Transparent pricing for our TCM services. Treatments are covered by Swiss health insurance under Tariff 590. We’re happy to assist with reimbursement questions.">
-
+  <meta name="description" content="Transparent pricing for our TCM services. Treatments are covered by Swiss health insurance under Tariff 590. We're happy to assist with reimbursement questions.">
+  <link rel="canonical" href="https://www.taitcm.ch/en/costs.html">
   <link rel="stylesheet" href="../style/style.css">
-
-  <!-- ✅ main.js 先加载（defer），这样 fetch 回调里 initSiteHeader 一定存在 -->
   <script src="../js/main.js" defer></script>
-
-  <style>
-    :root {
-      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-                   "Segoe UI", Roboto, Arial, sans-serif;
-    }
-    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
-    input, textarea {
-      font-family: var(--font-apple) !important;
-      font-weight: 400;
-    }
-  </style>
-  <script src="../js/main.js" defer></script>
-
 </head>
 
 <body data-page="costs">
-
 <div class="content-wrapper">
 
-  <!-- Header -->
- <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
+  <div id="header-placeholder"></div>
 
-
-  <!-- HERO -->
   <section class="hero-split">
     <div class="hero-overlay">
       <div class="hero-content">
         <h1>Treatment Costs</h1>
         <p>Traditional Chinese Medicine · Massage · Acupuncture</p>
-
-        <a class="btn-hero"
-           href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
-           target="_blank" rel="noopener">
+        <button class="btn-hero" onclick="openBookingModal()">
           Book appointment online
-        </a>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Notice -->
   <div class="footer-box" style="margin-top:40px;">
     As a certified TCM practitioner with a Swiss federal diploma, Mr. Tai is recognised by many Swiss health insurance providers.<br>
     Coverage depends on your supplementary insurance – please check directly with your insurer in advance.
   </div>
 
-  <!-- Prices -->
   <section class="price-section">
     <h2 class="price-title">Prices & Services</h2>
 
@@ -88,22 +46,30 @@
       </div>
 
       <div class="price-row">
-        <div class="price-left"><div class="price-item">Tuina massage approx. 60 min</div></div>
+        <div class="price-left">
+          <div class="price-item">Tuina massage approx. 60 min</div>
+        </div>
         <div class="price-right">150.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left"><div class="price-item">Acupuncture 45 min</div></div>
+        <div class="price-left">
+          <div class="price-item">Acupuncture 45 min</div>
+        </div>
         <div class="price-right">120.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left"><div class="price-item">TCM diagnostic consultation approx. 10 min</div></div>
+        <div class="price-left">
+          <div class="price-item">TCM diagnostic consultation approx. 10 min</div>
+        </div>
         <div class="price-right">30.–</div>
       </div>
 
       <div class="price-row">
-        <div class="price-left"><div class="price-item">Cupping therapy approx. 15 min</div></div>
+        <div class="price-left">
+          <div class="price-item">Cupping therapy approx. 15 min</div>
+        </div>
         <div class="price-right">45.–</div>
       </div>
 
@@ -124,7 +90,9 @@
       </div>
 
       <div class="price-row">
-        <div class="price-left"><div class="price-item">Auricular acupuncture</div></div>
+        <div class="price-left">
+          <div class="price-item">Auricular acupuncture</div>
+        </div>
         <div class="price-right">30.–</div>
       </div>
 
@@ -139,27 +107,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
+  <div id="footer-placeholder"></div>
 
-
-</div> <!-- END content-wrapper -->
-
+</div>
 </body>
 </html>
