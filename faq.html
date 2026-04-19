@@ -5,343 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ – TAI TCM GmbH</title>
   <meta name="description" content="Antworten auf häufige Fragen zur Traditionellen Chinesischen Medizin, Behandlungsablauf, Versicherungsdeckung und Terminvereinbarung.">
-  <link rel="canonical" href="https://www.taitcm.ch/faq.html">
- <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Behandlungskosten – TAI TCM GmbH</title>
-  <meta name="description" content="Behandlungskosten transparent erklärt. Unsere TCM-Leistungen sind Krankenkassen anerkannt nach Tarif 590. Fragen zur Rückerstattung beantworten wir gern.">
-  <link rel="canonical" href="https://www.taitcm.ch/behandlungskosten.html">
- <link rel="stylesheet" href="./style/style.css?v=20260419-3" />
-<script src="./js/main.js?v=20260419-3" defer></script>
-</head>
+  <link rel="canonical" href="https://taitcm.ch/faq.html">
+  <link rel="stylesheet" href="./style/style.css?v=20260419-4">
+  <script src="./js/main.js?v=20260419-4" defer></script>
 
-<body data-page="costs">
-<div class="content-wrapper">
-
-  <div id="header-placeholder"></div>
-
-  <section class="hero-split">
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>Behandlungskosten</h1>
-        <p>Traditionelle Chinesische Medizin, Massage, Akupunktur</p>
-        <a class="btn-hero" href="#termin">
-          Termin online buchen
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer-box" style="margin-top:40px;">
-    Als Naturheilpraktiker mit eidg. Diplom in TCM ist Herr Tai bei vielen Krankenkassen anerkannt.<br>
-    Je nach Krankenkasse ist die Kostenübernahme unterschiedlich – bitte informieren Sie sich vorgängig bei Ihrer Kasse.
-  </div>
-
-  <section class="price-section">
-    <h2 class="price-title">Preise & Angebote</h2>
-    <div class="price-table">
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Kombinierte Behandlung 60 Min</div>
-          <div class="price-desc">mit Zusatzbehandlungen (außer Kräuter und Diagnose)</div>
-        </div>
-        <div class="price-right">150.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Tuina-Massage ca. 60 Min</div>
-        </div>
-        <div class="price-right">150.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Akupunktur 45 Min</div>
-        </div>
-        <div class="price-right">120.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Diagnostik nach TCM-Konsultation ca. 10 Min</div>
-        </div>
-        <div class="price-right">30.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Schröpfen ca. 15 Min</div>
-        </div>
-        <div class="price-right">45.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Phytotherapie</div>
-          <div class="price-desc">Erste Rezeptverschreibung</div>
-        </div>
-        <div class="price-right">30.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Phytotherapie</div>
-          <div class="price-desc">Weitere Verschreibung, Nachbestellung</div>
-        </div>
-        <div class="price-right">15.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Ohrakupunktur</div>
-        </div>
-        <div class="price-right">30.–</div>
-      </div>
-
-      <div class="price-row">
-        <div class="price-left">
-          <div class="price-item">Selbstzahler (60 Min)</div>
-          <div class="price-desc">eine Stunde Kombi-Behandlung oder nach Wunsch</div>
-        </div>
-        <div class="price-right">120.–</div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="termin" style="max-width:900px; margin:60px auto; padding:0 20px;">
-    <h2 style="text-align:center; color:#0E2F24; margin-bottom:24px;">
-      Termin online buchen
-    </h2>
-    <div id="terminBtn" style="text-align:center; padding:40px 0;">
-      <button onclick="loadCalendar()" class="btn-hero">
-        Kalender öffnen
-      </button>
-    </div>
-    <div id="terminFrame" style="display:none;">
-      <iframe
-        id="calendarIframe"
-        width="100%"
-        height="600"
-        frameborder="0"
-        title="Termin bei TAI TCM GmbH buchen"
-        style="border-radius:12px;">
-      </iframe>
-    </div>
-  </section>
-
-  <div id="footer-placeholder"></div>
-
-</div>
-
-<script>
-function loadCalendar() {
-  document.getElementById("terminBtn").style.display = "none";
-  document.getElementById("terminFrame").style.display = "block";
-  document.getElementById("calendarIframe").src =
-    "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true";
-  document.getElementById("termin").scrollIntoView({behavior: "smooth"});
-}
-</script>
-
-</body>
-</html>
-
-  <!-- FAQ Schema für Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Warum sollte ich mich für TAI TCM entscheiden?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ich bin ein registrierter Naturheilpraktiker TCM mit einem vom Schweizerischen Roten Kreuz (SRK) anerkannten ausländischen Diplom (NHP-TCMHFP20187). Alle Schweizer Zusatzversicherungen übernehmen meine Leistungen, sofern eine entsprechende Komplementärversicherung vorhanden ist."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was soll ich vor der Behandlung beachten?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Kommen Sie nicht nüchtern oder übervoll, verzichten Sie auf starke Parfüms, tragen Sie lockere Kleidung und bringen Sie ggf. Ihre Versicherungskarte mit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie lange dauert eine Sitzung?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Die erste Behandlung dauert ca. 75 Minuten inklusive Zungen- und Pulsdiagnose. Eine reguläre Akupunktursitzung dauert 20–30 Minuten, Tuina mit Diagnose 25–45 Minuten."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Gibt es Nebenwirkungen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Leichte Reaktionen wie Müdigkeit, Muskelkater oder emotionale Sensibilität sind möglich und klingen meist innerhalb von 1–2 Tagen ab."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie viele Sitzungen brauche ich?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Akute Beschwerden benötigen meist 3–5 Sitzungen, chronische Beschwerden 8–12 oder mehr."
-        }
-      }
-    ]
-  }
-  </script>
+  <style>
+    :root {
+      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                    "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
+    input, textarea {
+      font-family: var(--font-apple) !important;
+      font-weight: 400;
+    }
+  </style>
 </head>
 
 <body data-page="faq">
-<div class="content-wrapper">
+  <div class="content-wrapper">
 
-  <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
-  <section class="faq-wrapper">
-    <h1 class="faq-title">Häufig gestellte Fragen (FAQ)</h1>
+    <section class="faq-wrapper">
+      <h1 class="faq-title">Häufig gestellte Fragen (FAQ)</h1>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">
-        Warum sollte ich mich für TAI TCM entscheiden?
-      </button>
-      <div class="faq-answer">
-        <p>
-          Ich bin ein <strong>registrierter Naturheilpraktiker TCM</strong> mit einem
-          <strong>vom Schweizerischen Roten Kreuz (SRK) anerkannten ausländischen Diplom</strong>
-          (Registrierungsnummer: NHP-TCMHFP20187).
-        </p>
-        <p>
-          <strong>Alle Schweizer Zusatzversicherungen</strong> übernehmen meine Leistungen,
-          sofern eine entsprechende Komplementärversicherung vorhanden ist.
-        </p>
-        <p><strong>Meine Behandlungsschwerpunkte:</strong></p>
-        <ul>
-          <li>TCM-Akupunktur – sanft, präzise, fast schmerzfrei</li>
-          <li>TCM-Orthopädie – bei Rücken-, Gelenk- und Bewegungsschmerzen</li>
-          <li>TCM-Chiropraktik – manuelle Korrekturtechniken nach TCM-Prinzipien</li>
-          <li>TCM-Tuina-Massage – zur Regulierung von Energie und Blutzirkulation</li>
-        </ul>
-        <p>
-          Ich behandle meine Patientinnen und Patienten direkt auf
-          <strong>Deutsch oder Englisch</strong> – ohne Übersetzer,
-          für eine klare und vertrauensvolle Kommunikation.
-        </p>
+      <div class="faq-item">
+        <button class="faq-question">
+          Warum sollte ich mich für TAI TCM entscheiden?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Ich bin ein <strong>registrierter Naturheilpraktiker TCM</strong> mit einem
+            <strong>vom Schweizerischen Roten Kreuz (SRK) anerkannten ausländischen Diplom</strong>
+            (Registrierungsnummer: NHP-TCMHFP20187).
+          </p>
+
+          <p>
+            <strong>Alle Schweizer Zusatzversicherungen</strong> übernehmen meine Leistungen,
+            sofern eine entsprechende Komplementärversicherung vorhanden ist.
+          </p>
+
+          <p><strong>Meine Behandlungsschwerpunkte:</strong></p>
+          <ul>
+            <li>TCM-Akupunktur – sanft, präzise, fast schmerzfrei</li>
+            <li>TCM-Orthopädie – bei Rücken-, Gelenk- und Bewegungsschmerzen</li>
+            <li>TCM-Chiropraktik – manuelle Korrekturtechniken nach TCM-Prinzipien</li>
+            <li>TCM-Tuina-Massage – zur Regulierung von Energie und Blutzirkulation</li>
+          </ul>
+
+          <p>
+            Ich behandle meine Patientinnen und Patienten direkt auf
+            <strong>Deutsch oder Englisch</strong> – ohne Übersetzer,
+            für eine klare und vertrauensvolle Kommunikation.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <h2 class="faq-section-title">Vor der Behandlung</h2>
+      <h2 class="faq-section-title">Vor der Behandlung</h2>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Was soll ich vor der Behandlung beachten?</button>
-      <div class="faq-answer">
-        Kommen Sie nicht nüchtern oder übervoll, verzichten Sie auf starke Parfüms,
-        tragen Sie lockere Kleidung und bringen Sie ggf. Ihre Versicherungskarte mit.
+      <div class="faq-item">
+        <button class="faq-question">Was soll ich vor der Behandlung beachten?</button>
+        <div class="faq-answer">
+          Kommen Sie nicht nüchtern oder übervoll, verzichten Sie auf starke Parfüms,
+          tragen Sie lockere Kleidung und bringen Sie ggf. Ihre Versicherungskarte mit.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Muss ich meine Versicherungskarte mitbringen?</button>
-      <div class="faq-answer">
-        Ja, falls Sie bei der Online-Buchung Ihre Kartennummer nicht angegeben haben,
-        bringen Sie bitte Ihre Karte zum Termin mit.
+      <div class="faq-item">
+        <button class="faq-question">Muss ich meine Versicherungskarte mitbringen?</button>
+        <div class="faq-answer">
+          Ja, falls Sie bei der Online-Buchung Ihre Kartennummer nicht angegeben haben,
+          bringen Sie bitte Ihre Karte zum Termin mit.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Gibt es Parkplätze?</button>
-      <div class="faq-answer">
-        Unsere Praxis verfügt über einen Parkplatz direkt im Hinterhof.
-        Bitte benutzen Sie den <strong>mittleren der drei Garagenplätze</strong>
-        unten im Gebäude und achten Sie darauf, andere Fahrzeuge nicht zu behindern.
+      <div class="faq-item">
+        <button class="faq-question">Gibt es Parkplätze?</button>
+        <div class="faq-answer">
+          Unsere Praxis verfügt über einen Parkplatz direkt im Hinterhof.
+          Bitte benutzen Sie den <strong>mittleren der drei Garagenplätze</strong>
+          unten im Gebäude und achten Sie darauf, andere Fahrzeuge nicht zu behindern.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Darf ich während der Menstruation behandelt werden?</button>
-      <div class="faq-answer">
-        Ja, eine Behandlung während der Periode ist möglich.
-        Bitte informieren Sie uns ebenfalls bei einer bestehenden Schwangerschaft.
+      <div class="faq-item">
+        <button class="faq-question">Darf ich während der Menstruation behandelt werden?</button>
+        <div class="faq-answer">
+          Ja, eine Behandlung während der Periode ist möglich.
+          Bitte informieren Sie uns ebenfalls bei einer bestehenden Schwangerschaft.
+        </div>
       </div>
-    </div>
 
-    <h2 class="faq-section-title">Während der Behandlung</h2>
+      <h2 class="faq-section-title">Während der Behandlung</h2>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Wie lange dauert eine Sitzung?</button>
-      <div class="faq-answer">
-        Die erste Behandlung dauert ca. <strong>75 Minuten</strong> inklusive
-        Zungen- und Pulsdiagnose. Eine reguläre Akupunktursitzung dauert
-        20–30 Minuten, Tuina mit Diagnose 25–45 Minuten.
+      <div class="faq-item">
+        <button class="faq-question">Wie lange dauert eine Sitzung?</button>
+        <div class="faq-answer">
+          Die erste Behandlung dauert ca. <strong>75 Minuten</strong> inklusive
+          Zungen- und Pulsdiagnose. Eine reguläre Akupunktursitzung dauert
+          20–30 Minuten, Tuina mit Diagnose 25–45 Minuten.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Muss ich mich ausziehen?</button>
-      <div class="faq-answer">
-        Für die Behandlung werden bestimmte Körperbereiche freigelegt.
-        Die Unterwäsche bleibt selbstverständlich immer an.
-        Alternativ empfehlen wir lockere Kleidung.
+      <div class="faq-item">
+        <button class="faq-question">Muss ich mich ausziehen?</button>
+        <div class="faq-answer">
+          Für die Behandlung werden bestimmte Körperbereiche freigelegt.
+          Die Unterwäsche bleibt selbstverständlich immer an.
+          Alternativ empfehlen wir lockere Kleidung.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Wird während der Behandlung gesprochen?</button>
-      <div class="faq-answer">
-        Während der Behandlung wird bewusst wenig gesprochen, um Ihre
-        Wahrnehmung zu fördern. Selbstverständlich können Sie jederzeit
-        Fragen stellen oder Unbehagen äußern.
+      <div class="faq-item">
+        <button class="faq-question">Wird während der Behandlung gesprochen?</button>
+        <div class="faq-answer">
+          Während der Behandlung wird bewusst wenig gesprochen, um Ihre
+          Wahrnehmung zu fördern. Selbstverständlich können Sie jederzeit
+          Fragen stellen oder Unbehagen äußern.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Soll ich mein Handy ausschalten?</button>
-      <div class="faq-answer">
-        Ja, wir empfehlen das Handy auszuschalten oder lautlos zu stellen,
-        um eine ruhige Atmosphäre zu gewährleisten.
+      <div class="faq-item">
+        <button class="faq-question">Soll ich mein Handy ausschalten?</button>
+        <div class="faq-answer">
+          Ja, wir empfehlen das Handy auszuschalten oder lautlos zu stellen,
+          um eine ruhige Atmosphäre zu gewährleisten.
+        </div>
       </div>
-    </div>
 
-    <h2 class="faq-section-title">Nach der Behandlung</h2>
+      <h2 class="faq-section-title">Nach der Behandlung</h2>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Was sollte ich nach der Behandlung vermeiden?</button>
-      <div class="faq-answer">
-        Vermeiden Sie Kälte, Sauna, Alkohol und scharfe Speisen.
-        Trinken Sie ausreichend warmes Wasser und gönnen Sie sich Ruhe.
+      <div class="faq-item">
+        <button class="faq-question">Was sollte ich nach der Behandlung vermeiden?</button>
+        <div class="faq-answer">
+          Vermeiden Sie Kälte, Sauna, Alkohol und scharfe Speisen.
+          Trinken Sie ausreichend warmes Wasser und gönnen Sie sich Ruhe.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Gibt es Nebenwirkungen?</button>
-      <div class="faq-answer">
-        Leichte Reaktionen wie Müdigkeit, Muskelkater oder emotionale Sensibilität
-        sind möglich und klingen meist innerhalb von 1–2 Tagen ab.
+      <div class="faq-item">
+        <button class="faq-question">Gibt es Nebenwirkungen?</button>
+        <div class="faq-answer">
+          Leichte Reaktionen wie Müdigkeit, Muskelkater oder emotionale Sensibilität
+          sind möglich und klingen meist innerhalb von 1–2 Tagen ab.
+        </div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false">Wie viele Sitzungen brauche ich?</button>
-      <div class="faq-answer">
-        Akute Beschwerden benötigen meist 3–5 Sitzungen,
-        chronische Beschwerden 8–12 oder mehr.
+      <div class="faq-item">
+        <button class="faq-question">Wie viele Sitzungen brauche ich?</button>
+        <div class="faq-answer">
+          Akute Beschwerden benötigen meist 3–5 Sitzungen,
+          chronische Beschwerden 8–12 oder mehr.
+        </div>
       </div>
-    </div>
+    </section>
 
-  </section>
+    <div id="footer-placeholder"></div>
 
-  <div id="footer-placeholder"></div>
-
-</div>
+  </div>
 </body>
 </html>
