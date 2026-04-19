@@ -37,7 +37,6 @@
     </div>
 
     <section class="features features-medical">
-
       <div class="feature-column">
         <h2 class="feature-group-title">Behandlung & Medizin</h2>
         <div class="feature-box">
@@ -55,7 +54,6 @@
           </p>
         </div>
       </div>
-
       <div class="feature-column">
         <h2 class="feature-group-title">Erfahrung & Vertrauen</h2>
         <div class="feature-box">
@@ -72,7 +70,6 @@
           </p>
         </div>
       </div>
-
     </section>
 
     <section class="clinic-photos" aria-label="Praxis Impressionen">
@@ -108,21 +105,18 @@
       <h2>Erfahrungsberichte</h2>
       <p class="subtitle">Was unsere Patientinnen und Patienten sagen</p>
       <div class="testimonial-grid">
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Ein grosses Lob an Herr Tai! Er begleitet mich seit Jahren.
           Sehr professionell, ein herausragender Spezialist für TCM. Absolut empfehlenswert."</p>
           <p class="author">— Marija D.</p>
         </div>
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Ich war schon mit verschiedenen Problemen bei Hr. Tai und seine Behandlung hat immer gut geholfen.
           Ich war auch schon in anderen TCM, aber seine manuelle Arbeit finde ich deutlich besser."</p>
           <p class="author">— Karin H.</p>
         </div>
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Tai 醫師 is a highly skilled third-generation TCM practitioner with extensive expertise
@@ -130,28 +124,24 @@
           authentic, results-driven Traditional Chinese Medicine care."</p>
           <p class="author">— Lim J.</p>
         </div>
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Dr. Tai ist sehr kompetent und professionell, ausserdem versteht gut Deutsch.
           Seine Behandlungen haben immer eine hervorragende Wirkung. Ich kann ihn nur weiter empfehlen."</p>
           <p class="author">— Moni H.</p>
         </div>
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Dr Tai is a very reliable and very experienced doctor.
           He knows what he is doing and knows how to handle the problems you have."</p>
           <p class="author">— Joe Z.</p>
         </div>
-
         <div class="card">
           <p class="stars">★★★★★</p>
           <p>„Lo estoy echando de menos.
           A todo aquel que tenga problemas en general lo recomiendo."</p>
           <p class="author">— JLuis G.</p>
         </div>
-
       </div>
     </section>
 
@@ -159,14 +149,21 @@
       <h2 style="text-align:center; color:#0E2F24; margin-bottom:24px;">
         Termin online buchen
       </h2>
-      <iframe
-        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true"
-        width="100%"
-        height="600"
-        frameborder="0"
-        title="Termin bei TAI TCM GmbH buchen"
-        loading="lazy">
-      </iframe>
+      <div id="terminBtn" style="text-align:center; padding:40px 0;">
+        <button onclick="loadCalendar()" class="btn-hero">
+          Kalender öffnen
+        </button>
+      </div>
+      <div id="terminFrame" style="display:none;">
+        <iframe
+          id="calendarIframe"
+          width="100%"
+          height="600"
+          frameborder="0"
+          title="Termin bei TAI TCM GmbH buchen"
+          style="border-radius:12px;">
+        </iframe>
+      </div>
     </section>
 
   </main>
@@ -174,5 +171,16 @@
   <div id="footer-placeholder"></div>
 
 </div>
+
+<script>
+function loadCalendar() {
+  document.getElementById("terminBtn").style.display = "none";
+  document.getElementById("terminFrame").style.display = "block";
+  document.getElementById("calendarIframe").src =
+    "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true";
+  document.getElementById("termin").scrollIntoView({behavior: "smooth"});
+}
+</script>
+
 </body>
 </html>
