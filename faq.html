@@ -6,8 +6,151 @@
   <title>FAQ – TAI TCM GmbH</title>
   <meta name="description" content="Antworten auf häufige Fragen zur Traditionellen Chinesischen Medizin, Behandlungsablauf, Versicherungsdeckung und Terminvereinbarung.">
   <link rel="canonical" href="https://www.taitcm.ch/faq.html">
-  <link rel="stylesheet" href="./style/style.css">
-  <script src="./js/main.js" defer></script>
+ <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behandlungskosten – TAI TCM GmbH</title>
+  <meta name="description" content="Behandlungskosten transparent erklärt. Unsere TCM-Leistungen sind Krankenkassen anerkannt nach Tarif 590. Fragen zur Rückerstattung beantworten wir gern.">
+  <link rel="canonical" href="https://www.taitcm.ch/behandlungskosten.html">
+ <link rel="stylesheet" href="./style/style.css?v=20260419-3" />
+<script src="./js/main.js?v=20260419-3" defer></script>
+</head>
+
+<body data-page="costs">
+<div class="content-wrapper">
+
+  <div id="header-placeholder"></div>
+
+  <section class="hero-split">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Behandlungskosten</h1>
+        <p>Traditionelle Chinesische Medizin, Massage, Akupunktur</p>
+        <a class="btn-hero" href="#termin">
+          Termin online buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-box" style="margin-top:40px;">
+    Als Naturheilpraktiker mit eidg. Diplom in TCM ist Herr Tai bei vielen Krankenkassen anerkannt.<br>
+    Je nach Krankenkasse ist die Kostenübernahme unterschiedlich – bitte informieren Sie sich vorgängig bei Ihrer Kasse.
+  </div>
+
+  <section class="price-section">
+    <h2 class="price-title">Preise & Angebote</h2>
+    <div class="price-table">
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Kombinierte Behandlung 60 Min</div>
+          <div class="price-desc">mit Zusatzbehandlungen (außer Kräuter und Diagnose)</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Tuina-Massage ca. 60 Min</div>
+        </div>
+        <div class="price-right">150.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Akupunktur 45 Min</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Diagnostik nach TCM-Konsultation ca. 10 Min</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Schröpfen ca. 15 Min</div>
+        </div>
+        <div class="price-right">45.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Phytotherapie</div>
+          <div class="price-desc">Erste Rezeptverschreibung</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Phytotherapie</div>
+          <div class="price-desc">Weitere Verschreibung, Nachbestellung</div>
+        </div>
+        <div class="price-right">15.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Ohrakupunktur</div>
+        </div>
+        <div class="price-right">30.–</div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-left">
+          <div class="price-item">Selbstzahler (60 Min)</div>
+          <div class="price-desc">eine Stunde Kombi-Behandlung oder nach Wunsch</div>
+        </div>
+        <div class="price-right">120.–</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="termin" style="max-width:900px; margin:60px auto; padding:0 20px;">
+    <h2 style="text-align:center; color:#0E2F24; margin-bottom:24px;">
+      Termin online buchen
+    </h2>
+    <div id="terminBtn" style="text-align:center; padding:40px 0;">
+      <button onclick="loadCalendar()" class="btn-hero">
+        Kalender öffnen
+      </button>
+    </div>
+    <div id="terminFrame" style="display:none;">
+      <iframe
+        id="calendarIframe"
+        width="100%"
+        height="600"
+        frameborder="0"
+        title="Termin bei TAI TCM GmbH buchen"
+        style="border-radius:12px;">
+      </iframe>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+</div>
+
+<script>
+function loadCalendar() {
+  document.getElementById("terminBtn").style.display = "none";
+  document.getElementById("terminFrame").style.display = "block";
+  document.getElementById("calendarIframe").src =
+    "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57?gv=true";
+  document.getElementById("termin").scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
 
   <!-- FAQ Schema für Google -->
   <script type="application/ld+json">
