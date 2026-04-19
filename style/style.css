@@ -970,3 +970,54 @@ html, body { overflow-x: hidden; }
 .faq-item {
   animation: fadeUp 0.5s ease both;
 }
+
+/* ===========================================
+   HERO SPLIT（背景图 + 渐变遮罩）
+=========================================== */
+.hero-split {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(
+      160deg,
+      rgba(14,47,36,0.88) 0%,
+      rgba(14,47,36,0.65) 60%,
+      rgba(14,47,36,0.45) 100%
+    ),
+    url("../assets/Akupunktur-Raum-Oerlikon.webp");
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-split .hero-content {
+  background: none;
+  box-shadow: none;
+  max-width: 700px;
+}
+
+.hero-split .hero-content h1 {
+  color: #fff;
+}
+
+.hero-split .hero-content p {
+  color: rgba(255,255,255,0.80);
+}
+
+@media (max-width: 850px) {
+  .hero-split {
+    min-height: 360px;
+    border-radius: 0;
+  }
+}
