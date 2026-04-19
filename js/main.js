@@ -33,10 +33,9 @@
   const el = document.getElementById("header-placeholder");
   if (!el) return;
 
-  const isEn = window.location.pathname.includes("/en/");
-  const headerUrl = isEn
-    ? "https://taitcm.ch/en/components/header.html"
-    : "https://taitcm.ch/components/header.html";
+  const base = getBasePath();
+  const isEn = isEnglishPage();
+  const headerUrl = join(base, isEn ? "en/components/header.html" : "components/header.html");
 
   fetch(headerUrl)
     .then(r => {
@@ -49,18 +48,15 @@
     })
     .catch(err => {
       console.error("Error loading header:", err);
-      el.innerHTML = "";
     });
 }
-
 function loadFooter() {
   const el = document.getElementById("footer-placeholder");
   if (!el) return;
 
-  const isEn = window.location.pathname.includes("/en/");
-  const footerUrl = isEn
-    ? "https://taitcm.ch/en/components/footer.html"
-    : "https://taitcm.ch/components/footer.html";
+  const base = getBasePath();
+  const isEn = isEnglishPage();
+  const footerUrl = join(base, isEn ? "en/components/footer.html" : "components/footer.html");
 
   fetch(footerUrl)
     .then(r => {
@@ -72,7 +68,6 @@ function loadFooter() {
     })
     .catch(err => {
       console.error("Error loading footer:", err);
-      el.innerHTML = "";
     });
 }
 
