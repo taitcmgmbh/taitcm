@@ -179,8 +179,8 @@ html, body { overflow-x: hidden; }
 .features-medical {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 40px 20px;
+  gap: 32px;
+  padding: 24px 20px;
 }
 
 .feature-column {
@@ -190,13 +190,16 @@ html, body { overflow-x: hidden; }
 }
 
 .feature-group-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  color: var(--green);
-  text-align: left;
-  padding-bottom: 14px;
-  margin-bottom: 20px;
-  padding-left: 28px;
+  color: var(--teal);
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  padding-left: 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--teal);
 }
 
 .feature-box {
