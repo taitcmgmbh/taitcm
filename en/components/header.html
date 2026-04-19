@@ -2,68 +2,105 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
+  "@id": "https://taitcm.ch/#clinic",
   "name": "TAI TCM GmbH",
-  "url": "https://www.taitcm.ch/en",
-  "logo": "https://www.taitcm.ch/assets/logo.webp",
-  "image": "https://www.taitcm.ch/assets/logo.webp",
+  "url": "https://taitcm.ch",
+  "logo": "https://taitcm.ch/assets/logo.webp",
+  "image": "https://taitcm.ch/assets/logo.webp",
   "priceRange": "CHF",
-  "inLanguage": "en-US",
+  "inLanguage": "en",
   "telephone": "+41448119955",
+
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Schaffhauserstrasse 359",
-    "addressLocality": "Zurich",
+    "addressLocality": "Zürich",
     "postalCode": "8050",
     "addressCountry": "CH"
   },
+
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 47.410725,
     "longitude": 8.54635
   },
+
+  "areaServed": {
+    "@type": "City",
+    "name": "Zürich"
+  },
+
   "medicalSpecialty": "TraditionalChineseMedicine",
+
   "knowsAbout": [
-    "Acupuncture", "Traditional Chinese Medicine", "Tuina Massage",
-    "Herbal Therapy", "Pain Management", "Back Pain",
-    "Neck Pain", "Stress Management", "Sleep Disorders", "Allergy Treatment"
+    "Acupuncture",
+    "Traditional Chinese Medicine",
+    "Tuina Massage",
+    "Herbal Therapy",
+    "Pain Therapy",
+    "Back Pain",
+    "Neck Pain",
+    "Stress Treatment",
+    "Sleep Disorders",
+    "Allergies"
   ],
+
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       "opens": "08:45",
       "closes": "19:00"
     }
   ],
-  "sameAs": [
-    "https://www.google.com/maps/search/?api=1&query=TAI+TCM+GmbH+Zurich&query_place_id=ChIJS6g6Xou5kUcRcJpLeqniumk"
-  ]
+
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJS6g6Xou5kUcRcJpLeqniumk"
 }
 </script>
 
 <div class="header-container">
   <header class="site-header">
-    <a href="#" class="logo-link" aria-label="TAI TCM – Homepage" data-home-link>
-      <img src="../assets/logo.webp"
-           class="logo"
-           alt="TAI TCM Logo"
-           width="192"
-           height="50">
+
+    <a href="./index.html" class="logo-link" aria-label="TAI TCM – Home">
+      <img
+        src="../assets/logo.webp"
+        class="logo"
+        alt="TAI TCM Logo"
+        width="192"
+        height="50"
+        loading="eager"
+        fetchpriority="high"
+      >
     </a>
-    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="navMenu">
       ☰
     </button>
+
     <nav id="navMenu" aria-label="Main navigation">
-      <a href="#" data-page="home">Home</a>
-      <a href="#" data-page="costs">Treatment Costs</a>
-      <a href="#" data-page="about">About Me</a>
-      <a href="#" data-page="contact">Contact</a>
-      <a href="#" data-page="faq">FAQ</a>
+      <a href="./index.html" data-page="home">Home</a>
+      <a href="./costs.html" data-page="costs">Costs</a>
+      <a href="./about.html" data-page="about">About</a>
+      <a href="./contact.html" data-page="contact">Contact</a>
+      <a href="./faq.html" data-page="faq">FAQ</a>
     </nav>
-    <div class="lang-switch" aria-label="Switch language">
-      <a href="#" data-lang="de">DE</a>
+
+    <div class="lang-switch" aria-label="Language switch">
+      <a href="#" data-lang="de" lang="de">DE</a>
       <span>|</span>
-      <a href="#" class="active" aria-current="page" data-lang="en">EN</a>
+      <a href="#" class="active" data-lang="en" lang="en">EN</a>
     </div>
+
   </header>
 </div>
