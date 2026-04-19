@@ -948,15 +948,25 @@ html, body { overflow-x: hidden; }
 
 
 /* ===========================================
-   SCROLL REVEAL
+   CSS 淡入动画（无JS，不影响header/footer）
 =========================================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.feature-box {
+  animation: fadeUp 0.6s ease both;
+}
+.card {
+  animation: fadeUp 0.6s ease both;
+}
+.clinic-photo {
+  animation: fadeUp 0.6s ease both;
+}
+.price-row {
+  animation: fadeUp 0.5s ease both;
+}
+.faq-item {
+  animation: fadeUp 0.5s ease both;
 }
