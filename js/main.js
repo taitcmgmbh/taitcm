@@ -5,6 +5,7 @@
     - Header / Footer auto-fetch
     - Google Tag dynamic injection
     - FAQ accordion
+    - Scroll reveal animation
 */
 (function () {
   "use strict";
@@ -243,7 +244,50 @@
   }
 
   /* =============================================
-     9) PUBLIC ENTRY
+     9) SCROLL REVEAL
+     自动给常见元素加动画，所有页面无需改HTML
+  ============================================= */
+  function initScrollReveal() {
+    // 自动给这些元素加 reveal class
+    const selectors = [
+      ".feature-box",
+      ".card",
+      ".clinic-photo",
+      ".cert-item",
+      ".price-row",
+      ".faq-item",
+      ".uebermich-section",
+      ".spezial-wrapper",
+      ".footer-box",
+      ".kontakt-container",
+    ];
+
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el, i) {
+        el.classList.add("reveal");
+        // 同类元素依次延迟，最多延迟0.4秒
+        const delay = Math.min(i * 0.1, 0.4);
+        el.style.transitionDelay = delay + "s";
+      });
+    });
+
+    // IntersectionObserver 监听
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".reveal").forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  /* =============================================
+     10) PUBLIC ENTRY
   ============================================= */
   window.initSiteHeader = function () {
     initHeaderMenu();
@@ -254,12 +298,13 @@
   };
 
   /* =============================================
-     10) AUTO-INIT
+     11) AUTO-INIT
   ============================================= */
   document.addEventListener("DOMContentLoaded", function () {
     loadHeader();
     loadFooter();
     initFaqAccordion();
+    initScrollReveal();
   });
 
 })();
