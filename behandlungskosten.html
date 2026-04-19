@@ -4,79 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Behandlungskosten – TAI TCM GmbH</title>
-<meta name="description" content="Behandlungskosten transparent erklärt. Unsere TCM-Leistungen sind Krankenkassen anerkannt nach Tarif 590. Fragen zur Rückerstattung beantworten wir gern.">
-
-  <!-- ✅ 统一用绝对路径：DE/EN 都不用改 -->
+  <meta name="description" content="Behandlungskosten transparent erklärt. Unsere TCM-Leistungen sind Krankenkassen anerkannt nach Tarif 590. Fragen zur Rückerstattung beantworten wir gern.">
+  <link rel="canonical" href="https://www.taitcm.ch/behandlungskosten.html">
   <link rel="stylesheet" href="./style/style.css">
-
-  <style>
-    :root {
-      --font-apple: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-                   "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    body, h1, h2, h3, h4, h5, h6, p, li, a, button,
-    input, textarea {
-      font-family: var(--font-apple) !important;
-      font-weight: 400;
-    }
-  </style>
   <script src="./js/main.js" defer></script>
-
 </head>
 
 <body data-page="costs">
-
 <div class="content-wrapper">
 
-  <!-- ========================================================= -->
-  <!-- Header 自动加载 -->
-  <!-- ========================================================= -->
   <div id="header-placeholder"></div>
-<script>
-  fetch("./components/header.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Header fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = html;
-      if (window.initSiteHeader) window.initSiteHeader();
-    })
-    .catch(err => {
-      console.error("Error loading header:", err);
-      const el = document.getElementById("header-placeholder");
-      if (el) el.innerHTML = "<!-- header failed to load -->";
-    });
-</script>
 
-
-  <!-- ========================================================= -->
-  <!-- HERO -->
-  <!-- ========================================================= -->
   <section class="hero-split">
     <div class="hero-overlay">
       <div class="hero-content">
         <h1>Behandlungskosten</h1>
         <p>Traditionelle Chinesische Medizin, Massage, Akupunktur</p>
-
-        <a class="btn-hero"
-           href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0jOrw-hPHEO957S6RZcBGwPS0rY0i-FUDVJ6Sfv0rNPMCD3MPv0u5TgITgNzB7ugn0w7aoWx57"
-           target="_blank" rel="noopener">
+        <button class="btn-hero" onclick="openBookingModal()">
           Termin online buchen
-        </a>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Hinweis -->
   <div class="footer-box" style="margin-top:40px;">
     Als Naturheilpraktiker mit eidg. Diplom in TCM ist Herr Tai bei vielen Krankenkassen anerkannt.<br>
     Je nach Krankenkasse ist die Kostenübernahme unterschiedlich – bitte informieren Sie sich vorgängig bei Ihrer Kasse.
   </div>
 
-  <!-- Preise -->
   <section class="price-section">
     <h2 class="price-title">Preise & Angebote</h2>
 
@@ -152,29 +107,8 @@
     </div>
   </section>
 
-  <!-- ========================================================= -->
-  <!-- Footer 自动加载 -->
-  <!-- ========================================================= -->
   <div id="footer-placeholder"></div>
-<script>
-  fetch("./components/footer.html")
-    .then(r => {
-      if (!r.ok) throw new Error(`Footer fetch failed: ${r.status} ${r.statusText}`);
-      return r.text();
-    })
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Error loading footer:", err);
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.innerHTML = "<!-- footer failed to load -->";
-    });
-</script>
 
-
-</div> <!-- END content-wrapper -->
-
+</div>
 </body>
 </html>
