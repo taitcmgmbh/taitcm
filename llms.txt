@@ -47,3 +47,5 @@ Registrations: NAREG, EMR, ASCA
 - Sciatica and joint pain
 - Burnout and depression
 - Skin conditions and eczema
+Blog: https://blog.taitcm.ch/
+Blog sitemap: https://blog.taitcm.ch/sitemap.xml
