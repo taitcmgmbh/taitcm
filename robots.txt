@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /components/
+
 
 User-agent: GPTBot
 Allow: /
