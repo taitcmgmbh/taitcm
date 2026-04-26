@@ -1,51 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- 德语页面 -->
   <url>
     <loc>https://www.taitcm.ch/</loc>
-    <lastmod>2026-01-10</lastmod>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/"/>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/behandlungskosten.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/behandlungskosten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/costs.html"/>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/ueber-mich.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/ueber-mich.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/about.html"/>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/kontakt.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/contact.html"/>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/faq.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/faq.html"/>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/impressum.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/datenschutz.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://www.taitcm.ch/barrierefreiheit.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
 
-  <!-- English pages -->
+  <!-- 英语页面 -->
   <url>
     <loc>https://www.taitcm.ch/en/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/"/>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/costs.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/costs.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/behandlungskosten.html"/>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/about.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/ueber-mich.html"/>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/contact.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/kontakt.html"/>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/faq.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.taitcm.ch/faq.html"/>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/imprint.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/privacy.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.taitcm.ch/en/accessibility.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 
 </urlset>
