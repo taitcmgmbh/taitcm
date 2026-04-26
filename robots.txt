@@ -11,7 +11,7 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: GoogleBot
+User-agent: Googlebot
 Allow: /
 
 Sitemap: https://www.taitcm.ch/sitemap.xml
