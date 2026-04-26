@@ -2,13 +2,13 @@ User-agent: *
 Allow: /
 
 
-User-agent: GPTBot
+User-agent: GPTbot
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Claudebot
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Perplexitybot
 Allow: /
 
 User-agent: Googlebot
