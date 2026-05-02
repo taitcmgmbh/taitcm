@@ -9,6 +9,7 @@
   <link rel="alternate" hreflang="de-CH" href="https://www.taitcm.ch/kontakt.html">
   <link rel="alternate" hreflang="en" href="https://www.taitcm.ch/en/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://www.taitcm.ch/kontakt.html">
+
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,7 +28,7 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-     "latitude": 47.4107286,
+    "latitude": 47.4107286,
     "longitude": 8.5437751
   },
   "openingHoursSpecification": [
@@ -49,6 +50,7 @@
   "smokingAllowed": false
 }
 </script>
+
   <link rel="stylesheet" href="./style/style.css?v=20260419-3">
   <script src="./js/main.js?v=20260419-3" defer></script>
 </head>
@@ -72,11 +74,15 @@
 
       <div class="kontakt-left">
         <h2>KONTAKTFORMULAR</h2>
+
         <form class="kontakt-form" id="kontaktForm"
               action="https://api.web3forms.com/submit"
               method="POST">
 
           <input type="hidden" name="access_key" value="ec52df63-ed45-43d7-b378-68814e97be0b">
+
+          <!-- Honeypot 防机器人：真实用户看不见 -->
+          <input type="text" name="company" style="display:none">
 
           <div class="row-2">
             <div class="form-group">
@@ -110,6 +116,9 @@
             Ich bin damit einverstanden, dass meine Daten für den angegebenen Zweck verwendet werden.
           </label>
 
+          <!-- Web3Forms Captcha -->
+          <div class="h-captcha" data-captcha="true"></div>
+
           <button type="submit" class="btn-hero kontakt-btn">Absenden</button>
         </form>
       </div>
@@ -119,6 +128,7 @@
         <p><b>Mo–Fr:</b> 8:45–12:00, 14:00–19:00</p>
         <p><b>Sa–So:</b> Geschlossen</p>
         <br><br>
+
         <h2>KONTAKTDATEN TAI TCM GMBH</h2>
         <p>TAI TCM GmbH</p>
         <p>Schaffhauserstrasse 359 (im 1. Stock)</p>
@@ -135,7 +145,9 @@
     <p>Mit dem Zug/Bus/Tram bis zum Bahnhof Oerlikon/Sternen Oerlikon fahren.</p>
     <p>Ein Parkplatz steht hinter der Praxis zur Verfügung – bitte anmelden.</p>
     <p>Vom Sternen Oerlikon/Bahnhof Oerlikon 1–2 Min. zu Fuss.</p>
+
     <br>
+
     <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
       <img src="./assets/tai-tcm-eingang.jpg"
            alt="Eingang TAI TCM GmbH Zürich Oerlikon"
@@ -143,6 +155,7 @@
            style="border-radius:16px; cursor:pointer;"
            loading="lazy"
            onclick="openImg(this.src, this.alt)">
+
       <img src="./assets/tai-tcm-parkplatz.jpg"
            alt="Parkplatz TAI TCM GmbH Zürich Oerlikon"
            width="320" height="240"
@@ -153,6 +166,7 @@
 
     <div style="text-align:center; margin-top:50px;">
       <h2 style="margin-bottom:20px; color:#0E2F24;">STANDORT</h2>
+
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.062351582971!2d8.543775076381955!3d47.41072497117251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b98b5e3aa84b%3A0x69bae2a97a4b9a70!2sTAI%20TCM%20GmbH!5e0!3m2!1sde!2sch!4v1772607159966!5m2!1sde!2sch"
         width="100%"
@@ -193,16 +207,19 @@ function openImg(src, alt) {
 document.addEventListener("DOMContentLoaded", function() {
   const lb = document.getElementById("imgLightbox");
   if (!lb) return;
+
   lb.querySelector(".lightbox__close").addEventListener("click", function() {
     lb.classList.remove("is-open");
     document.body.style.overflow = "";
     lb.setAttribute("aria-hidden", "true");
   });
+
   lb.querySelector(".lightbox__backdrop").addEventListener("click", function() {
     lb.classList.remove("is-open");
     document.body.style.overflow = "";
     lb.setAttribute("aria-hidden", "true");
   });
+
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") {
       lb.classList.remove("is-open");
@@ -214,14 +231,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById("kontaktForm").addEventListener("submit", async function(e) {
   e.preventDefault();
+
   const form = e.target;
   const data = new FormData(form);
+
+  // Honeypot：隐藏字段被填写则判定为机器人
+  if (data.get("company")) {
+    return;
+  }
+
+  // 阻止留言中包含链接
+  const message = data.get("message") || "";
+  if (/https?:\/\/|www\./i.test(message)) {
+    alert("Links sind im Kontaktformular nicht erlaubt.");
+    return;
+  }
+
   try {
-    const response = await fetch(form.action, { method: "POST", body: data });
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data
+    });
+
     if (response.ok) {
       const popup = document.getElementById("successPopup");
       popup.classList.add("show");
       form.reset();
+
+      if (window.hcaptcha) {
+        hcaptcha.reset();
+      }
+
       setTimeout(() => popup.classList.remove("show"), 3000);
     } else {
       alert("❌ Fehler beim Senden. Bitte versuchen Sie es erneut.");
@@ -232,5 +272,9 @@ document.getElementById("kontaktForm").addEventListener("submit", async function
 });
 </script>
 
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+</body>
+</html>
 </body>
 </html>
