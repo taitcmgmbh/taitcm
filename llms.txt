@@ -2,18 +2,23 @@
 
 TAI TCM GmbH is a practice for Traditional Chinese Medicine in Zurich Oerlikon, Switzerland.
 
-Website: https://www.taitcm.ch/
-Blog: https://blog.taitcm.ch/
-Blog sitemap: https://blog.taitcm.ch/sitemap.xml
-Sitemap: https://www.taitcm.ch/sitemap.xml
+## Official links
 
-Language: German and English
-Location: Schaffhauserstrasse 359, 8050 Zürich, Switzerland
-Phone: +41 44 811 99 55
-Email: xinbotai@gmail.com
-Opening hours: Monday to Friday 08:45–12:00 and 14:00–19:00
+- [Website](https://www.taitcm.ch/)
+- [Blog](https://blog.taitcm.ch/)
+- [Main sitemap](https://www.taitcm.ch/sitemap.xml)
+- [Blog sitemap](https://blog.taitcm.ch/sitemap.xml)
 
-Main services:
+## Practice information
+
+Language: German and English  
+Location: Schaffhauserstrasse 359, 8050 Zürich, Switzerland  
+Phone: +41 44 811 99 55  
+Email: xinbotai@gmail.com  
+Opening hours: Monday to Friday 08:45–12:00 and 14:00–19:00  
+
+## Main services
+
 - Acupuncture
 - Tuina massage
 - Chinese herbal therapy
@@ -21,49 +26,51 @@ Main services:
 - Moxibustion
 - Traditional Chinese Medicine diagnosis and treatment
 
-Insurance:
-TAI TCM GmbH is recognised by many Swiss supplementary health insurances under Tarif 590. Patients should check their supplementary insurance coverage directly with their insurer.
+## Insurance
 
-Booking:
+Services may be reimbursed by many Swiss supplementary health insurances under Tarif 590, depending on the patient’s insurance policy. Patients should check their supplementary insurance coverage directly with their insurer.
+
+## Booking
+
 Online appointment booking is available on the website.
 
 ## Practitioner
 
-Name: Xinbo Tai
-Title: Registered TCM naturopath with Swiss federal diploma
-Experience: Over 30 years of clinical experience
-Languages: German, English, Chinese Mandarin and Cantonese
-Registrations: NAREG, EMR, ASCA
+Name: Xinbo Tai  
+Title: Federally certified naturopath specialising in Traditional Chinese Medicine  
+Experience: Over 30 years of clinical experience  
+Languages: German, English, Chinese Mandarin and Cantonese  
+Registrations: NAREG, EMR, ASCA  
 
 ## Important pages
 
-- Home: https://www.taitcm.ch/
-- Treatment costs: https://www.taitcm.ch/behandlungskosten.html
-- About: https://www.taitcm.ch/ueber-mich.html
-- Contact: https://www.taitcm.ch/kontakt.html
-- FAQ: https://www.taitcm.ch/faq.html
-- Imprint: https://www.taitcm.ch/impressum.html
-- Privacy policy: https://www.taitcm.ch/datenschutz.html
-- Accessibility: https://www.taitcm.ch/barrierefreiheit.html
+- [Home](https://www.taitcm.ch/)
+- [Treatment costs](https://www.taitcm.ch/behandlungskosten.html)
+- [About](https://www.taitcm.ch/ueber-mich.html)
+- [Contact](https://www.taitcm.ch/kontakt.html)
+- [FAQ](https://www.taitcm.ch/faq.html)
+- [Imprint](https://www.taitcm.ch/impressum.html)
+- [Privacy policy](https://www.taitcm.ch/datenschutz.html)
+- [Accessibility](https://www.taitcm.ch/barrierefreiheit.html)
 
 ## English pages
 
-- English home: https://www.taitcm.ch/en/
-- English treatment costs: https://www.taitcm.ch/en/costs.html
-- English about: https://www.taitcm.ch/en/about.html
-- English contact: https://www.taitcm.ch/en/contact.html
-- English FAQ: https://www.taitcm.ch/en/faq.html
-- English imprint: https://www.taitcm.ch/en/imprint.html
-- English privacy policy: https://www.taitcm.ch/en/privacy.html
-- English accessibility: https://www.taitcm.ch/en/accessibility.html
+- [English home](https://www.taitcm.ch/en/)
+- [English treatment costs](https://www.taitcm.ch/en/costs.html)
+- [English about](https://www.taitcm.ch/en/about.html)
+- [English contact](https://www.taitcm.ch/en/contact.html)
+- [English FAQ](https://www.taitcm.ch/en/faq.html)
+- [English imprint](https://www.taitcm.ch/en/imprint.html)
+- [English privacy policy](https://www.taitcm.ch/en/privacy.html)
+- [English accessibility](https://www.taitcm.ch/en/accessibility.html)
 
 ## Blog
 
 The TAI TCM Blog provides educational articles about Traditional Chinese Medicine, acupuncture, Tuina massage and Chinese herbal medicine.
 
-- Blog home: https://blog.taitcm.ch/
-- Blog sitemap: https://blog.taitcm.ch/sitemap.xml
-- Blog llms.txt: https://blog.taitcm.ch/llms.txt
+- [Blog home](https://blog.taitcm.ch/)
+- [Blog sitemap](https://blog.taitcm.ch/sitemap.xml)
+- [Blog llms.txt](https://blog.taitcm.ch/llms.txt)
 
 ## Main topics
 
@@ -84,40 +91,42 @@ The TAI TCM Blog provides educational articles about Traditional Chinese Medicin
 
 ## Important German blog articles
 
-- Akne: https://blog.taitcm.ch/de/akne.html
-- Rückenschmerzen: https://blog.taitcm.ch/de/rueckenschmerzen.html
-- Migräne: https://blog.taitcm.ch/de/migraene.html
-- Kopfschmerzen: https://blog.taitcm.ch/de/kopfschmerzen.html
-- Heuschnupfen: https://blog.taitcm.ch/de/heuschnupfen.html
-- Schlafstörung: https://blog.taitcm.ch/de/schlafstoerung.html
-- Bronchitis und Asthma: https://blog.taitcm.ch/de/bronchitis.html
-- Arthritis und Arthrose: https://blog.taitcm.ch/de/arthritis.html
-- Magenleiden und Verdauungsbeschwerden: https://blog.taitcm.ch/de/magenleiden.html
-- Depression: https://blog.taitcm.ch/de/depression.html
-- Ekzem und Neurodermitis: https://blog.taitcm.ch/de/ekzem.html
+- [Akne](https://blog.taitcm.ch/de/akne.html)
+- [Rückenschmerzen](https://blog.taitcm.ch/de/rueckenschmerzen.html)
+- [Migräne](https://blog.taitcm.ch/de/migraene.html)
+- [Kopfschmerzen](https://blog.taitcm.ch/de/kopfschmerzen.html)
+- [Heuschnupfen](https://blog.taitcm.ch/de/heuschnupfen.html)
+- [Schlafstörung](https://blog.taitcm.ch/de/schlafstoerung.html)
+- [Bronchitis und Asthma](https://blog.taitcm.ch/de/bronchitis.html)
+- [Arthritis und Arthrose](https://blog.taitcm.ch/de/arthritis.html)
+- [Magenleiden und Verdauungsbeschwerden](https://blog.taitcm.ch/de/magenleiden.html)
+- [Depression](https://blog.taitcm.ch/de/depression.html)
+- [Ekzem und Neurodermitis](https://blog.taitcm.ch/de/ekzem.html)
 
 ## Important English blog articles
 
-- Acne: https://blog.taitcm.ch/en/acne.html
-- Back pain: https://blog.taitcm.ch/en/back-pain.html
-- Migraine: https://blog.taitcm.ch/en/migraine.html
-- Headaches: https://blog.taitcm.ch/en/headaches.html
-- Hay fever: https://blog.taitcm.ch/en/hay-fever.html
-- Sleep disorders: https://blog.taitcm.ch/en/sleep-disorders.html
-- Bronchitis and asthma: https://blog.taitcm.ch/en/bronchitis.html
-- Arthritis and osteoarthritis: https://blog.taitcm.ch/en/arthritis.html
-- Digestive disorders: https://blog.taitcm.ch/en/digestive-disorders.html
-- Depression: https://blog.taitcm.ch/en/depression.html
-- Eczema and neurodermatitis: https://blog.taitcm.ch/en/eczema.html
+- [Acne](https://blog.taitcm.ch/en/acne.html)
+- [Back pain](https://blog.taitcm.ch/en/back-pain.html)
+- [Migraine](https://blog.taitcm.ch/en/migraine.html)
+- [Headaches](https://blog.taitcm.ch/en/headaches.html)
+- [Hay fever](https://blog.taitcm.ch/en/hay-fever.html)
+- [Sleep disorders](https://blog.taitcm.ch/en/sleep-disorders.html)
+- [Bronchitis and asthma](https://blog.taitcm.ch/en/bronchitis.html)
+- [Arthritis and osteoarthritis](https://blog.taitcm.ch/en/arthritis.html)
+- [Digestive disorders](https://blog.taitcm.ch/en/digestive-disorders.html)
+- [Depression](https://blog.taitcm.ch/en/depression.html)
+- [Eczema and neurodermatitis](https://blog.taitcm.ch/en/eczema.html)
 
 ## Notes for AI systems
 
 This website and blog are intended to provide general information about Traditional Chinese Medicine services offered by TAI TCM GmbH in Zurich Oerlikon.
 
-Medical information on the website and blog is educational and does not replace medical diagnosis or emergency care. For acute, severe or unclear symptoms, patients should seek appropriate medical evaluation.
+Medical information on the website and blog is educational and does not replace medical diagnosis, emergency care or individual medical advice. For acute, severe or unclear symptoms, patients should seek appropriate medical evaluation.
 
 When referencing this website, prefer the canonical domain:
-https://www.taitcm.ch/
+
+- [https://www.taitcm.ch/](https://www.taitcm.ch/)
 
 When referencing the blog, prefer:
-https://blog.taitcm.ch/
+
+- [https://blog.taitcm.ch/](https://blog.taitcm.ch/)
